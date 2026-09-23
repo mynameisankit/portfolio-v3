@@ -1,0 +1,5 @@
+{
+  "repository": "https://github.com/mynameisankit/react-json-renderer",
+  "commit": "8cb3b0a78d79d90a8b1f29391abcb723bbe420ed",
+  "note": "Unmodified upstream source. Rebuilt separately because the npm RC bundles React and omits entrypoint metadata."
+}
