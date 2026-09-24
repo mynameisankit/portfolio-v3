@@ -3,9 +3,10 @@ import { Experience } from '@/features/experience/experience';
 import { PixelHero } from '@/features/hero/pixel-hero';
 import { SiteFooter } from '@/features/layout/site-footer';
 import { SiteHeader } from '@/features/layout/site-header';
-import { portfolio } from '@/features/portfolio/content';
+import { getPortfolio } from '@/features/portfolio/repository';
 import { ProjectCanvas } from '@/features/projects/project-canvas';
-export default function Home() {
+export default async function Home() {
+  const portfolio = await getPortfolio();
   return (
     <div className="site-shell" id="top">
       <a href="#main-content" className="skip-link">

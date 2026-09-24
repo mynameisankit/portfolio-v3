@@ -3,6 +3,8 @@ import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import type { MouseEventHandler } from 'react';
 
 import { Button } from '@/components/ui/button';
+import Link from '@/features/localization/link';
+import { Text } from '@/features/localization/text';
 import type { PortfolioContent } from '@/features/portfolio/content';
 
 import { JsonRendererDemo } from './json-renderer-demo';
@@ -36,11 +38,11 @@ export function ProjectCard({ project, index, expanded, hidden, onToggle }: Proj
           {expanded ? (
             <>
               <ArrowLeft size={15} />
-              Back to canvas
+              <Text>{'Back to canvas'}</Text>
             </>
           ) : (
             <>
-              Open
+              <Text>{'Open'}</Text>
               <ArrowUpRight size={16} />
             </>
           )}
@@ -48,20 +50,29 @@ export function ProjectCard({ project, index, expanded, hidden, onToggle }: Proj
       </div>
       {project.id === 'json' ? <JsonRendererDemo /> : <LifeDemo />}
       <div className="object-footer">
-        <span>{project.category}</span>
-        <span>{project.id === 'json' ? 'useJsonLines' : 'Rewrite planned'}</span>
+        <span>{<Text>{project.category}</Text>}</span>
+        <span>{<Text>{project.id === 'json' ? 'useJsonLines' : 'Rewrite planned'}</Text>}</span>
       </div>
       <div id={`${project.id}-detail`} className="project-detail" hidden={!expanded}>
         <h2>{project.name}</h2>
-        <p>{project.description}</p>
+        <p>{<Text>{project.description}</Text>}</p>
         {project.source && (
-          <a className="text-link" href={project.source} target="_blank" rel="noreferrer">
-            Read the source <ArrowUpRight size={17} />
-          </a>
+          <Link
+            className="text-link"
+            href={project.source}
+            preview={{ title: project.name, description: project.description }}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Text>{'Read the source'}</Text>
+            <ArrowUpRight size={17} />
+          </Link>
         )}
         {project.id === 'json' && (
           <p className="detail-note">
-            The live demo uses the original useJsonLines hook with a custom presentation.
+            <Text>
+              {'The live demo uses the original useJsonLines hook with a custom presentation.'}
+            </Text>
           </p>
         )}
       </div>

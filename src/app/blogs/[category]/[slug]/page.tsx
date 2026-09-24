@@ -1,11 +1,18 @@
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { posts } from '@/features/blog/content';
-import { getCategory } from '@/features/blog/model';
+import { BlogArticle } from '@/features/blog/blog-article';
+import { categories } from '@/features/blog/model';
+import { getPosts } from '@/features/blog/repository';
 export const dynamicParams = false;
-export function generateStaticParams() {
-  return posts.map(({ category, slug }) => ({ category, slug }));
+export async function generateStaticParams() {
+  const posts = await getPosts();
+  return categories.flatMap(({ slug: category }) => {
+    const published = posts.filter((post) => post.category === category);
+    // Reserved paths render 404 while letting an empty category export successfully.
+    return published.length
+      ? published.map(({ slug }) => ({ category, slug }))
+      : [{ category, slug: '__empty__' }];
+  });
 }
 export async function generateMetadata({
   params,
@@ -13,11 +20,12 @@ export async function generateMetadata({
   params: Promise<{ category: string; slug: string }>;
 }) {
   const { category, slug } = await params;
+  const posts = await getPosts();
   const post = posts.find((item) => item.category === category && item.slug === slug);
   return {
     title: `${post?.title ?? 'Article'} | Ankit Kumar`,
     description: post?.description,
-    robots: { index: false, follow: true },
+    robots: { index: true, follow: true },
   };
 }
 export default async function ArticlePage({
@@ -26,24 +34,10 @@ export default async function ArticlePage({
   params: Promise<{ category: string; slug: string }>;
 }) {
   const { category, slug } = await params;
+  const posts = await getPosts();
   const post = posts.find((item) => item.category === category && item.slug === slug);
   if (!post) {
     notFound();
   }
-  return (
-    <article className="blog-reader">
-      <Link href={`/blogs/${category}`}>← {getCategory(category)?.label}</Link>
-      <p className="eyebrow">
-        {post.sample ? 'Sample article · ' : ''}
-        {post.minutes} min read
-      </p>
-      <h1>{post.title}</h1>
-      <p className="blog-lede">{post.description}</p>
-      {post.body.map((paragraph) => (
-        <p key={paragraph}>{paragraph}</p>
-      ))}
-      <hr />
-      <Link href="/blogs">Browse all writing ↗</Link>
-    </article>
-  );
+  return <BlogArticle post={post} />;
 }

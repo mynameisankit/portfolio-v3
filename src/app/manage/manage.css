@@ -1,0 +1,33 @@
+.manage-page {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+.manage-page > a:first-child {
+  color: var(--muted-foreground);
+  font-size: 14px;
+}
+.manage-page .eyebrow {
+  margin-top: 56px;
+}
+.manage-page h1 {
+  font-size: clamp(38px, 8vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -2px;
+  margin: 16px 0 24px;
+  font-weight: 500;
+}
+.manage-page > p:not(.eyebrow),
+.manage-page section p {
+  color: var(--muted-foreground);
+  margin-bottom: 24px;
+}
+.manage-page section {
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+  padding-top: 24px;
+}
+.manage-page h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}

@@ -22,10 +22,15 @@ export type Post = {
   tags: string[];
   body: string[];
   sample: boolean;
+  richBody?: { _type: string; [key: string]: unknown }[];
+  cover?: { url: string; alt: string } | null;
 };
 export function getCategory(slug: string) {
   return categories.find((category) => category.slug === slug);
 }
 export function postPath(post: Post) {
+  if (post.sample) {
+    return `/blogs/preview-samples/${post.slug}`;
+  }
   return `/blogs/${post.category}/${post.slug}`;
 }

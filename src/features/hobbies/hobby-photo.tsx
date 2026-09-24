@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
+import { Text } from '@/features/localization/text';
 import type { PortfolioContent } from '@/features/portfolio/content';
 export function HobbyPhoto({
   hobbies,
@@ -30,12 +31,15 @@ export function HobbyPhoto({
       ) : (
         <span className="photo-placeholder">
           <ImageIcon size={26} />
-          <span>Your photo here</span>
+          <span>
+            <Text>{'Your photo here'}</Text>
+          </span>
         </span>
       )}
-      <span className="photo-caption">{selected.name}</span>
+      <span className="photo-caption">{<Text>{selected.name}</Text>}</span>
       <span className="photo-counter">
-        0{hobby + 1} / 0{hobbies.length} · Next photo →
+        0{hobby + 1} / 0{hobbies.length}
+        <Text>{'· Next photo →'}</Text>
       </span>
     </Button>
   );

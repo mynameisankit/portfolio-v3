@@ -1,9 +1,10 @@
 'use client';
-import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useMemo } from 'react';
 
 import { Button } from '@/components/ui/button';
+import Link from '@/features/localization/link';
+import { Text, useCopy } from '@/features/localization/text';
 
 import { EmptyBlog } from './empty-blog';
 import { categories, type Category, getCategory, type Post } from './model';
@@ -13,10 +14,12 @@ import { createPostSearch } from './search';
 import { useMasonry } from './use-masonry';
 
 export function BlogArchive({ posts, category }: { posts: Post[]; category?: Category }) {
+  const copy = useCopy();
   const params = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
   const query = params.get('q') ?? '';
+  const samplePreview = pathname === '/blogs/preview-samples';
   const selected = category ?? getCategory(params.get('category') ?? '')?.slug;
   const scope = useMemo(
     () =>
@@ -53,33 +56,51 @@ export function BlogArchive({ posts, category }: { posts: Post[]; category?: Cat
     next.set('page', String(nextPage));
     router.push(`${pathname}?${next}`, { scroll: false });
   }
+  function categoryHref(slug: string) {
+    const next = new URLSearchParams();
+    if (query) {
+      next.set('q', query);
+    }
+    if (samplePreview && slug) {
+      next.set('category', slug);
+    }
+    const path = samplePreview ? '/blogs/preview-samples' : `/blogs${slug ? `/${slug}` : ''}`;
+    return path + (next.size ? `?${next}` : '');
+  }
   return (
     <section className="blog-archive">
       <div className="blog-intro">
-        <p className="eyebrow">/blogs{selected ? `/${selected}` : ''}</p>
-        <h1>{selected ? getCategory(selected)?.label : 'Writing.'}</h1>
+        <p className="eyebrow">
+          <Text>{'/blogs'}</Text>
+          {selected ? `/${selected}` : ''}
+        </p>
+        <h1>{<Text>{selected ? getCategory(selected)?.label : 'Writing.'}</Text>}</h1>
         <p>
           {selected
-            ? getCategory(selected)?.description
-            : 'Software, places, and games worth talking about.'}
+            ? copy(getCategory(selected)?.description ?? '')
+            : copy('Software, places, and games worth talking about.')}
         </p>
       </div>
       {posts.some((post) => post.sample) && (
-        <p className="blog-notice">Layout preview — these articles are sample content.</p>
+        <p className="blog-notice">
+          <Text>{'Layout preview — these articles are sample content.'}</Text>
+        </p>
       )}
       <div className="blog-search" role="search">
-        <label htmlFor="blog-query">Search articles</label>
+        <label htmlFor="blog-query">
+          <Text>{'Search articles'}</Text>
+        </label>
         <div>
           <input
             id="blog-query"
             type="search"
             value={query}
             onChange={(event) => updateSearch(event.target.value)}
-            placeholder="Search titles, topics, or keywords…"
+            placeholder={copy('Search titles, topics, or keywords…')}
           />
           {query && (
             <Button variant="ghost" onClick={() => updateSearch('')}>
-              Clear
+              <Text>{'Clear'}</Text>
             </Button>
           )}
         </div>
@@ -88,22 +109,20 @@ export function BlogArchive({ posts, category }: { posts: Post[]; category?: Cat
         {[{ slug: '', label: 'All writing' }, ...categories].map((item) => (
           <Link
             key={item.slug}
-            href={`/blogs${
-              item.slug ? `/${item.slug}` : ''
-            }${query ? `?q=${encodeURIComponent(query)}` : ''}`}
+            href={categoryHref(item.slug)}
             aria-current={(selected ?? '') === item.slug ? 'page' : undefined}
           >
-            {item.label}
+            {<Text>{item.label}</Text>}
             <span>{posts.filter((post) => !item.slug || post.category === item.slug).length}</span>
           </Link>
         ))}
       </nav>
       <div className="blog-results-heading">
-        <h2>{query.trim() ? 'Search results' : 'Latest articles'}</h2>
+        <h2>{copy(query.trim() ? 'Search results' : 'Latest articles')}</h2>
         <p role="status" aria-live="polite">
           {results.length
-            ? `${(page - 1) * 9 + 1}–${Math.min(page * 9, results.length)} of ${results.length}`
-            : '0 articles'}
+            ? `${(page - 1) * 9 + 1}–${Math.min(page * 9, results.length)} ${copy('of')} ${results.length}`
+            : copy('0 articles')}
         </p>
       </div>
       {results.length ? (

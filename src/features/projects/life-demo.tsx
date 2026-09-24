@@ -3,6 +3,7 @@ import { RotateCcw } from 'lucide-react';
 import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
+import { Text } from '@/features/localization/text';
 import { nextGeneration } from '@/lib/life/life';
 import { gliderSeed } from '@/lib/life/life-patterns';
 export function LifeDemo() {
@@ -30,7 +31,8 @@ export function LifeDemo() {
             setGeneration(generation + 1);
           }}
         >
-          Step <span aria-hidden="true">→</span>
+          <Text>{'Step'}</Text>
+          <span aria-hidden="true">→</span>
         </Button>
         <Button
           variant="ghost"
@@ -41,9 +43,14 @@ export function LifeDemo() {
           aria-label="Reset Game of Life"
         >
           <RotateCcw size={14} />
-          <span>Reset</span>
+          <span>
+            <Text>{'Reset'}</Text>
+          </span>
         </Button>
-        <output aria-live="polite">Gen {String(generation).padStart(3, '0')}</output>
+        <output aria-live="polite">
+          <Text>{'Gen'}</Text>
+          {String(generation).padStart(3, '0')}
+        </output>
       </div>
     </>
   );

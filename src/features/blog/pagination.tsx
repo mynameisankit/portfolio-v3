@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button';
+import { Text } from '@/features/localization/text';
 export function BlogPagination({
   page,
   pages,
@@ -14,7 +15,7 @@ export function BlogPagination({
   return (
     <nav className="blog-pagination" aria-label="Article pages">
       <Button variant="outline" disabled={page === 1} onClick={() => onChange(page - 1)}>
-        ← Previous
+        <Text>{'← Previous'}</Text>
       </Button>
       {Array.from({ length: pages }, (_, index) => (
         <Button
@@ -28,7 +29,7 @@ export function BlogPagination({
         </Button>
       ))}
       <Button variant="outline" disabled={page === pages} onClick={() => onChange(page + 1)}>
-        Next →
+        <Text>{'Next →'}</Text>
       </Button>
     </nav>
   );

@@ -1,3 +1,5 @@
+import { career } from '@/features/experience/content';
+
 export const portfolio = {
   name: 'Ankit Kumar',
   role: 'Software Engineer',
@@ -23,6 +25,7 @@ export const portfolio = {
       source: '',
     },
   ],
+  career,
   experience: [
     {
       title: 'Cloud Workloads',

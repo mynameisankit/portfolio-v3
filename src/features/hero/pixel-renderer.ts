@@ -37,8 +37,8 @@ export function createPixelRenderer(canvas: HTMLCanvasElement, context: CanvasRe
       const size = Math.min(width / HERO_COLUMNS, height / HERO_ROWS);
       const origin = { x: (width - HERO_COLUMNS * size) / 2, y: (height - HERO_ROWS * size) / 2 };
       const styles = getComputedStyle(canvas);
-      const pixel = styles.getPropertyValue('--pixel').trim() || '#d2ff83';
-      const grid = styles.getPropertyValue('--hero-grid').trim() || '#303e25';
+      const pixel = styles.getPropertyValue('--pixel').trim() || '#c5afff';
+      const grid = styles.getPropertyValue('--hero-grid').trim() || '#30273d';
       cells.forEach((cell, index) => {
         const column = index % HERO_COLUMNS;
         const row = Math.floor(index / HERO_COLUMNS);

@@ -8,8 +8,6 @@ export default defineConfig([
   ...nextVitals,
   ...nextTs,
   {
-    // Preserve upstream Sites installer helpers; all maintained application code is const-only.
-    ignores: ['scripts/pnpm-install.mjs', 'scripts/execution-profile.mjs'],
     rules: {
       'no-var': 'error',
       'no-restricted-syntax': [
@@ -24,7 +22,7 @@ export default defineConfig([
   globalIgnores([
     '.next/**',
     'out/**',
-    'build/**',
+    'studio-dist/**',
     'dist/**',
     '.sites-runtime/**',
     'next-env.d.ts',
@@ -32,7 +30,7 @@ export default defineConfig([
     'public/demos/**',
   ]),
   {
-    files: ['src/components/ui/**/*.{ts,tsx}', 'src/hooks/use-mobile.ts'],
+    files: ['src/components/ui/**/*.{ts,tsx}'],
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',
       'react-hooks/purity': 'off',
@@ -42,7 +40,7 @@ export default defineConfig([
   {
     files: [
       'src/**/*.{ts,tsx}',
-      'scripts/{build-demo,sync-renderer,serve-static}.mjs',
+      'scripts/{build-demo,sync-renderer,serve-static,build-pwa,package-studio}.mjs',
       'src/demos/json-renderer/*.tsx',
     ],
     plugins: { 'simple-import-sort': simpleImportSort },
@@ -63,20 +61,15 @@ export default defineConfig([
   },
   {
     ...prettier,
-    ignores: ['src/components/ui/**', 'src/hooks/use-mobile.ts'],
+    ignores: ['src/components/ui/**'],
     files: [
       'src/**/*.{ts,tsx}',
-      'scripts/{build-demo,sync-renderer,serve-static}.mjs',
+      'scripts/{build-demo,sync-renderer,serve-static,build-pwa,package-studio}.mjs',
       'src/demos/json-renderer/*.tsx',
     ],
   },
   {
-    files: [
-      'src/app/**/*.{ts,tsx}',
-      'src/features/**/*.{ts,tsx}',
-      'src/hooks/**/*.ts',
-      'src/lib/**/*.ts',
-    ],
+    files: ['src/app/**/*.{ts,tsx}', 'src/features/**/*.{ts,tsx}', 'src/lib/**/*.ts'],
     rules: { curly: ['error', 'all'] },
   },
 ]);

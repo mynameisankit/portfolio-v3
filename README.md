@@ -26,7 +26,7 @@ The dev and build scripts explicitly build the demo; they do not depend on npm l
 
 ## Content and demos
 
-Edit src/features/portfolio/content.ts for portfolio copy. Hobby photos use placeholders. Sanity project yek4giks, dataset production, is reserved for later integration.
+Edit src/features/portfolio/content.ts for portfolio copy. Hobby photos use placeholders. Sanity project yek4giks, dataset production, supplies published content. Run yarn studio to edit it; see [CMS setup](docs/sanity.md). Rebuild the static site after publishing.
 
 The Life project card is a preview; its separate rewrite is not complete.
 
@@ -45,3 +45,7 @@ No automated test suite, per request. Validation uses lint, formatting, producti
 This project includes an optional, pinned Windows x64 Node 24 runtime. Yarn scripts explicitly launch Node so they use the project runtime even when Yarn itself was started by an older system Node. Your global Node installation is unchanged. Other operating systems should use Node 22.13 or newer.
 
 If yarn dev reports that another Next.js server is already running, use its printed URL or stop that server before starting a new instance.
+
+Blog source lives in src/features/blog. /blogs reads published Sanity posts; /blogs/preview-samples contains layout fixtures, and /blogs/preview-empty shows the empty state.
+
+See [gaming data](docs/gaming.md), [localization](docs/localization.md), and [contact setup](docs/contact.md) for the new features and their publishing requirements.

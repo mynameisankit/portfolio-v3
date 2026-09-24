@@ -2,13 +2,12 @@ node_modules/
 .next/
 out/
 dist/
-build/
 .sites-runtime/
 src/components/ui/
-src/hooks/use-mobile.ts
 src/demos/json-renderer/upstream/
 public/demos/
-package-lock.json
 next-env.d.ts
 
 
+
+studio-dist/

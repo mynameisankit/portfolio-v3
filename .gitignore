@@ -51,3 +51,14 @@ next-env.d.ts
 # Yarn's local install state is regenerated.
 .yarn/install-state.gz
 .yarn/cache/
+
+/studio-dist/
+
+# Generated PWA assets (source: src/features/pwa/assets and favicon.svg)
+/public/icons/
+/public/sw.js
+/public/offline.html
+/public/editor.webmanifest
+/public/_headers
+/public/_redirects
+/.sanity/

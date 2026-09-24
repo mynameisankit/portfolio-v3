@@ -325,3 +325,38 @@
     padding-inline: 10px;
   }
 }
+
+.blog-reader pre {
+  padding: 22px;
+  overflow: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.blog-reader blockquote {
+  margin: 24px 0;
+  padding-left: 20px;
+  border-left: 3px solid var(--primary);
+  color: var(--muted-foreground);
+}
+.blog-reader h2,
+.blog-reader h3 {
+  margin: 32px 0 16px;
+}
+.blog-reader li {
+  margin-block: 8px;
+}
+.blog-reader figcaption {
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+.blog-reader figure {
+  margin: 28px 0;
+}
+.blog-reader p a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+.blog-list .blog-cover {
+  display: none;
+}

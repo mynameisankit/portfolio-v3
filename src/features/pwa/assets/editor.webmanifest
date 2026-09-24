@@ -1,0 +1,20 @@
+{
+  "id": "/manage",
+  "name": "Ankit — Content Studio",
+  "short_name": "Ankit Studio",
+  "start_url": "/manage",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#15121e",
+  "theme_color": "#15121e",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+.hobbies-page {
+  padding: 56px 5% 80px;
+}
+.hobbies-heading h1 {
+  font-size: clamp(42px, 7vw, 76px);
+  font-weight: 500;
+  letter-spacing: -2.5px;
+  line-height: 1.1;
+  margin: 18px 0;
+}
+.hobbies-heading > p:not(.eyebrow),
+.hobby-section > p {
+  color: var(--muted-foreground);
+}
+.hobbies-heading nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin-top: 28px;
+}
+.hobbies-heading nav a {
+  color: var(--primary);
+  text-underline-offset: 5px;
+  text-decoration: underline;
+  padding: 8px 0;
+}
+.hobby-section {
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid var(--border);
+  scroll-margin-top: 24px;
+}
+.hobby-section > h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 500;
+  letter-spacing: -1px;
+  margin-bottom: 14px;
+}
+.hobby-placeholder {
+  margin-top: 24px;
+  min-height: 180px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  color: var(--muted-foreground);
+  text-align: center;
+}

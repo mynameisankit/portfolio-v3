@@ -1,33 +1,29 @@
+import './experience.css';
+
+import { Text } from '@/features/localization/text';
 import type { PortfolioContent } from '@/features/portfolio/content';
+
+import { JourneyStop } from './journey-stop';
+
 export function Experience({ content }: { content: PortfolioContent }) {
   return (
     <section id="experience" className="experience" aria-labelledby="experience-title">
       <div className="experience-heading">
-        <span className="eyebrow">Experience</span>
-        <h2 id="experience-title">{content.company}</h2>
-        <p className="experience-role">{content.role}</p>
+        <span className="eyebrow">
+          <Text>{'Experience & education'}</Text>
+        </span>
+        <h2 id="experience-title">
+          <Text>{'The journey so far.'}</Text>
+        </h2>
         <p className="experience-summary">
-          Frontend ownership across Cloud Workloads and the shared platform.
+          <Text>{'From shared frontend libraries to owning cloud product interfaces.'}</Text>
         </p>
       </div>
-      <div className="experience-work">
-        {content.experience.map((area, index) => (
-          <article className="experience-item" key={area.title}>
-            <span className="experience-number">0{index + 1}</span>
-            <div>
-              <h3>{area.title}</h3>
-              {area.description && <p>{area.description}</p>}
-              {!!area.bullets.length && (
-                <ul>
-                  {area.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </article>
+      <ol className="journey-timeline" aria-label="Career journey, most recent first">
+        {content.career.map((entry) => (
+          <JourneyStop key={entry.id} entry={entry} />
         ))}
-      </div>
+      </ol>
     </section>
   );
 }
