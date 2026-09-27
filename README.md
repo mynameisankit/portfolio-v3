@@ -1,4 +1,4 @@
-# Ankit Kumar portfolio
+# Ankit Kumar Portfolio
 
 Portfolio for ankitkumar.fyi, built with Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, and Sanity. The website is statically exported; content changes require a rebuild and redeployment.
 
@@ -14,7 +14,7 @@ yarn dev
 
 Run `yarn studio` in a second terminal to edit CMS content. Studio opens at <http://127.0.0.1:3333/studio/>.
 
-On Windows x64, the project includes a pinned Node 24 runtime. Scripts explicitly launch Node to use that runtime without changing your global installation. If a development server is already running, use its printed URL or stop it before starting another instance.
+Scripts use your installed Node.js runtime. If a development server is already running, use its printed URL or stop it before starting another instance.
 
 ## Commands
 
@@ -70,6 +70,27 @@ Blogs support technical, travelling, and video-games categories. Supply a title,
 With no published posts, `/blogs` shows the empty state. `/blogs/preview-samples` provides layout fixtures and `/blogs/preview-empty` previews the empty design; both are marked noindex. Blog data is exported for local Fuse search, with no browser-side Sanity query.
 
 No automatic deployment hook is configured. Publishing in Studio does not update an existing static deployment.
+
+## Cloudflare Workers deployment
+
+Wrangler deploys the static export in `out`; no Worker application script is needed. The Worker name in `wrangler.jsonc` is `ankit-portfolio`. Use that name in Cloudflare, or change the configuration to match your existing Worker.
+
+Connect the GitHub repository in Workers Builds and use:
+
+| Field           | Value                   |
+| --------------- | ----------------------- |
+| Build command   | `yarn build`            |
+| Deploy command  | `yarn wrangler deploy`  |
+| Preview command | `yarn wrangler preview` |
+| Root directory  | Repository root         |
+
+Set build variables `NODE_VERSION=24.19.0` and `YARN_VERSION=4.9.2`. Add `STEAM_API_KEY` as a secret in the build environment if you want most-played games. Sanity's public configuration is already in source; no read token is required.
+
+After deployment, add `ankitkumar.fyi` under the Worker's Settings → Domains & Routes → Add → Custom Domain. Configure Sanity CORS and EmailJS as described below. The build includes `_redirects` for Studio and `_headers` for the PWA.
+
+For local Cloudflare verification, run `yarn build`, then `yarn wrangler dev`. This is distinct from `yarn wrangler preview`, which publishes a remote preview. `yarn wrangler deploy --dry-run` validates deployment configuration without publishing. Manual deployment requires `yarn wrangler login` first.
+
+See [Workers static assets](https://developers.cloudflare.com/workers/static-assets/get-started/) and [Workers Builds configuration](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/).
 
 ## Mobile editor and PWA deployment
 

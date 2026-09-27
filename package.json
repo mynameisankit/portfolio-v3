@@ -12,11 +12,12 @@
     "start": "serve out --config ../serve.json --no-clipboard",
     "lint": "node node_modules/eslint/bin/eslint.js . --max-warnings 0",
     "lint:fix": "node node_modules/eslint/bin/eslint.js . --max-warnings 0 --fix",
-    "format": "node node_modules/prettier/bin/prettier.cjs --write src scripts/*.mjs *.json *.mjs *.ts README.md",
-    "format:check": "node node_modules/prettier/bin/prettier.cjs --check src scripts/*.mjs *.json *.mjs *.ts README.md",
+    "format": "node node_modules/prettier/bin/prettier.cjs --write src scripts/*.mjs *.json *.jsonc *.mjs *.ts README.md",
+    "format:check": "node node_modules/prettier/bin/prettier.cjs --check src scripts/*.mjs *.json *.jsonc *.mjs *.ts README.md",
     "studio": "node node_modules/sanity/bin/sanity dev --host 127.0.0.1 --port 3333",
     "studio:build": "node node_modules/sanity/bin/sanity build studio-dist",
-    "pwa:build": "node scripts/buildPwa.mjs"
+    "pwa:build": "node scripts/buildPwa.mjs",
+    "wrangler": "node node_modules/wrangler/bin/wrangler.js"
   },
   "dependencies": {
     "@dhaiwat10/react-link-preview": "^1.15.0",
@@ -58,11 +59,9 @@
     "sharp": "^0.35.4",
     "tailwindcss": "4.2.1",
     "tw-animate-css": "^1.4.0",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "wrangler": "^4.141.0"
   },
   "type": "module",
-  "packageManager": "yarn@4.9.2",
-  "optionalDependencies": {
-    "node-win-x64": "24.19.0"
-  }
+  "packageManager": "yarn@4.9.2"
 }

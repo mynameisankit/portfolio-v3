@@ -51,6 +51,7 @@ export default defineConfig([
   },
   globalIgnores([
     '.next/**',
+    '.wrangler/**',
     'out/**',
     'studio-dist/**',
     'dist/**',
@@ -126,3 +127,4 @@ export default defineConfig([
     },
   },
 ]);
+
