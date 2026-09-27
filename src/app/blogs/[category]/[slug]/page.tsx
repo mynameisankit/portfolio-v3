@@ -1,17 +1,21 @@
 import { notFound } from 'next/navigation';
+import { BlogArticle } from '@/app/blogs/_components/article/BlogArticle';
+import { categories } from '@/data/blog/model';
+import { getPosts } from '@/data/blog/repository';
 
-import { BlogArticle } from '@/features/blog/blog-article';
-import { categories } from '@/features/blog/model';
-import { getPosts } from '@/features/blog/repository';
 export const dynamicParams = false;
 export async function generateStaticParams() {
   const posts = await getPosts();
+
   return categories.flatMap(({ slug: category }) => {
     const published = posts.filter((post) => post.category === category);
+
     // Reserved paths render 404 while letting an empty category export successfully.
-    return published.length
-      ? published.map(({ slug }) => ({ category, slug }))
-      : [{ category, slug: '__empty__' }];
+    if (published.length) {
+      return published.map(({ slug }) => ({ category, slug }));
+    }
+
+    return [{ category, slug: '__empty__' }];
   });
 }
 export async function generateMetadata({
@@ -22,6 +26,7 @@ export async function generateMetadata({
   const { category, slug } = await params;
   const posts = await getPosts();
   const post = posts.find((item) => item.category === category && item.slug === slug);
+
   return {
     title: `${post?.title ?? 'Article'} | Ankit Kumar`,
     description: post?.description,
@@ -39,5 +44,6 @@ export default async function ArticlePage({
   if (!post) {
     notFound();
   }
+
   return <BlogArticle post={post} />;
 }

@@ -1,4 +1,5 @@
 import { defineField, defineType } from 'sanity';
+
 export const translation = defineType({
   name: 'translation',
   title: 'Translation',

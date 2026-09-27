@@ -1,10 +1,9 @@
 import './globals.css';
-
 import type { Metadata, Viewport } from 'next';
+import { LocalizationProvider } from '@/app/_components/localization/Provider';
+import { ServiceWorkerRegistration } from '@/app/_components/pwa/ServiceWorkerRegistration';
+import { getTranslations } from '@/localization/repository';
 
-import { LocalizationProvider } from '@/features/localization/provider';
-import { getTranslations } from '@/features/localization/repository';
-import { ServiceWorkerRegistration } from '@/features/pwa/service-worker-registration';
 export const viewport: Viewport = { themeColor: '#15121e' };
 export const metadata: Metadata = {
   title: 'Ankit Kumar | Software Engineer',
@@ -15,6 +14,7 @@ export const metadata: Metadata = {
 };
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const translations = await getTranslations();
+
   return (
     <html lang="en" data-theme="dark">
       <body>

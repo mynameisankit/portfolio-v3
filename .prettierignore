@@ -3,9 +3,7 @@ node_modules/
 out/
 dist/
 .sites-runtime/
-src/components/ui/
-src/demos/json-renderer/upstream/
-public/demos/
+src/app/_components/ui/
 next-env.d.ts
 
 

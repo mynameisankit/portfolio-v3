@@ -1,9 +1,9 @@
+import { sanityProject } from './src/config/sanityConfig';
+import { blogPost } from './src/sanity/schemas/blogPost';
+import { portfolioSite } from './src/sanity/schemas/portfolioSite';
+import { translation } from './src/sanity/schemas/translation';
 import { defineConfig } from 'sanity';
 import { structureTool } from 'sanity/structure';
-import { sanityProject } from './src/sanity/project';
-import { translation } from './src/sanity/schemas/translation';
-import { blogPost } from './src/sanity/schemas/blog-post';
-import { portfolioSite } from './src/sanity/schemas/portfolio-site';
 
 export default defineConfig({
   name: 'portfolio',
@@ -32,9 +32,12 @@ export default defineConfig({
       templates.filter((template) => template.schemaType !== 'portfolioSite'),
   },
   document: {
-    actions: (actions, context) =>
-      context.schemaType === 'portfolioSite'
-        ? actions.filter((action) => !['duplicate', 'delete'].includes(action.action ?? ''))
-        : actions,
+    actions: (actions, context) => {
+      if (context.schemaType === 'portfolioSite') {
+        return actions.filter((action) => !['duplicate', 'delete'].includes(action.action ?? ''));
+      }
+
+      return actions;
+    },
   },
 });

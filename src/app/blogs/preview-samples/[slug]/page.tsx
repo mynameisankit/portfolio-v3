@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
+import { BlogArticle } from '@/app/blogs/_components/article/BlogArticle';
+import { posts } from '@/data/blog/content';
 
-import { BlogArticle } from '@/features/blog/blog-article';
-import { posts } from '@/features/blog/content';
 export const metadata = { title: 'Sample article preview', robots: { index: false } };
 export const dynamicParams = false;
 export function generateStaticParams() {
@@ -13,5 +13,6 @@ export default async function SamplePost({ params }: { params: Promise<{ slug: s
   if (!post) {
     notFound();
   }
+
   return <BlogArticle post={post} />;
 }

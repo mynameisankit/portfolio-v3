@@ -1,51 +1,157 @@
 # Ankit Kumar portfolio
 
-Next.js, React, TypeScript, Tailwind and shadcn/ui. Source is under src and colocated by feature. See [the architecture guide](docs/architecture.md) for responsibilities and data flow.
+Portfolio for ankitkumar.fyi, built with Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, and Sanity. The website is statically exported; content changes require a rebuild and redeployment.
 
-## Development
+## Getting started
 
-Use Node.js 22.13 or newer with Corepack available.
+Use Node.js 22.13 or newer with Corepack available. Yarn 4.9.2 is pinned in package.json.
 
-1. Run corepack enable if Yarn is not already available.
-2. Run yarn install at the project root. This also installs the isolated JSON demo workspace.
-3. Run yarn dev.
+```sh
+corepack enable
+yarn install
+yarn dev
+```
 
-Yarn 4.9.2 is pinned in package.json. CI uses yarn install --immutable.
+Run `yarn studio` in a second terminal to edit CMS content. Studio opens at <http://127.0.0.1:3333/studio/>.
+
+On Windows x64, the project includes a pinned Node 24 runtime. Scripts explicitly launch Node to use that runtime without changing your global installation. If a development server is already running, use its printed URL or stop it before starting another instance.
 
 ## Commands
 
-- yarn dev: build the embedded demo and start Next.js.
-- yarn build: build the demo and export the portfolio into out.
-- yarn start: serve the static export.
-- yarn lint / yarn lint:fix: check or fix ESLint findings.
-- yarn format / yarn format:check: format or check maintained source.
-- yarn demo:sync <full-40-character-commit-sha>: fetch a reviewed upstream renderer snapshot.
-- yarn demo:build: rebuild the embedded renderer.
+| Command                             | Purpose                                                                     |
+| ----------------------------------- | --------------------------------------------------------------------------- |
+| `yarn dev`                          | Generate PWA assets and start Next.js.                                      |
+| `yarn studio`                       | Start the local Sanity editor.                                              |
+| `yarn build`                        | Generate PWA assets, export the site, and package Studio into `out/studio`. |
+| `yarn start`                        | Preview `out` with `serve`, using `serve.json` for Studio routing.          |
+| `yarn lint` / `yarn lint:fix`       | Check or fix ESLint findings.                                               |
+| `yarn format` / `yarn format:check` | Format or check maintained source.                                          |
+| `yarn install --immutable`          | Install locked dependencies in CI.                                          |
 
-The dev and build scripts explicitly build the demo; they do not depend on npm lifecycle hooks.
+Run lint, formatting checks, and a production build before publishing. There is no automated test suite; browser interaction checks supplement these commands.
 
-## Content and demos
+## Project structure
 
-Edit src/features/portfolio/content.ts for portfolio copy. Hobby photos use placeholders. Sanity project yek4giks, dataset production, supplies published content. Run yarn studio to edit it; see [CMS setup](docs/sanity.md). Rebuild the static site after publishing.
+| Path                          | Responsibility                                                |
+| ----------------------------- | ------------------------------------------------------------- |
+| `src/app`                     | Routes, layouts, metadata, and global styling.                |
+| `src/app/_components`         | Home sections and shared presentation components.             |
+| `src/app/blogs/_components`   | Blog archive, article rendering, search, and masonry hooks.   |
+| `src/app/hobbies/_components` | Hobbies presentation and gaming cards.                        |
+| `src/data`                    | Repositories, validation, models, and fallback content.       |
+| `src/localization`            | Translation JSON, catalog, locale models, and CMS overrides.  |
+| `src/config`                  | Central integration configuration.                            |
+| `src/sanity`                  | CMS client and Studio schemas.                                |
+| `src/pwa/assets`              | Service worker, offline page, and PWA source assets.          |
+| `src/lib`                     | Shared utilities and Game of Life simulation rules.           |
+| `public`                      | Branding assets and generated PWA files.                      |
+| `scripts`                     | PWA generation, Studio packaging, and custom ESLint rules.    |
+| `.vscode`                     | Shared editor formatting settings and recommended extensions. |
+| `.openai`                     | Existing hosting identity and static output configuration.    |
 
-The Life project card is a preview; its separate rewrite is not complete.
+Components, hooks, and presentation helpers are colocated in the owning route's `_components` folder. These private folders create no URLs. Shared components live at the nearest common layout. Use relative imports within a module and `@/` imports across modules; the alias resolves to `src`.
 
-The JSON demo uses the real upstream useJsonLines hook. Its npm release lacks usable entrypoint metadata and bundles React, so the portfolio builds a pinned source snapshot in an isolated React 18 iframe. Provenance is in src/demos/json-renderer/source.json. The main application uses React 19. Review and commit snapshot and lockfile changes together after source synchronization.
+`node_modules`, `.yarn`, `.next`, `.sanity`, `studio-dist`, and `out` are dependency state or generated output. `.sites-runtime` contains ignored local verification artifacts. Deploy `out`; do not edit generated files.
 
-## Conventions
+## Sanity and publishing
 
-ESLint combines Next.js and TypeScript checks with Airbnb-inspired rules, sorted imports and Prettier. Maintained code uses const; let and var are rejected. Vendored upstream code keeps its original conventions.
+The configured project is `yek4giks`, dataset `production`. Integration settings live in `src/config/sanityConfig.ts`.
 
-In VS Code or Cursor, install the workspace-recommended ESLint and Prettier extensions. The workspace enables formatting and ESLint fixes on explicit save.
+1. Run `yarn studio` and sign in with an authorized Sanity account.
+2. If needed, add `http://127.0.0.1:3333` to the project's API/CORS origins with credentials enabled.
+3. Open the Portfolio document, review its initial content, and publish it. Until a published document exists, the site uses `src/data/portfolio/content.ts` and its related fallback content.
+4. Publish blog posts or translations as needed.
+5. Run `yarn build`, preview with `yarn start`, and deploy `out`.
 
-No automated test suite, per request. Validation uses lint, formatting, production builds and browser interaction checks.
+The dataset is publicly readable, so build-time reads need no API token. Never put write tokens in browser configuration. Failed CMS requests or invalid published data fail the build rather than silently substituting sample blog posts.
 
-### Windows Node runtime
+Blogs support technical, travelling, and video-games categories. Supply a title, category, unique slug within that category, publication date, and content; images require alternative text. Only published posts whose publication date has arrived appear. Scheduled posts still require a rebuild when due. Avoid changing published slugs without adding redirects.
 
-This project includes an optional, pinned Windows x64 Node 24 runtime. Yarn scripts explicitly launch Node so they use the project runtime even when Yarn itself was started by an older system Node. Your global Node installation is unchanged. Other operating systems should use Node 22.13 or newer.
+With no published posts, `/blogs` shows the empty state. `/blogs/preview-samples` provides layout fixtures and `/blogs/preview-empty` previews the empty design; both are marked noindex. Blog data is exported for local Fuse search, with no browser-side Sanity query.
 
-If yarn dev reports that another Next.js server is already running, use its printed URL or stop that server before starting a new instance.
+No automatic deployment hook is configured. Publishing in Studio does not update an existing static deployment.
 
-Blog source lives in src/features/blog. /blogs reads published Sanity posts; /blogs/preview-samples contains layout fixtures, and /blogs/preview-empty shows the empty state.
+## Mobile editor and PWA deployment
 
-See [gaming data](docs/gaming.md), [localization](docs/localization.md), and [contact setup](docs/contact.md) for the new features and their publishing requirements.
+The public portfolio and editor have separate manifest IDs. `/manage` is the installable editor entry point; `/studio/` contains Sanity Studio.
+
+1. Deploy `out` to an HTTPS host.
+2. Configure `/studio/*` to fall back to `/studio/index.html` with a 200 rewrite, serving existing assets normally. The generated `_redirects` supports compatible hosts; configure an equivalent rule elsewhere. Do not rewrite the entire portfolio to Studio.
+3. Add `https://ankitkumar.fyi` to Sanity API/CORS origins with credentials enabled. Add the `www` origin only if it also serves the editor rather than redirecting.
+4. Serve `sw.js` and manifests with revalidation/no-cache. Generated `_headers` provides this for compatible hosts.
+5. On your phone, open <https://ankitkumar.fyi/manage>. Use Safari's Share → Add to Home Screen or Chrome's Install app / Add to Home screen.
+6. Sign in, edit, and publish. Rebuild and redeploy to update the public site.
+
+Editing requires internet access and an authorized Sanity account. The service worker registers only in production and caches the generic offline page, not Studio, drafts, API responses, or credentials. DNS, hosting, and CORS must be configured in their respective services.
+
+## Steam and hobbies
+
+`/hobbies` contains Travelling, Gaming, and Running & Hiking. Travel and outdoor content currently use placeholders; `/gaming` remains a compatibility route.
+
+Without a key, the build reads up to three recent games from [the public Steam profile](https://steamcommunity.com/id/bizzareKumar/) in profile order.
+
+To display up to nine most-played games, add this to the ignored `.env.local` and your deployment's build environment:
+
+```dotenv
+STEAM_API_KEY=your_steam_api_key
+```
+
+Do not use a `NEXT_PUBLIC_` prefix. The server-only integration sends the key in the `x-webapi-key` header; exported pages contain game data only. Restart development or rebuild after changing it.
+
+The API uses Steam ID `76561198876357147`, includes played free games, excludes unplayed titles, and sorts by lifetime playtime. Failed or private-library responses fall back to public-profile activity. If both sources fail, the page keeps the profile link and shows an unavailable state. A key does not bypass Steam privacy settings.
+
+Rebuild and redeploy to refresh activity. Public-profile parsing may need maintenance if Steam changes its markup. See the [Steam player API](https://partner.steamgames.com/doc/webapi/iplayerservice) and [authentication reference](https://partner.steamgames.com/doc/webapi_overview/auth).
+
+## Translations
+
+All bundled translations live in `src/localization/translations.json`, as an array of entries:
+
+```json
+{
+  "en": "Experience",
+  "nl": "Ervaring",
+  "de": "Erfahrung",
+  "sv": "Erfarenhet",
+  "ja": "職歴"
+}
+```
+
+Keep `en` identical to the authored English text and edit the other language fields. Rebuild after editing.
+
+For CMS overrides:
+
+1. Publish the English content.
+2. In Studio's Translations section, add the exact English source, target language, and translation.
+3. Publish, rebuild, and redeploy.
+
+Published Sanity translations override JSON entries. Matching normalizes whitespace but otherwise requires the same source text. Avoid duplicate source/language entries. Changed or untranslated text falls back to English; update CMS overrides if JSON changes appear ineffective. Rich-text translations match individual spans while preserving formatting and links; code remains unchanged.
+
+English, Dutch, German, Swedish, and Japanese are supported. Language selection persists locally and can be shared using `?lang=nl` (or `en`, `de`, `sv`, `ja`). Internal links preserve it. Switching occurs after hydration; exported HTML and search metadata remain English. Translations are maintained manually; no automatic translation service is connected.
+
+## Contact form
+
+Public EmailJS identifiers live in `src/config/emailConfig.ts`. Name and message are required; reply email is optional. The template controls the fixed recipient.
+
+1. Confirm service `service_y2ijfaj` is connected and template `template_h881z8n` is enabled with your recipient address.
+2. Allow `https://ankitkumar.fyi` in EmailJS account settings where applicable.
+3. Match template variables: `firstName`, `lastName`, `subject`, `eMail`, and `message`. The form also supplies `name`, `from_name`, `email`, and `reply_to`. `firstName` contains the full name; `lastName` is empty.
+4. Optionally configure Reply-To with `reply_to`, which may be empty.
+5. Send a deliberate message to verify actual inbox delivery; prior browser checks mocked requests without sending mail.
+
+The form prevents repeated pending submissions and uses a 30-second SDK throttle. These client controls are not server-side abuse protection. Delivery remains subject to your EmailJS quota. Keep private keys out of client code.
+
+## Demos and code conventions
+
+Project components are under `src/app/_components/projects`, with separate `jsonRenderer` and `gameOfLife` folders. The JSON demo uses the published `@mynameisankit/react-json-renderer` package, pinned to 1.2.0, directly with React 19. Portfolio CSS variables control its theme, and ResizeObserver supplies its width. The Game of Life card is a preview; its separate rewrite is not complete.
+
+ESLint and Prettier enforce:
+
+- PascalCase component filenames and camelCase hooks, helpers, and source folders, with Next.js route conventions preserved.
+- Separate files for components, hooks, and top-level helpers.
+- `const` bindings; no `let` or `var`.
+- Sorted imports in a continuous block, followed by one blank line.
+- Boolean prefixes such as `is`, `has`, `should`, and `can`, with external API naming exceptions.
+- Simple ternary branches: literals, references, or simple calls with simple arguments. Move complex expressions into explicit branches or focused helpers.
+- Tailwind utilities in JSX; no `@apply` or component selectors in imported CSS. Global CSS contains theme tokens and base/accessibility styles.
+
+Use `<Text>Experience</Text>` for literal translated text and expression braces for dynamic values. In VS Code or Cursor, install the recommended ESLint and Prettier extensions; workspace settings format and fix code on explicit save.

@@ -1,13 +1,16 @@
-import '@/features/blog/blog.css';
+import { SiteFooter } from '@/app/_components/layout/SiteFooter';
+import { SiteHeader } from '@/app/_components/layout/SiteHeader';
+import { getPortfolio } from '@/data/portfolio/repository';
 
-import { SiteFooter } from '@/features/layout/site-footer';
-import { SiteHeader } from '@/features/layout/site-header';
-import { getPortfolio } from '@/features/portfolio/repository';
 export default async function BlogLayout({ children }: { children: React.ReactNode }) {
   const portfolio = await getPortfolio();
+
   return (
-    <div className="site-shell" id="top">
-      <a href="#main-content" className="skip-link">
+    <div className="site-shell max-w-295 my-0 mx-auto" id="top">
+      <a
+        href="#main-content"
+        className="skip-link absolute top-[-100px] bg-primary text-primary-foreground p-3 z-100 focus:top-[10px]"
+      >
         Skip to content
       </a>
       <SiteHeader content={portfolio} />

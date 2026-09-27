@@ -54,7 +54,7 @@ next-env.d.ts
 
 /studio-dist/
 
-# Generated PWA assets (source: src/features/pwa/assets and favicon.svg)
+# Generated PWA assets (source: src/pwa/assets and favicon.svg)
 /public/icons/
 /public/sw.js
 /public/offline.html

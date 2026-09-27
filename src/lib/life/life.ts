@@ -9,9 +9,19 @@ export function nextGeneration(cells: Uint8Array, width: number, height: number)
     const neighbors = offsets.reduce((total, offset) => {
       const column = x + offset.x;
       const row = y + offset.y;
-      const inside = column >= 0 && column < width && row >= 0 && row < height;
-      return total + (inside ? cells[row * width + column] : 0);
+      const isInside = column >= 0 && column < width && row >= 0 && row < height;
+
+      if (isInside) {
+        return total + cells[row * width + column];
+      }
+
+      return total;
     }, 0);
-    return neighbors === 3 || (cell === 1 && neighbors === 2) ? 1 : 0;
+
+    if (neighbors === 3 || (cell === 1 && neighbors === 2)) {
+      return 1;
+    }
+
+    return 0;
   });
 }

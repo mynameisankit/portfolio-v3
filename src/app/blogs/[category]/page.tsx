@@ -1,15 +1,16 @@
-import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
+import { notFound } from 'next/navigation';
+import { BlogArchive } from '@/app/blogs/_components/archive/BlogArchive';
+import { categories, getCategory } from '@/data/blog/model';
+import { getPosts } from '@/data/blog/repository';
 
-import { BlogArchive } from '@/features/blog/blog-archive';
-import { categories, getCategory } from '@/features/blog/model';
-import { getPosts } from '@/features/blog/repository';
 export const dynamicParams = false;
 export async function generateStaticParams() {
   return categories.map(({ slug }) => ({ category: slug }));
 }
 export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
+
   return {
     title: `${getCategory(category)?.label ?? 'Writing'} | Ankit Kumar`,
     robots: { index: true, follow: true },
@@ -22,8 +23,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   if (!selected) {
     notFound();
   }
+
   return (
-    <Suspense fallback={<p className="blog-loading">Loading articles…</p>}>
+    <Suspense fallback={<p className="blog-loading py-10 px-[5%]">Loading articles…</p>}>
       <BlogArchive posts={posts} category={selected.slug} />
     </Suspense>
   );

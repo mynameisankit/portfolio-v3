@@ -1,0 +1,1017 @@
+[
+  {
+    "en": "Some article content is available only in English.",
+    "nl": "Sommige artikelinhoud is alleen in het Engels beschikbaar.",
+    "de": "Einige Artikelinhalte sind nur auf Englisch verfügbar.",
+    "sv": "Visst artikelinnehåll finns bara på engelska.",
+    "ja": "記事の一部は英語のみで提供しています。"
+  },
+  {
+    "en": "Last played",
+    "nl": "Laatst gespeeld",
+    "de": "Zuletzt gespielt",
+    "sv": "Senast spelat",
+    "ja": "最終プレイ"
+  },
+  {
+    "en": "Language",
+    "nl": "Taal",
+    "de": "Sprache",
+    "sv": "Språk",
+    "ja": "言語"
+  },
+  {
+    "en": "Projects",
+    "nl": "Projecten",
+    "de": "Projekte",
+    "sv": "Projekt",
+    "ja": "プロジェクト"
+  },
+  {
+    "en": "Experience",
+    "nl": "Ervaring",
+    "de": "Erfahrung",
+    "sv": "Erfarenhet",
+    "ja": "職歴"
+  },
+  {
+    "en": "Writing",
+    "nl": "Artikelen",
+    "de": "Artikel",
+    "sv": "Texter",
+    "ja": "記事"
+  },
+  {
+    "en": "Writing.",
+    "nl": "Artikelen.",
+    "de": "Artikel.",
+    "sv": "Texter.",
+    "ja": "記事"
+  },
+  {
+    "en": "Gaming",
+    "nl": "Games",
+    "de": "Gaming",
+    "sv": "Spel",
+    "ja": "ゲーム"
+  },
+  {
+    "en": "Manage content",
+    "nl": "Content beheren",
+    "de": "Inhalte verwalten",
+    "sv": "Hantera innehåll",
+    "ja": "コンテンツ管理"
+  },
+  {
+    "en": "Back to top ↑",
+    "nl": "Terug naar boven ↑",
+    "de": "Nach oben ↑",
+    "sv": "Till toppen ↑",
+    "ja": "ページ上部へ ↑"
+  },
+  {
+    "en": "Software Engineer",
+    "nl": "Software-engineer",
+    "de": "Softwareentwickler",
+    "sv": "Mjukvaruutvecklare",
+    "ja": "ソフトウェアエンジニア"
+  },
+  {
+    "en": "at",
+    "nl": "bij",
+    "de": "bei",
+    "sv": "på",
+    "ja": "勤務先："
+  },
+  {
+    "en": "I build web interfaces.",
+    "nl": "Ik bouw webinterfaces.",
+    "de": "Ich entwickle Weboberflächen.",
+    "sv": "Jag bygger webbgränssnitt.",
+    "ja": "Webインターフェースを作っています。"
+  },
+  {
+    "en": "Web interfaces, frontend infrastructure, and a few things outside work.",
+    "nl": "Webinterfaces, frontend-infrastructuur en een paar dingen buiten het werk.",
+    "de": "Weboberflächen, Frontend-Infrastruktur und ein paar Dinge abseits der Arbeit.",
+    "sv": "Webbgränssnitt, frontend-infrastruktur och lite annat utanför jobbet.",
+    "ja": "Webインターフェース、フロントエンド基盤、そして仕事以外のこと。"
+  },
+  {
+    "en": "Pause",
+    "nl": "Pauzeren",
+    "de": "Pause",
+    "sv": "Pausa",
+    "ja": "一時停止"
+  },
+  {
+    "en": "Run",
+    "nl": "Starten",
+    "de": "Starten",
+    "sv": "Starta",
+    "ja": "実行"
+  },
+  {
+    "en": "Step",
+    "nl": "Stap",
+    "de": "Schritt",
+    "sv": "Steg",
+    "ja": "1ステップ"
+  },
+  {
+    "en": "Reset",
+    "nl": "Opnieuw",
+    "de": "Zurücksetzen",
+    "sv": "Återställ",
+    "ja": "リセット"
+  },
+  {
+    "en": "Move across the lettering",
+    "nl": "Beweeg over de letters",
+    "de": "Bewege den Zeiger über die Buchstaben",
+    "sv": "För pekaren över bokstäverna",
+    "ja": "文字の上でポインターを動かしてください"
+  },
+  {
+    "en": "Step through the simulation",
+    "nl": "Doorloop de simulatie stap voor stap",
+    "de": "Simulation schrittweise ausführen",
+    "sv": "Gå igenom simuleringen steg för steg",
+    "ja": "シミュレーションを1ステップずつ進める"
+  },
+  {
+    "en": "Life",
+    "nl": "Leven",
+    "de": "Leben",
+    "sv": "Liv",
+    "ja": "ライフ"
+  },
+  {
+    "en": "Name",
+    "nl": "Naam",
+    "de": "Name",
+    "sv": "Namn",
+    "ja": "名前"
+  },
+  {
+    "en": "Generation",
+    "nl": "Generatie",
+    "de": "Generation",
+    "sv": "Generation",
+    "ja": "世代"
+  },
+  {
+    "en": "Selected work",
+    "nl": "Geselecteerde projecten",
+    "de": "Ausgewählte Projekte",
+    "sv": "Utvalda projekt",
+    "ja": "主な制作物"
+  },
+  {
+    "en": "Explore the projects",
+    "nl": "Bekijk de projecten",
+    "de": "Projekte entdecken",
+    "sv": "Utforska projekten",
+    "ja": "プロジェクトを見る"
+  },
+  {
+    "en": "Outside work",
+    "nl": "Buiten het werk",
+    "de": "Abseits der Arbeit",
+    "sv": "Utanför jobbet",
+    "ja": "仕事以外のこと"
+  },
+  {
+    "en": "Video games. Running.",
+    "nl": "Videogames. Hardlopen.",
+    "de": "Videospiele. Laufen.",
+    "sv": "Tv-spel. Löpning.",
+    "ja": "ゲーム。ランニング。"
+  },
+  {
+    "en": "Hiking. Motorcycling.",
+    "nl": "Wandelen. Motorrijden.",
+    "de": "Wandern. Motorradfahren.",
+    "sv": "Vandring. Motorcykelkörning.",
+    "ja": "ハイキング。バイク。"
+  },
+  {
+    "en": "Click the photo to browse.",
+    "nl": "Klik op de foto om verder te kijken.",
+    "de": "Klicke auf das Foto, um weiterzublättern.",
+    "sv": "Klicka på bilden för att bläddra.",
+    "ja": "写真をクリックして切り替えます。"
+  },
+  {
+    "en": "Selected work + outside work",
+    "nl": "Projecten + vrije tijd",
+    "de": "Projekte + Freizeit",
+    "sv": "Projekt + fritid",
+    "ja": "制作物と趣味"
+  },
+  {
+    "en": "Scatter the canvas",
+    "nl": "Verspreid de kaarten",
+    "de": "Karten frei anordnen",
+    "sv": "Sprid ut korten",
+    "ja": "自由な配置にする"
+  },
+  {
+    "en": "Align the canvas",
+    "nl": "Lijn de kaarten uit",
+    "de": "Karten ausrichten",
+    "sv": "Ordna korten",
+    "ja": "整列する"
+  },
+  {
+    "en": "Back to canvas",
+    "nl": "Terug naar overzicht",
+    "de": "Zurück zur Übersicht",
+    "sv": "Tillbaka till översikten",
+    "ja": "一覧に戻る"
+  },
+  {
+    "en": "Open",
+    "nl": "Openen",
+    "de": "Öffnen",
+    "sv": "Öppna",
+    "ja": "開く"
+  },
+  {
+    "en": "Rewrite planned",
+    "nl": "Nieuwe versie gepland",
+    "de": "Überarbeitung geplant",
+    "sv": "Omarbetning planerad",
+    "ja": "リニューアル予定"
+  },
+  {
+    "en": "Read the source",
+    "nl": "Bekijk de broncode",
+    "de": "Quellcode ansehen",
+    "sv": "Se källkoden",
+    "ja": "ソースコードを見る"
+  },
+  {
+    "en": "The live demo uses the original useJsonLines hook with a custom presentation.",
+    "nl": "De live demo gebruikt de oorspronkelijke useJsonLines-hook met een eigen weergave.",
+    "de": "Die Live-Demo verwendet den ursprünglichen useJsonLines-Hook mit eigener Darstellung.",
+    "sv": "Live-demon använder den ursprungliga useJsonLines-hooken med en egen presentation.",
+    "ja": "ライブデモでは、元のuseJsonLinesフックに独自の表示を組み合わせています。"
+  },
+  {
+    "en": "React component + hook",
+    "nl": "React-component + hook",
+    "de": "React-Komponente + Hook",
+    "sv": "React-komponent + hook",
+    "ja": "Reactコンポーネント＋フック"
+  },
+  {
+    "en": "Interactive simulation",
+    "nl": "Interactieve simulatie",
+    "de": "Interaktive Simulation",
+    "sv": "Interaktiv simulering",
+    "ja": "インタラクティブなシミュレーション"
+  },
+  {
+    "en": "Display JSON as an expandable tree. Use the renderer component or build a custom view with useJsonLines.",
+    "nl": "Toon JSON als een uitklapbare boomstructuur. Gebruik de renderercomponent of bouw een eigen weergave met useJsonLines.",
+    "de": "JSON als aufklappbaren Baum darstellen. Verwende die Renderer-Komponente oder erstelle mit useJsonLines eine eigene Ansicht.",
+    "sv": "Visa JSON som ett expanderbart träd. Använd renderer-komponenten eller bygg en egen vy med useJsonLines.",
+    "ja": "JSONを展開可能なツリーとして表示します。レンダラーコンポーネントを使うか、useJsonLinesで独自の表示を作れます。"
+  },
+  {
+    "en": "A cellular automaton built around a small set of rules. This is a preview; the standalone project rewrite is planned.",
+    "nl": "Een cellulaire automaat op basis van een paar regels. Dit is een voorproefje; een nieuwe zelfstandige versie staat gepland.",
+    "de": "Ein zellulärer Automat mit wenigen Regeln. Dies ist eine Vorschau; eine eigenständige Überarbeitung ist geplant.",
+    "sv": "En cellulär automat med några enkla regler. Detta är en förhandsvisning; en fristående omarbetning är planerad.",
+    "ja": "少数のルールで動くセル・オートマトンです。これはプレビューで、独立したプロジェクトとして作り直す予定です。"
+  },
+  {
+    "en": "Your photo here",
+    "nl": "Jouw foto hier",
+    "de": "Dein Foto hier",
+    "sv": "Din bild här",
+    "ja": "写真をここに表示"
+  },
+  {
+    "en": "Photo placeholder",
+    "nl": "Tijdelijke foto",
+    "de": "Foto-Platzhalter",
+    "sv": "Bildplatshållare",
+    "ja": "写真のプレースホルダー"
+  },
+  {
+    "en": "Next photo →",
+    "nl": "Volgende foto →",
+    "de": "Nächstes Foto →",
+    "sv": "Nästa bild →",
+    "ja": "次の写真 →"
+  },
+  {
+    "en": "Hiking",
+    "nl": "Wandelen",
+    "de": "Wandern",
+    "sv": "Vandring",
+    "ja": "ハイキング"
+  },
+  {
+    "en": "Motorcycling",
+    "nl": "Motorrijden",
+    "de": "Motorradfahren",
+    "sv": "Motorcykelkörning",
+    "ja": "バイク"
+  },
+  {
+    "en": "Running",
+    "nl": "Hardlopen",
+    "de": "Laufen",
+    "sv": "Löpning",
+    "ja": "ランニング"
+  },
+  {
+    "en": "Video games",
+    "nl": "Videogames",
+    "de": "Videospiele",
+    "sv": "Tv-spel",
+    "ja": "ゲーム"
+  },
+  {
+    "en": "Experience & education",
+    "nl": "Werkervaring en opleiding",
+    "de": "Berufserfahrung und Ausbildung",
+    "sv": "Erfarenhet och utbildning",
+    "ja": "職歴と学歴"
+  },
+  {
+    "en": "The journey so far.",
+    "nl": "Mijn pad tot nu toe.",
+    "de": "Mein bisheriger Weg.",
+    "sv": "Min resa hittills.",
+    "ja": "これまでの歩み。"
+  },
+  {
+    "en": "From shared frontend libraries to owning cloud product interfaces.",
+    "nl": "Van gedeelde frontendbibliotheken tot verantwoordelijkheid voor cloudinterfaces.",
+    "de": "Von gemeinsamen Frontend-Bibliotheken zur Verantwortung für Cloud-Oberflächen.",
+    "sv": "Från gemensamma frontendbibliotek till ansvar för gränssnitt i molnprodukter.",
+    "ja": "共通フロントエンドライブラリから、クラウド製品のUI開発まで。"
+  },
+  {
+    "en": "Current",
+    "nl": "Huidig",
+    "de": "Aktuell",
+    "sv": "Nuvarande",
+    "ja": "現在"
+  },
+  {
+    "en": "Technical highlights",
+    "nl": "Technische bijdragen",
+    "de": "Technische Schwerpunkte",
+    "sv": "Tekniska höjdpunkter",
+    "ja": "技術面での取り組み"
+  },
+  {
+    "en": "Associate Software Engineer",
+    "nl": "Associate software-engineer",
+    "de": "Associate Softwareentwickler",
+    "sv": "Associate mjukvaruutvecklare",
+    "ja": "アソシエイト・ソフトウェアエンジニア"
+  },
+  {
+    "en": "B.Tech, Computer Science",
+    "nl": "B.Tech, Informatica",
+    "de": "B.Tech, Informatik",
+    "sv": "B.Tech, datavetenskap",
+    "ja": "B.Tech（コンピューターサイエンス）"
+  },
+  {
+    "en": "Nov 2024 — Present",
+    "nl": "Nov 2024 — heden",
+    "de": "Nov. 2024 — heute",
+    "sv": "Nov 2024 — nu",
+    "ja": "2024年11月 — 現在"
+  },
+  {
+    "en": "Jan 2023 — Oct 2024",
+    "nl": "Jan 2023 — okt 2024",
+    "de": "Jan. 2023 — Okt. 2024",
+    "sv": "Jan 2023 — okt 2024",
+    "ja": "2023年1月 — 2024年10月"
+  },
+  {
+    "en": "Get in touch.",
+    "nl": "Neem contact op.",
+    "de": "Kontakt aufnehmen.",
+    "sv": "Hör av dig.",
+    "ja": "お問い合わせ"
+  },
+  {
+    "en": "Find me on GitHub ↗",
+    "nl": "Vind me op GitHub ↗",
+    "de": "Mein GitHub-Profil ↗",
+    "sv": "Hitta mig på GitHub ↗",
+    "ja": "GitHubはこちら ↗"
+  },
+  {
+    "en": "Recently played.",
+    "nl": "Onlangs gespeeld.",
+    "de": "Zuletzt gespielt.",
+    "sv": "Nyligen spelat.",
+    "ja": "最近プレイしたゲーム"
+  },
+  {
+    "en": "Outside work / Gaming",
+    "nl": "Buiten het werk / Games",
+    "de": "Freizeit / Gaming",
+    "sv": "Fritid / Spel",
+    "ja": "趣味 / ゲーム"
+  },
+  {
+    "en": "What I have been playing lately, from my public Steam profile.",
+    "nl": "Wat ik de laatste tijd speel, van mijn openbare Steam-profiel.",
+    "de": "Was ich zuletzt gespielt habe, aus meinem öffentlichen Steam-Profil.",
+    "sv": "Det jag har spelat på sistone, från min offentliga Steam-profil.",
+    "ja": "公開Steamプロフィールから、最近プレイしたゲームを紹介します。"
+  },
+  {
+    "en": "My Steam profile ↗",
+    "nl": "Mijn Steam-profiel ↗",
+    "de": "Mein Steam-Profil ↗",
+    "sv": "Min Steam-profil ↗",
+    "ja": "Steamプロフィール ↗"
+  },
+  {
+    "en": "Recent activity · Profile order",
+    "nl": "Recente activiteit · Profielvolgorde",
+    "de": "Letzte Aktivitäten · Profilreihenfolge",
+    "sv": "Senaste aktivitet · Profilordning",
+    "ja": "最近のアクティビティ · プロフィール順"
+  },
+  {
+    "en": "Updated",
+    "nl": "Bijgewerkt",
+    "de": "Aktualisiert",
+    "sv": "Uppdaterad",
+    "ja": "更新日"
+  },
+  {
+    "en": "hours on record",
+    "nl": "uur in totaal",
+    "de": "Stunden insgesamt",
+    "sv": "timmar totalt",
+    "ja": "時間（合計）"
+  },
+  {
+    "en": "No recent games to show.",
+    "nl": "Geen recente games om te tonen.",
+    "de": "Keine kürzlich gespielten Spiele vorhanden.",
+    "sv": "Inga nyligen spelade spel att visa.",
+    "ja": "最近プレイしたゲームはありません。"
+  },
+  {
+    "en": "Recent activity is unavailable.",
+    "nl": "Recente activiteit is niet beschikbaar.",
+    "de": "Letzte Aktivitäten sind nicht verfügbar.",
+    "sv": "Senaste aktivitet är inte tillgänglig.",
+    "ja": "最近のアクティビティを取得できません。"
+  },
+  {
+    "en": "You can still explore my games on Steam.",
+    "nl": "Je kunt mijn games nog steeds op Steam bekijken.",
+    "de": "Du kannst meine Spiele weiterhin auf Steam ansehen.",
+    "sv": "Du kan fortfarande se mina spel på Steam.",
+    "ja": "Steamでゲームを見ることができます。"
+  },
+  {
+    "en": "Recent activity and games",
+    "nl": "Recente activiteit en games",
+    "de": "Letzte Aktivitäten und Spiele",
+    "sv": "Senaste aktivitet och spel",
+    "ja": "最近のアクティビティとゲーム"
+  },
+  {
+    "en": "Technical",
+    "nl": "Techniek",
+    "de": "Technik",
+    "sv": "Teknik",
+    "ja": "技術"
+  },
+  {
+    "en": "Travelling",
+    "nl": "Reizen",
+    "de": "Reisen",
+    "sv": "Resor",
+    "ja": "旅行"
+  },
+  {
+    "en": "Notes on building software and frontend infrastructure.",
+    "nl": "Notities over software en frontend-infrastructuur.",
+    "de": "Notizen zur Softwareentwicklung und Frontend-Infrastruktur.",
+    "sv": "Anteckningar om mjukvaruutveckling och frontend-infrastruktur.",
+    "ja": "ソフトウェア開発とフロントエンド基盤についての記録。"
+  },
+  {
+    "en": "Trips, trails, and time on the road.",
+    "nl": "Reizen, wandelroutes en tijd onderweg.",
+    "de": "Reisen, Wanderwege und Zeit unterwegs.",
+    "sv": "Resor, vandringsleder och tid på vägen.",
+    "ja": "旅、トレイル、道中で過ごす時間。"
+  },
+  {
+    "en": "Games, their systems, and the moments that stay with me.",
+    "nl": "Games, hun systemen en de momenten die me bijblijven.",
+    "de": "Spiele, ihre Systeme und die Momente, die mir bleiben.",
+    "sv": "Spel, deras system och ögonblicken jag minns.",
+    "ja": "ゲームの仕組みと、心に残る瞬間。"
+  },
+  {
+    "en": "Software, places, and games worth talking about.",
+    "nl": "Software, plekken en games die het bespreken waard zijn.",
+    "de": "Software, Orte und Spiele, über die es sich zu schreiben lohnt.",
+    "sv": "Mjukvara, platser och spel värda att prata om.",
+    "ja": "ソフトウェア、訪れた場所、語りたいゲーム。"
+  },
+  {
+    "en": "Layout preview — these articles are sample content.",
+    "nl": "Lay-outvoorbeeld — deze artikelen zijn voorbeeldinhoud.",
+    "de": "Layout-Vorschau — diese Artikel sind Beispielinhalte.",
+    "sv": "Layoutförhandsvisning — artiklarna är exempelinnehåll.",
+    "ja": "レイアウトのプレビューです。記事はサンプルです。"
+  },
+  {
+    "en": "Search articles",
+    "nl": "Artikelen zoeken",
+    "de": "Artikel suchen",
+    "sv": "Sök artiklar",
+    "ja": "記事を検索"
+  },
+  {
+    "en": "Search titles, topics, or keywords…",
+    "nl": "Zoek titels, onderwerpen of trefwoorden…",
+    "de": "Titel, Themen oder Stichwörter suchen…",
+    "sv": "Sök titlar, ämnen eller nyckelord…",
+    "ja": "タイトル、テーマ、キーワードで検索…"
+  },
+  {
+    "en": "Clear",
+    "nl": "Wissen",
+    "de": "Löschen",
+    "sv": "Rensa",
+    "ja": "クリア"
+  },
+  {
+    "en": "All writing",
+    "nl": "Alle artikelen",
+    "de": "Alle Artikel",
+    "sv": "Alla texter",
+    "ja": "すべての記事"
+  },
+  {
+    "en": "Search results",
+    "nl": "Zoekresultaten",
+    "de": "Suchergebnisse",
+    "sv": "Sökresultat",
+    "ja": "検索結果"
+  },
+  {
+    "en": "Latest articles",
+    "nl": "Nieuwste artikelen",
+    "de": "Neueste Artikel",
+    "sv": "Senaste artiklarna",
+    "ja": "最新の記事"
+  },
+  {
+    "en": "0 articles",
+    "nl": "0 artikelen",
+    "de": "0 Artikel",
+    "sv": "0 artiklar",
+    "ja": "記事はありません"
+  },
+  {
+    "en": "of",
+    "nl": "van",
+    "de": "von",
+    "sv": "av",
+    "ja": "/"
+  },
+  {
+    "en": "Search",
+    "nl": "Zoeken",
+    "de": "Suche",
+    "sv": "Sök",
+    "ja": "検索"
+  },
+  {
+    "en": "No matching posts.",
+    "nl": "Geen overeenkomende artikelen.",
+    "de": "Keine passenden Artikel.",
+    "sv": "Inga matchande inlägg.",
+    "ja": "該当する記事はありません。"
+  },
+  {
+    "en": "No posts here yet.",
+    "nl": "Hier zijn nog geen artikelen.",
+    "de": "Hier gibt es noch keine Artikel.",
+    "sv": "Inga inlägg här ännu.",
+    "ja": "まだ記事がありません。"
+  },
+  {
+    "en": "Try a different keyword or browse another category.",
+    "nl": "Probeer een ander trefwoord of bekijk een andere categorie.",
+    "de": "Versuche ein anderes Stichwort oder eine andere Kategorie.",
+    "sv": "Prova ett annat sökord eller en annan kategori.",
+    "ja": "別のキーワードやカテゴリーをお試しください。"
+  },
+  {
+    "en": "This space is ready for the first post. In the meantime, you can explore the rest of the site.",
+    "nl": "Deze plek is klaar voor het eerste artikel. Bekijk ondertussen de rest van de site.",
+    "de": "Hier ist Platz für den ersten Artikel. Entdecke in der Zwischenzeit den Rest der Website.",
+    "sv": "Här finns plats för det första inlägget. Under tiden kan du utforska resten av webbplatsen.",
+    "ja": "最初の記事を準備中です。それまではサイトのほかのページをご覧ください。"
+  },
+  {
+    "en": "Clear search",
+    "nl": "Zoekopdracht wissen",
+    "de": "Suche löschen",
+    "sv": "Rensa sökning",
+    "ja": "検索をクリア"
+  },
+  {
+    "en": "Explore projects ↗",
+    "nl": "Bekijk projecten ↗",
+    "de": "Projekte entdecken ↗",
+    "sv": "Utforska projekt ↗",
+    "ja": "プロジェクトを見る ↗"
+  },
+  {
+    "en": "← Previous",
+    "nl": "← Vorige",
+    "de": "← Zurück",
+    "sv": "← Föregående",
+    "ja": "← 前へ"
+  },
+  {
+    "en": "Next →",
+    "nl": "Volgende →",
+    "de": "Weiter →",
+    "sv": "Nästa →",
+    "ja": "次へ →"
+  },
+  {
+    "en": "min read",
+    "nl": "min leestijd",
+    "de": "Min. Lesezeit",
+    "sv": "min läsning",
+    "ja": "分で読めます"
+  },
+  {
+    "en": "Sample post",
+    "nl": "Voorbeeldartikel",
+    "de": "Beispielartikel",
+    "sv": "Exempelinlägg",
+    "ja": "サンプル記事"
+  },
+  {
+    "en": "Browse all writing ↗",
+    "nl": "Bekijk alle artikelen ↗",
+    "de": "Alle Artikel ansehen ↗",
+    "sv": "Se alla texter ↗",
+    "ja": "すべての記事を見る ↗"
+  },
+  {
+    "en": "Switch to dark theme",
+    "nl": "Donker thema gebruiken",
+    "de": "Dunkles Design aktivieren",
+    "sv": "Byt till mörkt tema",
+    "ja": "ダークテーマに切り替え"
+  },
+  {
+    "en": "Switch to light theme",
+    "nl": "Licht thema gebruiken",
+    "de": "Helles Design aktivieren",
+    "sv": "Byt till ljust tema",
+    "ja": "ライトテーマに切り替え"
+  },
+  {
+    "en": "Own frontend architecture and delivery for Cloud Workloads. Took a new cloud data protection capability from design to general availability in about four months as the sole frontend engineer.",
+    "nl": "Verantwoordelijk voor frontendarchitectuur en oplevering van Cloud Workloads. Bracht als enige frontend-engineer een nieuwe functie voor clouddatabescherming in ongeveer vier maanden van ontwerp naar algemene beschikbaarheid.",
+    "de": "Verantwortlich für Frontend-Architektur und Umsetzung von Cloud Workloads. Als einziger Frontend-Entwickler eine neue Funktion zum Schutz von Cloud-Daten in etwa vier Monaten vom Entwurf bis zur allgemeinen Verfügbarkeit umgesetzt.",
+    "sv": "Ansvarar för frontendarkitektur och leverans för Cloud Workloads. Tog en ny funktion för skydd av molndata från design till allmän tillgänglighet på cirka fyra månader som ensam frontendutvecklare.",
+    "ja": "Cloud Workloadsのフロントエンド設計と開発を担当。唯一のフロントエンドエンジニアとして、新しいクラウドデータ保護機能を設計から約4か月で一般提供まで進めました。"
+  },
+  {
+    "en": "Built a five-level cloud inventory picker with dependent GraphQL queries, URL-persisted selections, and virtualized lists for hundreds of resources.",
+    "nl": "Bouwde een cloudresourcekiezer met vijf niveaus, afhankelijke GraphQL-query’s, selecties in de URL en gevirtualiseerde lijsten voor honderden resources.",
+    "de": "Eine fünfstufige Auswahl für Cloud-Ressourcen mit abhängigen GraphQL-Abfragen, URL-basierten Auswahlzuständen und virtualisierten Listen für Hunderte Ressourcen entwickelt.",
+    "sv": "Byggde en väljare för molnresurser med fem nivåer, beroende GraphQL-frågor, val sparade i URL:en och virtualiserade listor för hundratals resurser.",
+    "ja": "依存関係のあるGraphQLクエリ、URLに保存する選択状態、数百のリソースに対応する仮想化リストを備えた、5階層のクラウドリソース選択UIを開発しました。"
+  },
+  {
+    "en": "Shipped multi-step protection and configuration workflows with validation, permissions, asynchronous states, and error recovery.",
+    "nl": "Leverde meerstapsworkflows voor bescherming en configuratie met validatie, rechten, asynchrone toestanden en foutherstel.",
+    "de": "Mehrstufige Schutz- und Konfigurationsabläufe mit Validierung, Berechtigungen, asynchronen Zuständen und Fehlerbehandlung ausgeliefert.",
+    "sv": "Levererade flerstegsflöden för skydd och konfiguration med validering, behörigheter, asynkrona tillstånd och felåterhämtning.",
+    "ja": "バリデーション、権限、非同期状態、エラーからの復旧を扱う、複数ステップの保護・設定フローを実装しました。"
+  },
+  {
+    "en": "Built a reusable paginated hierarchy table, introduced TypeScript subpath imports, and contributed to the shared Aura UI component library.",
+    "nl": "Bouwde een herbruikbare hiërarchische tabel met paginering, introduceerde TypeScript-subpadimports en droeg bij aan de gedeelde Aura UI-componentbibliotheek.",
+    "de": "Eine wiederverwendbare hierarchische Tabelle mit Paginierung entwickelt, TypeScript-Subpath-Imports eingeführt und zur gemeinsamen Aura-UI-Komponentenbibliothek beigetragen.",
+    "sv": "Byggde en återanvändbar hierarkisk tabell med sidindelning, införde TypeScript-subpath-importer och bidrog till det gemensamma komponentbiblioteket Aura UI.",
+    "ja": "再利用可能なページ分割付き階層テーブルを開発し、TypeScriptのサブパスインポートを導入。共通コンポーネントライブラリAura UIにも貢献しました。"
+  },
+  {
+    "en": "Migrated Redux Form to Formik, Moment.js to Temporal, and class components to hooks; replaced legacy dependencies with native equivalents.",
+    "nl": "Migreerde Redux Form naar Formik, Moment.js naar Temporal en klassecomponenten naar hooks; verving verouderde afhankelijkheden door native alternatieven.",
+    "de": "Redux Form auf Formik, Moment.js auf Temporal und Klassenkomponenten auf Hooks migriert; veraltete Abhängigkeiten durch native Alternativen ersetzt.",
+    "sv": "Migrerade Redux Form till Formik, Moment.js till Temporal och klasskomponenter till hooks; ersatte äldre beroenden med inbyggda alternativ.",
+    "ja": "Redux FormからFormik、Moment.jsからTemporal、クラスコンポーネントからフックへ移行。古い依存ライブラリを標準機能で置き換えました。"
+  },
+  {
+    "en": "Created reusable Augment AI and Claude Code skills for package scaffolding and recurring frontend migrations.",
+    "nl": "Maakte herbruikbare Augment AI- en Claude Code-skills voor het opzetten van pakketten en terugkerende frontendmigraties.",
+    "de": "Wiederverwendbare Augment-AI- und Claude-Code-Skills für Paketgerüste und wiederkehrende Frontend-Migrationen erstellt.",
+    "sv": "Skapade återanvändbara Augment AI- och Claude Code-skills för paketmallar och återkommande frontendmigreringar.",
+    "ja": "パッケージのひな形作成や繰り返し行うフロントエンド移行向けに、再利用可能なAugment AIとClaude Codeのスキルを作成しました。"
+  },
+  {
+    "en": "Conducted frontend interviews covering component design, fundamentals, and practical problem solving.",
+    "nl": "Nam frontendinterviews af over componentontwerp, basiskennis en praktisch probleemoplossen.",
+    "de": "Frontend-Interviews zu Komponentendesign, Grundlagen und praktischer Problemlösung durchgeführt.",
+    "sv": "Genomförde frontendintervjuer om komponentdesign, grundkunskaper och praktisk problemlösning.",
+    "ja": "コンポーネント設計、基礎知識、実践的な問題解決を評価するフロントエンド採用面接を担当しました。"
+  },
+  {
+    "en": "Built shared frontend libraries and developer tools, with a focus on internationalization and schema-driven API experiences.",
+    "nl": "Bouwde gedeelde frontendbibliotheken en ontwikkelaarstools, gericht op internationalisering en schemagestuurde API-ervaringen.",
+    "de": "Gemeinsame Frontend-Bibliotheken und Entwicklerwerkzeuge mit Schwerpunkt auf Internationalisierung und schemagesteuerten API-Oberflächen entwickelt.",
+    "sv": "Byggde gemensamma frontendbibliotek och utvecklarverktyg med fokus på internationalisering och schemadrivna API-gränssnitt.",
+    "ja": "国際化とスキーマ駆動のAPIインターフェースを中心に、共通フロントエンドライブラリと開発者向けツールを開発しました。"
+  },
+  {
+    "en": "Designed shared components and APIs for currencies, dates, units, and addresses across accounting, payroll, sales, and other dealership workflows.",
+    "nl": "Ontwierp gedeelde componenten en API’s voor valuta, datums, eenheden en adressen in boekhouding, salarisadministratie, verkoop en andere dealerworkflows.",
+    "de": "Gemeinsame Komponenten und APIs für Währungen, Datumsangaben, Einheiten und Adressen in Buchhaltung, Lohnabrechnung, Vertrieb und weiteren Autohausabläufen entworfen.",
+    "sv": "Utformade gemensamma komponenter och API:er för valutor, datum, enheter och adresser inom bokföring, löner, försäljning och andra återförsäljarflöden.",
+    "ja": "会計、給与、販売などのディーラー業務向けに、通貨、日付、単位、住所を扱う共通コンポーネントとAPIを設計しました。"
+  },
+  {
+    "en": "Owned API design, packaging, and releases for localization libraries supporting the US, Canada, UK, France, and Australia.",
+    "nl": "Was verantwoordelijk voor API-ontwerp, verpakking en releases van lokalisatiebibliotheken voor de VS, Canada, het VK, Frankrijk en Australië.",
+    "de": "API-Design, Paketierung und Releases von Lokalisierungsbibliotheken für die USA, Kanada, Großbritannien, Frankreich und Australien verantwortet.",
+    "sv": "Ansvarade för API-design, paketering och releaser av lokaliseringsbibliotek för USA, Kanada, Storbritannien, Frankrike och Australien.",
+    "ja": "米国、カナダ、英国、フランス、オーストラリア向けのローカライズライブラリについて、API設計、パッケージ化、リリースを担当しました。"
+  },
+  {
+    "en": "Generated API documentation and interactive request/response experiences from backend schemas.",
+    "nl": "Genereerde API-documentatie en interactieve request/response-weergaven uit backendschema’s.",
+    "de": "API-Dokumentation und interaktive Anfrage-/Antwortoberflächen aus Backend-Schemas generiert.",
+    "sv": "Genererade API-dokumentation och interaktiva vyer för anrop och svar från backendscheman.",
+    "ja": "バックエンドのスキーマからAPIドキュメントと、リクエスト・レスポンスを試せるインタラクティブなUIを生成しました。"
+  },
+  {
+    "en": "Moved API documentation rendering to React Server Components with Suspense, reducing client-side data fetching and rendering work.",
+    "nl": "Verplaatste het renderen van API-documentatie naar React Server Components met Suspense, waardoor minder data en weergavewerk aan de clientkant nodig waren.",
+    "de": "Das Rendering der API-Dokumentation auf React Server Components mit Suspense umgestellt und dadurch clientseitiges Laden und Rendern reduziert.",
+    "sv": "Flyttade rendering av API-dokumentation till React Server Components med Suspense och minskade dataladdning och rendering på klienten.",
+    "ja": "APIドキュメントの描画をSuspense付きReact Server Componentsに移し、クライアント側のデータ取得と描画処理を削減しました。"
+  },
+  {
+    "en": "Bachelor of Technology in Computer Science at the Indian Institute of Information Technology, Guwahati.",
+    "nl": "Bachelor of Technology in Informatica aan het Indian Institute of Information Technology, Guwahati.",
+    "de": "Bachelor of Technology in Informatik am Indian Institute of Information Technology, Guwahati.",
+    "sv": "Bachelor of Technology i datavetenskap vid Indian Institute of Information Technology, Guwahati.",
+    "ja": "Indian Institute of Information Technology, GuwahatiでコンピューターサイエンスのB.Techを取得。"
+  },
+  {
+    "en": "Contact",
+    "nl": "Contact",
+    "de": "Kontakt",
+    "sv": "Kontakt",
+    "ja": "お問い合わせ"
+  },
+  {
+    "en": "Have a role, a project, or something to discuss? Send me a message.",
+    "nl": "Een vacature, een project of iets om te bespreken? Stuur me een bericht.",
+    "de": "Eine Stelle, ein Projekt oder etwas zu besprechen? Schreib mir.",
+    "sv": "Har du en roll, ett projekt eller något att diskutera? Skicka ett meddelande.",
+    "ja": "お仕事やプロジェクト、ご相談など、お気軽にメッセージをお送りください。"
+  },
+  {
+    "en": "Your name",
+    "nl": "Je naam",
+    "de": "Dein Name",
+    "sv": "Ditt namn",
+    "ja": "お名前"
+  },
+  {
+    "en": "Email (optional, for a reply)",
+    "nl": "E-mail (optioneel, voor een reactie)",
+    "de": "E-Mail (optional, für eine Antwort)",
+    "sv": "E-post (valfritt, för svar)",
+    "ja": "メールアドレス（任意・返信用）"
+  },
+  {
+    "en": "Message",
+    "nl": "Bericht",
+    "de": "Nachricht",
+    "sv": "Meddelande",
+    "ja": "メッセージ"
+  },
+  {
+    "en": "Your message is sent through EmailJS to my inbox.",
+    "nl": "Je bericht wordt via EmailJS naar mijn inbox gestuurd.",
+    "de": "Deine Nachricht wird über EmailJS an mein Postfach gesendet.",
+    "sv": "Ditt meddelande skickas via EmailJS till min inkorg.",
+    "ja": "メッセージはEmailJSを通じて私の受信箱に送信されます。"
+  },
+  {
+    "en": "Send message",
+    "nl": "Bericht versturen",
+    "de": "Nachricht senden",
+    "sv": "Skicka meddelande",
+    "ja": "送信する"
+  },
+  {
+    "en": "Sending…",
+    "nl": "Versturen…",
+    "de": "Wird gesendet…",
+    "sv": "Skickar…",
+    "ja": "送信中…"
+  },
+  {
+    "en": "Sending your message…",
+    "nl": "Je bericht wordt verstuurd…",
+    "de": "Deine Nachricht wird gesendet…",
+    "sv": "Skickar ditt meddelande…",
+    "ja": "メッセージを送信しています…"
+  },
+  {
+    "en": "Please enter your name and message.",
+    "nl": "Vul je naam en bericht in.",
+    "de": "Bitte gib deinen Namen und eine Nachricht ein.",
+    "sv": "Ange ditt namn och ett meddelande.",
+    "ja": "お名前とメッセージを入力してください。"
+  },
+  {
+    "en": "Message sent. Thanks for getting in touch!",
+    "nl": "Bericht verstuurd. Bedankt voor je bericht!",
+    "de": "Nachricht gesendet. Danke für deine Nachricht!",
+    "sv": "Meddelandet har skickats. Tack för att du hörde av dig!",
+    "ja": "送信しました。お問い合わせありがとうございます！"
+  },
+  {
+    "en": "Please wait 30 seconds before sending another message.",
+    "nl": "Wacht 30 seconden voordat je nog een bericht stuurt.",
+    "de": "Bitte warte 30 Sekunden, bevor du eine weitere Nachricht sendest.",
+    "sv": "Vänta 30 sekunder innan du skickar ett nytt meddelande.",
+    "ja": "次のメッセージを送るまで30秒お待ちください。"
+  },
+  {
+    "en": "Your message could not be sent. Please try again.",
+    "nl": "Je bericht kon niet worden verstuurd. Probeer het opnieuw.",
+    "de": "Deine Nachricht konnte nicht gesendet werden. Bitte versuche es erneut.",
+    "sv": "Meddelandet kunde inte skickas. Försök igen.",
+    "ja": "送信できませんでした。もう一度お試しください。"
+  },
+  {
+    "en": "Hobbies",
+    "nl": "Hobby’s",
+    "de": "Hobbys",
+    "sv": "Fritidsintressen",
+    "ja": "趣味"
+  },
+  {
+    "en": "Hobbies.",
+    "nl": "Hobby’s.",
+    "de": "Hobbys.",
+    "sv": "Fritidsintressen.",
+    "ja": "趣味"
+  },
+  {
+    "en": "Running & Hiking",
+    "nl": "Hardlopen & wandelen",
+    "de": "Laufen & Wandern",
+    "sv": "Löpning & vandring",
+    "ja": "ランニング・ハイキング"
+  },
+  {
+    "en": "Travelling, gaming, running and hiking.",
+    "nl": "Reizen, gamen, hardlopen en wandelen.",
+    "de": "Reisen, Gaming, Laufen und Wandern.",
+    "sv": "Resor, spel, löpning och vandring.",
+    "ja": "旅行、ゲーム、ランニング、ハイキング。"
+  },
+  {
+    "en": "Places, photos and notes from the road.",
+    "nl": "Plekken, foto’s en aantekeningen van onderweg.",
+    "de": "Orte, Fotos und Notizen von unterwegs.",
+    "sv": "Platser, foton och anteckningar från resor.",
+    "ja": "旅先の場所、写真、記録。"
+  },
+  {
+    "en": "Routes, trails and time outdoors.",
+    "nl": "Routes, wandelpaden en tijd buiten.",
+    "de": "Strecken, Wanderwege und Zeit im Freien.",
+    "sv": "Rutter, leder och tid utomhus.",
+    "ja": "コース、登山道、アウトドアの時間。"
+  },
+  {
+    "en": "Photos and stories coming soon.",
+    "nl": "Foto’s en verhalen volgen binnenkort.",
+    "de": "Fotos und Geschichten folgen bald.",
+    "sv": "Foton och berättelser kommer snart.",
+    "ja": "写真やエピソードを近日公開。"
+  },
+  {
+    "en": "My most-played Steam games, ranked by total playtime.",
+    "nl": "Mijn meest gespeelde Steam-games, gerangschikt op totale speeltijd.",
+    "de": "Meine meistgespielten Steam-Spiele, sortiert nach Gesamtspielzeit.",
+    "sv": "Mina mest spelade Steam-spel, sorterade efter total speltid.",
+    "ja": "合計プレイ時間順に並べた、よく遊ぶSteamゲーム。"
+  },
+  {
+    "en": "Most played · Up to 9 games",
+    "nl": "Meest gespeeld · Maximaal 9 games",
+    "de": "Meistgespielt · Bis zu 9 Spiele",
+    "sv": "Mest spelade · Upp till 9 spel",
+    "ja": "プレイ時間順・最大9本"
+  },
+  {
+    "en": "No games to show yet.",
+    "nl": "Nog geen games om te tonen.",
+    "de": "Noch keine Spiele zum Anzeigen.",
+    "sv": "Inga spel att visa ännu.",
+    "ja": "表示できるゲームはまだありません。"
+  },
+  {
+    "en": "Skills",
+    "nl": "Vaardigheden",
+    "de": "Kenntnisse",
+    "sv": "Kompetenser",
+    "ja": "スキル"
+  },
+  {
+    "en": "Tools & practices",
+    "nl": "Tools en werkwijzen",
+    "de": "Werkzeuge und Arbeitsweisen",
+    "sv": "Verktyg och arbetssätt",
+    "ja": "ツールと開発手法"
+  },
+  {
+    "en": "The tools and practices behind my work.",
+    "nl": "De tools en werkwijzen die ik in mijn werk gebruik.",
+    "de": "Die Werkzeuge und Arbeitsweisen, die ich bei meiner Arbeit nutze.",
+    "sv": "Verktygen och arbetssätten jag använder i mitt arbete.",
+    "ja": "仕事で使っているツールと開発手法。"
+  },
+  {
+    "en": "Frontend",
+    "nl": "Frontend",
+    "de": "Frontend",
+    "sv": "Frontend",
+    "ja": "フロントエンド"
+  },
+  {
+    "en": "Platform & data",
+    "nl": "Platform en data",
+    "de": "Plattform und Daten",
+    "sv": "Plattform och data",
+    "ja": "プラットフォームとデータ"
+  },
+  {
+    "en": "Reusable components",
+    "nl": "Herbruikbare componenten",
+    "de": "Wiederverwendbare Komponenten",
+    "sv": "Återanvändbara komponenter",
+    "ja": "再利用可能なコンポーネント"
+  },
+  {
+    "en": "Frontend architecture",
+    "nl": "Frontendarchitectuur",
+    "de": "Frontend-Architektur",
+    "sv": "Frontendarkitektur",
+    "ja": "フロントエンドアーキテクチャ"
+  },
+  {
+    "en": "Dependency modernization",
+    "nl": "Afhankelijkheden moderniseren",
+    "de": "Modernisierung von Abhängigkeiten",
+    "sv": "Modernisering av beroenden",
+    "ja": "依存ライブラリの刷新"
+  },
+  {
+    "en": "AI-assisted development",
+    "nl": "AI-ondersteunde ontwikkeling",
+    "de": "KI-gestützte Entwicklung",
+    "sv": "AI-stödd utveckling",
+    "ja": "AIを活用した開発"
+  },
+  {
+    "en": "Documentation & reference",
+    "nl": "Documentatie en naslag",
+    "de": "Dokumentation und Referenz",
+    "sv": "Dokumentation och referens",
+    "ja": "ドキュメントとリファレンス"
+  }
+]

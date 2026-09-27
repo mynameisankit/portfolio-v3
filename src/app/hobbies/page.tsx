@@ -1,10 +1,9 @@
 import type { Metadata } from 'next';
-
-import { getGameLibrary } from '@/features/gaming/repository';
-import { HobbiesPage } from '@/features/hobbies/hobbies-page';
-import { SiteFooter } from '@/features/layout/site-footer';
-import { SiteHeader } from '@/features/layout/site-header';
-import { getPortfolio } from '@/features/portfolio/repository';
+import { SiteFooter } from '@/app/_components/layout/SiteFooter';
+import { SiteHeader } from '@/app/_components/layout/SiteHeader';
+import { HobbiesPage } from '@/app/hobbies/_components/HobbiesPage';
+import { getGameLibrary } from '@/data/gaming/repository';
+import { getPortfolio } from '@/data/portfolio/repository';
 
 export const metadata: Metadata = {
   title: 'Hobbies | Ankit Kumar',
@@ -13,8 +12,9 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const [portfolio, library] = await Promise.all([getPortfolio(), getGameLibrary()]);
+
   return (
-    <div className="site-shell" id="top">
+    <div className="site-shell max-w-295 my-0 mx-auto" id="top">
       <SiteHeader content={portfolio} />
       <HobbiesPage library={library} />
       <SiteFooter content={portfolio} />
