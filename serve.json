@@ -3,14 +3,6 @@
   "directoryListing": false,
   "rewrites": [
     {
-      "source": "/studio/static/:asset*",
-      "destination": "/studioAssets/:asset*"
-    },
-    {
-      "source": "/static/:asset*",
-      "destination": "/studioAssets/:asset*"
-    },
-    {
       "source": "/studio/**",
       "destination": "/studio/index.html"
     }

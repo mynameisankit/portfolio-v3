@@ -1,3 +1,1 @@
-/studio/static/* /studioAssets/:splat 200
-/static/* /studioAssets/:splat 200
 /studio/* /studio 200
