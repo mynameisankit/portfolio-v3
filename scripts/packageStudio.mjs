@@ -1,6 +1,8 @@
-import { cp, readFile, writeFile } from 'node:fs/promises';
+import { cp, readFile, rename, writeFile } from 'node:fs/promises';
 
 await cp('studio-dist', 'out/studio', { recursive: true });
+// Keep assets outside the Studio route fallback so Cloudflare serves their real content.
+await rename('out/studio/static', 'out/studioAssets');
 const file = 'out/studio/index.html';
 const html = (await readFile(file, 'utf8')).replace(
   /<link[^>]*rel="(?:manifest|apple-touch-icon)"[^>]*>/g,

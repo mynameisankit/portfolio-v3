@@ -86,7 +86,7 @@ Connect the GitHub repository in Workers Builds and use:
 
 Set build variables `NODE_VERSION=24.19.0` and `YARN_VERSION=4.9.2`. Add `STEAM_API_KEY` as a secret in the build environment if you want most-played games. Sanity's public configuration is already in source; no read token is required.
 
-After deployment, add `ankitkumar.fyi` under the Worker's Settings → Domains & Routes → Add → Custom Domain. Configure Sanity CORS and EmailJS as described below. The build includes `_redirects` for Studio and `_headers` for the PWA. Keep the `/studio/static/*` asset rule before the `/studio/*` fallback; otherwise JavaScript requests receive HTML and Studio appears blank.
+After deployment, add `ankitkumar.fyi` under the Worker's Settings → Domains & Routes → Add → Custom Domain. Configure Sanity CORS and EmailJS as described below. The build includes `_redirects` for Studio and `_headers` for the PWA. Studio assets are packaged in `out/studioAssets`, outside the `/studio/*` page fallback. Keep the asset rewrite rules before that fallback; otherwise JavaScript requests receive HTML and Studio appears blank.
 
 For local Cloudflare verification, run `yarn build`, then `yarn wrangler dev`. This is distinct from `yarn wrangler preview`, which publishes a remote preview. `yarn wrangler deploy --dry-run` validates deployment configuration without publishing. Manual deployment requires `yarn wrangler login` first.
 
