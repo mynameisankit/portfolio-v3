@@ -1,6 +1,6 @@
 # Ankit Kumar Portfolio
 
-Portfolio for ankitkumar.fyi, built with Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, and Sanity. The website is statically exported; content changes require a rebuild and redeployment.
+Portfolio for ankitkumar.fyi, built with Next.js, React, TypeScript, Tailwind CSS, shadcn/ui, and Sanity. The website is statically exported; content changes require a rebuild and redeployment, either manually or through a Cloudflare Workers Build deploy hook.
 
 ## Getting started
 
@@ -69,7 +69,28 @@ Blogs support technical, travelling, and video-games categories. Supply a title,
 
 With no published posts, `/blogs` shows the empty state. `/blogs/preview-samples` provides layout fixtures and `/blogs/preview-empty` previews the empty design; both are marked noindex. Blog data is exported for local Fuse search, with no browser-side Sanity query.
 
-No automatic deployment hook is configured. Publishing in Studio does not update an existing static deployment.
+### Automatic CMS deployments
+
+Sanity stores the content, but this application renders that content during `yarn build`. A Sanity webhook must therefore trigger a new Cloudflare Workers Build; sending it to `https://ankitkumar.fyi` cannot update an already-deployed static site.
+
+1. In Cloudflare, connect this repository to the `ankit-portfolio` Worker through Workers Builds. Use the build settings in the next section and select the production branch.
+2. Go to **Workers & Pages → ankit-portfolio → Settings → Builds → Deploy Hooks**. Create a hook named `sanity-production` for the production branch and copy its generated URL.
+3. In Sanity project `yek4giks`, edit the webhook with the following values:
+
+   | Field          | Value                                                   |
+   | -------------- | ------------------------------------------------------- |
+   | URL            | The Cloudflare Deploy Hook URL from step 2              |
+   | HTTP method    | `POST`                                                  |
+   | Dataset        | `production`                                            |
+   | Trigger events | Create, Update, Delete                                  |
+   | Filter         | `_type in ["portfolioSite", "blogPost", "translation"]` |
+   | Include drafts | Disabled                                                |
+
+4. Publish one change in Sanity. Its delivery log should receive a 2xx response, and Cloudflare's Builds page should show a new production build with `deploy hook` as the trigger. Once the build succeeds, reload the portfolio normally.
+
+The deploy-hook URL is a credential: do not commit it, publish it, or send it in chat. If it leaks, delete it in Cloudflare and create a replacement.
+
+See [Cloudflare Workers Deploy Hooks](https://developers.cloudflare.com/workers/ci-cd/builds/deploy-hooks/) and [Sanity webhooks](https://www.sanity.io/docs/content-lake/webhooks) for dashboard details.
 
 ## Cloudflare Workers deployment
 

@@ -1020,5 +1020,19 @@
     "de": "Seite wird geladen…",
     "sv": "Laddar sidan…",
     "ja": "ページを読み込み中…"
+  },
+  {
+    "en": "More work",
+    "nl": "Meer werk",
+    "de": "Weitere Arbeiten",
+    "sv": "Mer arbete",
+    "ja": "その他の作品"
+  },
+  {
+    "en": "From the archive",
+    "nl": "Uit het archief",
+    "de": "Aus dem Archiv",
+    "sv": "Från arkivet",
+    "ja": "アーカイブより"
   }
 ]

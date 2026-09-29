@@ -61,6 +61,38 @@ export const portfolioSite = defineType({
       ],
     }),
     defineField({
+      name: 'additionalProjects',
+      title: 'Additional projects',
+      description: 'Simple project cards shown after the interactive demos on the home page.',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          fields: [
+            defineField({ name: 'title', type: 'string', validation: (rule) => rule.required() }),
+            defineField({
+              name: 'description',
+              type: 'text',
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'image',
+              type: 'image',
+              options: { hotspot: true },
+              validation: (rule) => rule.required(),
+            }),
+            defineField({
+              name: 'source',
+              title: 'Source or live URL',
+              type: 'url',
+              validation: (rule) => rule.required().uri({ scheme: ['https'] }),
+            }),
+          ],
+          preview: { select: { title: 'title', media: 'image' } },
+        }),
+      ],
+    }),
+    defineField({
       name: 'hobbies',
       title: 'Hobby photos',
       description:

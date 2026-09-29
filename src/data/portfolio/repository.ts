@@ -23,6 +23,17 @@ const schema = z.object({
       }),
     )
     .min(1),
+  additionalProjects: z
+    .array(
+      z.object({
+        title: z.string().min(1),
+        description: z.string(),
+        image: z.string().url(),
+        source: z.string().url(),
+      }),
+    )
+    .nullable()
+    .optional(),
   skills: z.array(skillCategorySchema).nullable().optional(),
   career: z.array(careerEntrySchema).nullable().optional(),
   hobbies: z.array(z.object({ name: z.string(), image: z.string(), caption: z.string() })).min(1),
@@ -42,6 +53,12 @@ const query = `
       category,
       description,
       "source": coalesce(source, "")
+    },
+    additionalProjects[] {
+      title,
+      "description": coalesce(description, ""),
+      "image": image.asset->url,
+      source
     },
     skills[] {
       "id": coalesce(id, _key),
@@ -75,6 +92,7 @@ export const getPortfolio = cache(async (): Promise<PortfolioContent> => {
 
   return {
     ...parsed,
+    additionalProjects: parsed.additionalProjects ?? portfolio.additionalProjects,
     career: parsed.career ?? portfolio.career,
     skills: parsed.skills ?? portfolio.skills,
   };

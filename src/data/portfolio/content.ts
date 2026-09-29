@@ -26,6 +26,12 @@ export const portfolio = {
       source: '',
     },
   ],
+  additionalProjects: [] as {
+    title: string;
+    description: string;
+    image: string;
+    source: string;
+  }[],
   career,
   skills,
   hobbies: [

@@ -6,6 +6,7 @@ import { Button } from '@/app/_components/ui/Button';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { cn } from '@/lib/utils';
 import { ProjectCard } from './ProjectCard';
+import { StandardProjectCard } from './StandardProjectCard';
 import { useProjectExpansion } from './useProjectExpansion';
 
 export function ProjectCanvas({ content }: { content: PortfolioContent }) {
@@ -74,6 +75,23 @@ export function ProjectCanvas({ content }: { content: PortfolioContent }) {
           </span>
         </aside>
       </div>
+      {!!content.additionalProjects.length && (
+        <div className="additional-projects border-t border-border px-[7%] py-10">
+          <div className="mb-6 flex items-center justify-between gap-5">
+            <h3 className="text-[25px] tracking-[-0.7px] font-medium">
+              <Text>More work</Text>
+            </h3>
+            <span className="font-mono text-[12px] uppercase tracking-[1.2px] text-muted-foreground">
+              <Text>From the archive</Text>
+            </span>
+          </div>
+          <div className="grid grid-cols-2 gap-6 max-[721px]:grid-cols-1">
+            {content.additionalProjects.map((project) => (
+              <StandardProjectCard key={project.source} project={project} />
+            ))}
+          </div>
+        </div>
+      )}
       <div className="canvas-footer flex justify-between items-center gap-5 py-6 px-[5%] [&_.button]:text-[13px]">
         <span className="eyebrow font-mono text-[12px] leading-[1.6] tracking-[1.2px] uppercase text-muted-foreground">
           <Text>Selected work + outside work</Text>
