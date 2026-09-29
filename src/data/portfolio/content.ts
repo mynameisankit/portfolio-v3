@@ -28,30 +28,6 @@ export const portfolio = {
   ],
   career,
   skills,
-  experience: [
-    {
-      title: 'Cloud Workloads',
-      description:
-        'Own frontend architecture and delivery for Cloud Workloads, from implementation through ongoing optimization.',
-      bullets: [],
-    },
-    {
-      title: 'Frontend infrastructure',
-      description: '',
-      bullets: [
-        'Modernized module imports with TypeScript subpath imports.',
-        'Built a reusable paginated hierarchy table component.',
-        'Migrated from Moment.js to the Temporal API.',
-        'Replaced more than six legacy dependencies.',
-      ],
-    },
-    {
-      title: 'Engineering workflows',
-      description:
-        'Integrate AI agents into day-to-day software engineering workflows and evaluate new tools for the team.',
-      bullets: [],
-    },
-  ],
   hobbies: [
     { name: 'Hiking', image: '', caption: 'Photo placeholder' },
     { name: 'Motorcycling', image: '', caption: 'Photo placeholder' },

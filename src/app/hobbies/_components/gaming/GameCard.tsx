@@ -36,12 +36,12 @@ export function GameCard({ game, rank }: { game: SteamGame; rank?: number }) {
       </h3>
       <p className="font-mono text-[18px] leading-[normal]">
         {hours}{' '}
-        <span className="font-[Arial,sans-serif] text-[12px] leading-[normal] text-muted-foreground">
+        <span className="text-[12px] leading-[normal] text-muted-foreground">
           <Text>hours on record</Text>
         </span>
       </p>
       {game.lastPlayed && (
-        <p className="game-last-played mt-3 font-[Arial,sans-serif] text-[12px] leading-[1.6] text-muted-foreground">
+        <p className="game-last-played mt-3 text-[12px] leading-[1.6] text-muted-foreground">
           <Text>Last played</Text>{' '}
           <span lang="en">{game.lastPlayed.replace(/^last played(?: on)? /i, '')}</span>
         </p>

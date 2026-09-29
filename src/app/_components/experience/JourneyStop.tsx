@@ -11,7 +11,7 @@ export function JourneyStop({ entry }: { entry: CareerEntry }) {
         className="journey-marker absolute left-[-6px] top-[5px] w-[11px] h-[11px] [border:2px_solid_var(--muted-foreground)] rounded-full bg-background"
         aria-hidden="true"
       />
-      <div className="journey-period flex flex-wrap items-center gap-3 mb-[14px] font-mono text-[12px] leading-[1.6] text-muted-foreground">
+      <div className="journey-period flex flex-wrap items-center gap-3 mb-[14px] font-mono text-[12px] leading-[1.6] text-muted-foreground min-[2560px]:text-[14px]">
         <span>
           <Text>{entry.period}</Text>
         </span>
@@ -27,19 +27,19 @@ export function JourneyStop({ entry }: { entry: CareerEntry }) {
       >
         <header>
           <h3
-            className="text-[27px] font-medium tracking-[-0.7px] leading-[1.2]"
+            className="text-[28px] font-medium tracking-[-0.7px] leading-[1.2] min-[2560px]:text-[31px]"
             id={`career-${entry.id}`}
           >
             {entry.organization}
           </h3>
-          <p className="journey-role mt-2 text-[16px]">
+          <p className="journey-role mt-2 text-[17px] min-[2560px]:text-[18px]">
             <Text>{entry.role}</Text>
           </p>
           <p className="journey-location mt-[3px] text-[12px] text-muted-foreground">
             {entry.location}
           </p>
         </header>
-        <p className="journey-summary mt-5 text-muted-foreground text-[15px] leading-[1.75]">
+        <p className="journey-summary mt-5 text-muted-foreground text-[16px] leading-[1.75] min-[2560px]:text-[17px]">
           <Text>{entry.summary}</Text>
         </p>
         {!!entry.highlights.length && (
@@ -47,7 +47,7 @@ export function JourneyStop({ entry }: { entry: CareerEntry }) {
             className="journey-details group/journey mt-5 border-t border-border"
             open={entry.current}
           >
-            <summary className="flex justify-between items-center gap-3 pt-4 px-0 pb-0 cursor-pointer list-none [&::-webkit-details-marker]:hidden text-[13px] text-primary">
+            <summary className="flex justify-between items-center gap-3 pt-4 px-0 pb-0 cursor-pointer list-none [&::-webkit-details-marker]:hidden text-[13px] text-primary min-[2560px]:text-[15px]">
               <Text>Technical highlights</Text>
               <span
                 className="journey-details-icon text-[20px] transition-transform duration-180 group-open/journey:rotate-45 motion-reduce:transition-none"
@@ -56,7 +56,7 @@ export function JourneyStop({ entry }: { entry: CareerEntry }) {
                 +
               </span>
             </summary>
-            <ul className="space-y-3 pl-[17px] mt-[18px] text-muted-foreground text-[14px] leading-[1.75]">
+            <ul className="space-y-3 pl-[17px] mt-[18px] text-muted-foreground text-[14px] leading-[1.75] min-[2560px]:text-[15px]">
               {entry.highlights.map((highlight) => (
                 <li key={highlight}>
                   <Text>{highlight}</Text>

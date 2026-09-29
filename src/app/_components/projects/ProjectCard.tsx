@@ -85,8 +85,10 @@ export function ProjectCard({ project, index, isExpanded, isHidden, onToggle }: 
         className="project-detail [&[hidden]]:hidden! p-[26px] [border-top:1px_solid_color-mix(in_srgb,_currentColor_20%,_transparent)] [&_.detail-note]:text-[13px] [&_.detail-note]:opacity-70"
         hidden={!isExpanded}
       >
-        <h2 className="text-[30px] leading-[1.2] tracking-[-1px] font-medium">{project.name}</h2>
-        <p className="text-[16px] leading-[1.7] max-w-[650px] my-[14px] mx-0">
+        <h2 className="text-[32px] leading-[1.2] tracking-[-1px] font-medium min-[2560px]:text-[34px]">
+          {project.name}
+        </h2>
+        <p className="text-[17px] leading-[1.7] max-w-[650px] my-[14px] mx-0 min-[2560px]:text-[18px]">
           <Text>{project.description}</Text>
         </p>
         {project.source && (
@@ -102,7 +104,7 @@ export function ProjectCard({ project, index, isExpanded, isHidden, onToggle }: 
           </Link>
         )}
         {project.id === 'json' && (
-          <p className="detail-note text-[16px] leading-[1.7] max-w-[650px] my-[14px] mx-0">
+          <p className="detail-note text-[17px] leading-[1.7] max-w-[650px] my-[14px] mx-0 min-[2560px]:text-[18px]">
             <Text>The live demo uses the published React JSON Renderer component.</Text>
           </p>
         )}

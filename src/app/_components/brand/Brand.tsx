@@ -12,7 +12,7 @@ export function Brand() {
           y="28"
           textAnchor="middle"
           fill="var(--primary-foreground)"
-          fontFamily="Arial, Helvetica, sans-serif"
+          fontFamily="Space Grotesk, Arial, sans-serif"
           fontWeight="900"
           fontSize="25"
           letterSpacing="-1.5"

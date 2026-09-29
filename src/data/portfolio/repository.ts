@@ -25,9 +25,6 @@ const schema = z.object({
     .min(1),
   skills: z.array(skillCategorySchema).nullable().optional(),
   career: z.array(careerEntrySchema).nullable().optional(),
-  experience: z.array(
-    z.object({ title: z.string(), description: z.string(), bullets: z.array(z.string()) }),
-  ),
   hobbies: z.array(z.object({ name: z.string(), image: z.string(), caption: z.string() })).min(1),
 });
 
@@ -60,11 +57,6 @@ const query = `
       "current": coalesce(current, false),
       "summary": coalesce(summary, ""),
       "highlights": coalesce(highlights, [])
-    },
-    experience[] {
-      title,
-      "description": coalesce(description, ""),
-      "bullets": coalesce(bullets, [])
     },
     hobbies[] {
       name,

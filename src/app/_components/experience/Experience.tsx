@@ -10,11 +10,11 @@ export function Experience({ content }: { content: PortfolioContent }) {
       aria-labelledby="experience-title"
     >
       <div className="experience-heading sticky top-8 max-[761px]:[position:static] [html[lang='ja']_&_h2]:tracking-[0]">
-        <span className="eyebrow font-mono text-[12px] leading-[1.6] tracking-[1.2px] uppercase text-muted-foreground">
+        <span className="eyebrow font-mono text-[12px] leading-[1.6] tracking-[1.2px] uppercase text-muted-foreground min-[2560px]:text-[14px]">
           <Text>Experience &amp; education</Text>
         </span>
         <h2
-          className="text-[clamp(38px,_4.8vw,_58px)] leading-[1.08] font-medium tracking-[-2px] my-5 mx-0"
+          className="text-[clamp(38px,_4.8vw,_58px)] leading-[1.08] font-medium tracking-[-2px] my-5 mx-0 min-[2560px]:text-[64px]"
           id="experience-title"
         >
           <Text>The journey so far.</Text>

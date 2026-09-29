@@ -86,7 +86,7 @@ export function PostCard({
             className={cn(
               'font-normal tracking-[-0.4px] group-hover/post:text-primary',
               !isList && index % 4 === 3
-                ? 'font-[Georgia,serif] text-[27px] leading-[1.3]'
+                ? 'text-[27px] leading-[1.3]'
                 : 'text-[22px] leading-[1.35]',
             )}
           >

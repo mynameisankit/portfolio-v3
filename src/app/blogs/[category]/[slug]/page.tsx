@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { BlogArticle } from '@/app/blogs/_components/article/BlogArticle';
 import { categories } from '@/data/blog/model';
 import { getPosts } from '@/data/blog/repository';
+import { getOpenGraphImages } from './metadataHelpers';
 
 export const dynamicParams = false;
 export async function generateStaticParams() {
@@ -28,8 +29,14 @@ export async function generateMetadata({
   const post = posts.find((item) => item.category === category && item.slug === slug);
 
   return {
-    title: `${post?.title ?? 'Article'} | Ankit Kumar`,
+    title: post?.title ?? 'Article',
     description: post?.description,
+    alternates: { canonical: `/blogs/${category}/${slug}` },
+    openGraph: {
+      type: 'article',
+      publishedTime: post?.date,
+      images: getOpenGraphImages(post),
+    },
     robots: { index: true, follow: true },
   };
 }

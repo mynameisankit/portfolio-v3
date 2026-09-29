@@ -25,10 +25,13 @@ export function ProjectCanvas({ content }: { content: PortfolioContent }) {
       }}
     >
       <div className="section-heading flex justify-between items-center gap-5 my-0 mx-[5%] py-[25px] px-0 [border-top:1px_solid_var(--border)]">
-        <h2 className="text-[25px] tracking-[-0.7px] font-medium" id="project-heading">
+        <h2
+          className="text-[27px] tracking-[-0.7px] font-medium min-[2560px]:text-[30px]"
+          id="project-heading"
+        >
           <Text>Selected work</Text>
         </h2>
-        <span className="eyebrow font-mono text-[12px] leading-[1.6] tracking-[1.2px] uppercase text-muted-foreground">
+        <span className="eyebrow font-mono text-[12px] leading-[1.6] tracking-[1.2px] uppercase text-muted-foreground min-[2560px]:text-[14px]">
           <Text>Explore the projects</Text>
         </span>
       </div>
@@ -61,7 +64,7 @@ export function ProjectCanvas({ content }: { content: PortfolioContent }) {
           <h3 className="eyebrow font-mono text-[12px] leading-[1.6] tracking-[1.2px] uppercase text-muted-foreground">
             <Text>Outside work</Text>
           </h3>
-          <p className="italic font-[Georgia,serif] text-[32px] leading-[1.35] tracking-[-0.5px] my-4 mx-0">
+          <p className="text-[34px] leading-[1.35] tracking-[-0.5px] my-4 mx-0 min-[2560px]:text-[36px]">
             <Text>Video games. Running.</Text>
             <br />
             <Text>Hiking. Motorcycling.</Text>

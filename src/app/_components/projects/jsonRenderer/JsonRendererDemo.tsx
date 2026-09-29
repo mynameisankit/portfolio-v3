@@ -13,7 +13,7 @@ export function JsonRendererDemo() {
 
   return (
     <div className="json-demo-wrap py-3 px-4 group-[.expanded]/project:p-4">
-      <div className="json-demo-controls flex flex-wrap gap-[15px] mb-[15px] text-muted-foreground [font:12px/1.5_Arial,_sans-serif]">
+      <div className="json-demo-controls flex flex-wrap gap-[15px] mb-[15px] font-sans text-[12px] leading-[1.5] text-muted-foreground">
         <label className="flex items-center gap-[5px] min-h-[30px]">
           <input
             className="[accent-color:var(--primary)]"

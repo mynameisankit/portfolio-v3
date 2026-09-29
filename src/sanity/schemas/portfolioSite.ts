@@ -16,7 +16,6 @@ export const portfolioSite = defineType({
     })),
     career: portfolio.career.map((entry) => ({ ...entry, _key: entry.id })),
     projects: portfolio.projects.map((project) => ({ ...project, _key: project.id })),
-    experience: portfolio.experience.map((item, index) => ({ ...item, _key: String(index) })),
     hobbies: portfolio.hobbies.map(({ name, caption }, index) => ({
       name,
       caption,
@@ -62,26 +61,10 @@ export const portfolioSite = defineType({
       ],
     }),
     defineField({
-      name: 'experience',
-      type: 'array',
-      validation: (rule) => rule.required(),
-      of: [
-        defineArrayMember({
-          type: 'object',
-          fields: [
-            defineField({ name: 'title', type: 'string', validation: (rule) => rule.required() }),
-            defineField({ name: 'description', type: 'text' }),
-            defineField({
-              name: 'bullets',
-              type: 'array',
-              of: [defineArrayMember({ type: 'string' })],
-            }),
-          ],
-        }),
-      ],
-    }),
-    defineField({
       name: 'hobbies',
+      title: 'Hobby photos',
+      description:
+        'Photos for the home page hobbies card. Add multiple entries to browse them. Publish and rebuild the website to update the gallery.',
       type: 'array',
       validation: (rule) => rule.required().min(1),
       of: [

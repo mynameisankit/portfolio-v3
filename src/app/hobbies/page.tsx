@@ -6,15 +6,16 @@ import { getGameLibrary } from '@/data/gaming/repository';
 import { getPortfolio } from '@/data/portfolio/repository';
 
 export const metadata: Metadata = {
-  title: 'Hobbies | Ankit Kumar',
+  title: 'Hobbies',
   description: 'Travelling, gaming, running and hiking outside work.',
+  alternates: { canonical: '/hobbies' },
 };
 
 export default async function Page() {
   const [portfolio, library] = await Promise.all([getPortfolio(), getGameLibrary()]);
 
   return (
-    <div className="site-shell max-w-295 my-0 mx-auto" id="top">
+    <div className="site-shell w-full lg:w-[50%] my-0 mx-auto" id="top">
       <SiteHeader content={portfolio} />
       <HobbiesPage library={library} />
       <SiteFooter content={portfolio} />

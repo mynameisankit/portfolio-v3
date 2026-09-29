@@ -12,7 +12,9 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   const { category } = await params;
 
   return {
-    title: `${getCategory(category)?.label ?? 'Writing'} | Ankit Kumar`,
+    title: getCategory(category)?.label ?? 'Writing',
+    description: getCategory(category)?.description,
+    alternates: { canonical: `/blogs/${category}` },
     robots: { index: true, follow: true },
   };
 }

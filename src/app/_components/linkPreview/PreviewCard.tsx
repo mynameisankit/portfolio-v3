@@ -34,7 +34,7 @@ export function PreviewCard({ href, preview }: { href: string; preview?: Preview
       showLoader={false}
       showPlaceholderIfNoImage={!!data.image}
       fallbackImageSrc={data.fallbackImage}
-      className="link-preview-card [font:14px/1.5_Arial,_sans-serif] [overflow-wrap:anywhere] [&_.LowerContainer]:p-4 [&_.Title]:text-[16px] [&_.Title]:font-medium [&_.Title]:mt-0 [&_.Title]:mx-0 [&_.Title]:mb-2 [&_.Title]:leading-[1.4] [&_.Description]:text-[12px] [&_.Description]:leading-[1.6] [&_.Description]:block [&_.SiteDetails]:text-[12px] [&_.SiteDetails]:leading-[1.6] [&_.SiteDetails]:block [&_.Image]:[background-size:contain] [&_.Image]:bg-muted"
+      className="link-preview-card font-sans text-[14px] leading-[1.5] [overflow-wrap:anywhere] [&_.LowerContainer]:p-4 [&_.Title]:text-[16px] [&_.Title]:font-medium [&_.Title]:mt-0 [&_.Title]:mx-0 [&_.Title]:mb-2 [&_.Title]:leading-[1.4] [&_.Description]:text-[12px] [&_.Description]:leading-[1.6] [&_.Description]:block [&_.SiteDetails]:text-[12px] [&_.SiteDetails]:leading-[1.6] [&_.SiteDetails]:block [&_.Image]:[background-size:contain] [&_.Image]:bg-muted"
     />
   );
 }

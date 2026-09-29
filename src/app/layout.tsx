@@ -2,13 +2,41 @@ import './globals.css';
 import type { Metadata, Viewport } from 'next';
 import { LocalizationProvider } from '@/app/_components/localization/Provider';
 import { ServiceWorkerRegistration } from '@/app/_components/pwa/ServiceWorkerRegistration';
+import { siteConfig } from '@/config/siteConfig';
 import { getTranslations } from '@/localization/repository';
 
 export const viewport: Viewport = { themeColor: '#15121e' };
 export const metadata: Metadata = {
-  title: 'Ankit Kumar | Software Engineer',
-  description:
-    'Software Engineer at Rubrik. Web interfaces, frontend infrastructure, and a few things outside work.',
+  metadataBase: new URL(siteConfig.url),
+  title: { default: siteConfig.title, template: '%s | Ankit Kumar' },
+  description: siteConfig.description,
+  applicationName: 'ankitkumar.fyi',
+  keywords: [
+    'Ankit Kumar',
+    'Software Engineer',
+    'Frontend Engineer',
+    'React',
+    'TypeScript',
+    'Web development',
+  ],
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: 'ankitkumar.fyi',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    locale: 'en_US',
+  },
+  twitter: { card: 'summary', title: siteConfig.title, description: siteConfig.description },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+  },
   icons: { icon: '/favicon.svg', apple: '/icons/apple-touch-icon.png' },
   appleWebApp: { capable: true, title: 'Ankit', statusBarStyle: 'default' },
 };
