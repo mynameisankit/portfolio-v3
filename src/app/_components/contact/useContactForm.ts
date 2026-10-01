@@ -1,11 +1,19 @@
 'use client';
-import { type FormEvent, useRef, useState } from 'react';
+import { type FormEvent, useEffect, useRef, useState } from 'react';
 import { sendContactMessage } from './sendMessage';
 
 export function useContactForm() {
   const pending = useRef(false);
+  const resetTimer = useRef<number | undefined>(undefined);
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [feedback, setFeedback] = useState('');
+
+  useEffect(
+    () => () => {
+      window.clearTimeout(resetTimer.current);
+    },
+    [],
+  );
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -36,6 +44,10 @@ export function useContactForm() {
       setStatus('success');
       setFeedback('Message sent. Thanks for getting in touch!');
       form.reset();
+      resetTimer.current = window.setTimeout(() => {
+        setStatus('idle');
+        setFeedback('');
+      }, 2400);
     } catch (error: unknown) {
       setStatus('error');
       const isRateLimited =

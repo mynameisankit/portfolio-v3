@@ -6,7 +6,7 @@ export default async function BlogLayout({ children }: { children: React.ReactNo
   const portfolio = await getPortfolio();
 
   return (
-    <div className="site-shell w-full lg:w-[50%] my-0 mx-auto" id="top">
+    <div className="site-shell w-full lg:w-[60%] min-[2560px]:w-[50%] my-0 mx-auto" id="top">
       <a
         href="#main-content"
         className="skip-link absolute top-[-100px] bg-primary text-primary-foreground p-3 z-100 focus:top-[10px]"

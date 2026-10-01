@@ -30,15 +30,16 @@ export const portfolio = {
     title: string;
     description: string;
     image: string;
+    lqip: string;
     source: string;
   }[],
   career,
   skills,
   hobbies: [
-    { name: 'Hiking', image: '', caption: 'Photo placeholder' },
-    { name: 'Motorcycling', image: '', caption: 'Photo placeholder' },
-    { name: 'Running', image: '', caption: 'Photo placeholder' },
-    { name: 'Video games', image: '', caption: 'Photo placeholder' },
+    { name: 'Hiking', image: '', lqip: '', caption: 'Photo placeholder' },
+    { name: 'Motorcycling', image: '', lqip: '', caption: 'Photo placeholder' },
+    { name: 'Running', image: '', lqip: '', caption: 'Photo placeholder' },
+    { name: 'Video games', image: '', lqip: '', caption: 'Photo placeholder' },
   ],
 };
 export type PortfolioContent = typeof portfolio;

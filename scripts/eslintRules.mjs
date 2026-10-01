@@ -177,6 +177,55 @@ const projectRules = {
         };
       },
     },
+    'conditional-component-renderer': {
+      meta: {
+        type: 'suggestion',
+        schema: [],
+        messages: {
+          inline:
+            'Render optional components through ConditionalRenderer or a focused renderer component instead of conditionally mounting them inline.',
+        },
+      },
+      create(context) {
+        return {
+          LogicalExpression(node) {
+            if (
+              node.operator === '&&' &&
+              node.right.type === 'JSXElement' &&
+              node.right.openingElement.name.type === 'JSXIdentifier' &&
+              /^[A-Z]/.test(node.right.openingElement.name.name)
+            ) {
+              context.report({ node, messageId: 'inline' });
+            }
+          },
+        };
+      },
+    },
+    'constant-names': {
+      meta: {
+        type: 'suggestion',
+        schema: [],
+        messages: { uppercase: 'Use UPPER_SNAKE_CASE for module-level constant values.' },
+      },
+      create(context) {
+        return {
+          VariableDeclaration(node) {
+            if (node.kind !== 'const' || node.parent.type !== 'Program') {
+              return;
+            }
+
+            node.declarations.forEach((declaration) => {
+              const isConfigurationConstant =
+                declaration.id.type === 'Identifier' &&
+                /(threshold|options)$/i.test(declaration.id.name);
+              if (isConfigurationConstant && !/^[A-Z][A-Z0-9_]*$/.test(declaration.id.name)) {
+                context.report({ node: declaration.id, messageId: 'uppercase' });
+              }
+            });
+          },
+        };
+      },
+    },
   },
 };
 

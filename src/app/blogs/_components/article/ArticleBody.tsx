@@ -36,6 +36,9 @@ export function ArticleBody({ post }: { post: Post }) {
                     width={1200}
                     height={800}
                     className="w-full h-auto"
+                    loading="lazy"
+                    placeholder={typeof value.lqip === 'string' && value.lqip ? 'blur' : 'empty'}
+                    blurDataURL={typeof value.lqip === 'string' ? value.lqip : undefined}
                   />
                   {value.caption && (
                     <figcaption>

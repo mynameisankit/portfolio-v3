@@ -12,6 +12,8 @@ export default defineConfig([
     plugins: { project: projectRules },
     rules: {
       'project/file-boundaries': 'error',
+      'project/conditional-component-renderer': 'error',
+      'project/constant-names': 'error',
       'project/simple-ternary': 'error',
       'project/tailwind-styles': 'error',
       'padding-line-between-statements': [
@@ -30,7 +32,11 @@ export default defineConfig([
     rules: {
       '@typescript-eslint/naming-convention': [
         'error',
-        { selector: 'default', format: ['camelCase', 'PascalCase'], leadingUnderscore: 'allow' },
+        {
+          selector: 'default',
+          format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+          leadingUnderscore: 'allow',
+        },
         { selector: 'typeLike', format: ['PascalCase'] },
         { selector: 'property', format: null },
         { selector: 'enumMember', format: ['PascalCase'] },
@@ -98,7 +104,10 @@ export default defineConfig([
   },
   {
     files: ['src/app/**/*.{ts,tsx}', 'src/data/**/*.{ts,tsx}', 'src/lib/**/*.ts'],
-    rules: { curly: ['error', 'all'] },
+    rules: {
+      curly: ['error', 'all'],
+      '@typescript-eslint/prefer-nullish-coalescing': 'error',
+    },
   },
   {
     files: ['src/**/*.{ts,tsx}'],
@@ -108,7 +117,11 @@ export default defineConfig([
     rules: {
       '@typescript-eslint/naming-convention': [
         'error',
-        { selector: 'default', format: ['camelCase', 'PascalCase'], leadingUnderscore: 'allow' },
+        {
+          selector: 'default',
+          format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+          leadingUnderscore: 'allow',
+        },
         { selector: 'typeLike', format: ['PascalCase'] },
         { selector: 'property', format: null },
         { selector: 'enumMember', format: ['PascalCase'] },

@@ -3,6 +3,7 @@ import { LanguageSelector } from '@/app/_components/localization/LanguageSelecto
 import Link from '@/app/_components/localization/Link';
 import { Text } from '@/app/_components/localization/Text';
 import { ThemeToggle } from '@/app/_components/theme/ThemeToggle';
+import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { FloatingNavigation } from './FloatingNavigation';
 import { PortfolioStructuredData } from './PortfolioStructuredData';
@@ -24,11 +25,11 @@ export function SiteHeader({ content }: { content: PortfolioContent }) {
           <Link className="hover:text-primary" href="/#experience">
             <Text>Experience</Text>
           </Link>
-          {!!content.skills.length && (
+          <ConditionalRenderer shouldRender={!!content.skills.length}>
             <Link className="hover:text-primary" href="/#skills">
               <Text>Skills</Text>
             </Link>
-          )}
+          </ConditionalRenderer>
           <Link className="hover:text-primary" href="/blogs">
             <Text>Writing</Text>
           </Link>

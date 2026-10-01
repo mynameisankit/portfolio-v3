@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from '@/app/_components/localization/Link';
 import { LocalizedDate } from '@/app/_components/localization/LocalizedDate';
 import { Text } from '@/app/_components/localization/Text';
+import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import { getCategory, type Post, postPath } from '@/data/blog/model';
 import { cn } from '@/lib/utils';
 
@@ -31,15 +32,18 @@ export function PostCard({
           isList ? 'border-t border-border' : 'rounded-lg border border-border bg-card',
         )}
       >
-        {post.cover && (
+        <ConditionalRenderer shouldRender={!!post.cover}>
           <Image
             className={cn('blog-cover h-auto w-full', isList && 'hidden')}
-            src={post.cover.url}
-            alt={post.cover.alt}
+            src={post.cover?.url ?? ''}
+            alt={post.cover?.alt ?? ''}
             width={900}
             height={600}
+            loading="lazy"
+            placeholder={post.cover?.lqip ? 'blur' : 'empty'}
+            blurDataURL={post.cover?.lqip ?? undefined}
           />
-        )}
+        </ConditionalRenderer>
         {post.isSample && index % 4 !== 3 && (
           <div
             className={cn(

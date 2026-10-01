@@ -1,22 +1,23 @@
 import { cva } from 'class-variance-authority';
 
 export const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "inline-flex shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-[background-color,border-color,color,box-shadow,filter] duration-200 motion-reduce:transition-none outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
     variants: {
       variant: {
-        canvas: 'bg-secondary text-foreground hover:brightness-110',
+        canvas: 'border border-border bg-secondary text-foreground hover:border-primary/50 hover:bg-button-hover active:bg-secondary',
         canvasPrimary: 'border-primary bg-primary text-primary-foreground hover:brightness-110',
-        simulation: 'border border-[color-mix(in_srgb,var(--primary-foreground)_40%,var(--primary))] bg-[color-mix(in_srgb,var(--primary-foreground)_10%,var(--primary))] text-primary-foreground',
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        simulation: 'border border-[color-mix(in_srgb,var(--primary-foreground)_40%,var(--primary))] bg-[color-mix(in_srgb,var(--primary-foreground)_10%,var(--primary))] text-primary-foreground hover:bg-[color-mix(in_srgb,var(--primary-foreground)_18%,var(--primary))]',
+        default: 'bg-primary text-primary-foreground hover:brightness-110 active:brightness-95',
         destructive:
           "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:bg-destructive/60 dark:focus-visible:ring-destructive/40",
         outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+          'border border-border bg-transparent text-foreground hover:border-primary/50 hover:bg-button-hover active:bg-secondary',
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          'border border-border bg-secondary text-foreground hover:border-primary/50 hover:bg-button-hover active:bg-secondary',
         ghost:
-          "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
+          'text-foreground hover:bg-button-hover active:bg-secondary',
+        projectAction: 'border-b border-transparent bg-transparent text-inherit hover:border-current/70 hover:bg-transparent active:opacity-80',
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
@@ -38,4 +39,3 @@ export const buttonVariants = cva(
     },
   }
 )
-

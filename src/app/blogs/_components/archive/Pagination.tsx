@@ -16,7 +16,7 @@ export function BlogPagination({
 
   return (
     <nav
-      className="blog-pagination flex flex-wrap gap-2 justify-center mt-7 mx-0 mb-0 max-[521px]:[&_button]:[padding-inline:10px]"
+      className="blog-pagination flex flex-wrap justify-center gap-2 mt-7 mx-0 mb-0 max-[521px]:[&_button]:[padding-inline:10px]"
       aria-label="Article pages"
     >
       <Button variant="outline" disabled={page === 1} onClick={() => onChange(page - 1)}>

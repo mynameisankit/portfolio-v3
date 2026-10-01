@@ -19,7 +19,7 @@ export function useProjectExpansion() {
       return;
     }
     const board = boardRef.current;
-    const key = next || open;
+    const key = next ?? open;
     const card = board?.querySelector<HTMLElement>(`[data-project="${key}"]`);
     if (!board || !card) {
       return;

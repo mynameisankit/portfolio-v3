@@ -4,12 +4,20 @@ import { LanguageSelector } from '@/app/_components/localization/LanguageSelecto
 import Link from '@/app/_components/localization/Link';
 import { Text } from '@/app/_components/localization/Text';
 import { ThemeToggle } from '@/app/_components/theme/ThemeToggle';
+import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { cn } from '@/lib/utils';
+import { useActiveNavigation } from './useActiveNavigation';
 import { useIsPastFold } from './useIsPastFold';
 
 export function FloatingNavigation({ content }: { content: PortfolioContent }) {
   const isPastFold = useIsPastFold();
+  const activeItem = useActiveNavigation();
+  const navigationItemClass = (item: string) =>
+    cn(
+      'shrink-0 rounded-xl px-4 py-3 text-[17px] transition-colors hover:bg-secondary/80 hover:text-primary focus-visible:bg-secondary max-[521px]:px-3 max-[521px]:py-2.5 max-[521px]:text-[14px]',
+      activeItem === item && 'bg-secondary text-primary',
+    );
 
   return (
     <>
@@ -45,38 +53,43 @@ export function FloatingNavigation({ content }: { content: PortfolioContent }) {
         inert={!isPastFold}
       >
         <Link
-          className="shrink-0 rounded-xl px-4 py-3 text-[17px] hover:bg-secondary/80 hover:text-primary focus-visible:bg-secondary max-[521px]:px-3 max-[521px]:py-2.5 max-[521px]:text-[14px]"
+          className={navigationItemClass('projects')}
           href="/#projects"
+          aria-current={activeItem === 'projects' ? 'page' : undefined}
           tabIndex={isPastFold ? undefined : -1}
         >
           <Text>Projects</Text>
         </Link>
         <Link
-          className="shrink-0 rounded-xl px-4 py-3 text-[17px] hover:bg-secondary/80 hover:text-primary focus-visible:bg-secondary max-[521px]:px-3 max-[521px]:py-2.5 max-[521px]:text-[14px]"
+          className={navigationItemClass('experience')}
           href="/#experience"
+          aria-current={activeItem === 'experience' ? 'page' : undefined}
           tabIndex={isPastFold ? undefined : -1}
         >
           <Text>Experience</Text>
         </Link>
-        {!!content.skills.length && (
+        <ConditionalRenderer shouldRender={!!content.skills.length}>
           <Link
-            className="shrink-0 rounded-xl px-4 py-3 text-[17px] hover:bg-secondary/80 hover:text-primary focus-visible:bg-secondary max-[521px]:px-3 max-[521px]:py-2.5 max-[521px]:text-[14px]"
+            className={navigationItemClass('skills')}
             href="/#skills"
+            aria-current={activeItem === 'skills' ? 'page' : undefined}
             tabIndex={isPastFold ? undefined : -1}
           >
             <Text>Skills</Text>
           </Link>
-        )}
+        </ConditionalRenderer>
         <Link
-          className="shrink-0 rounded-xl px-4 py-3 text-[17px] hover:bg-secondary/80 hover:text-primary focus-visible:bg-secondary max-[521px]:px-3 max-[521px]:py-2.5 max-[521px]:text-[14px]"
+          className={navigationItemClass('blogs')}
           href="/blogs"
+          aria-current={activeItem === 'blogs' ? 'page' : undefined}
           tabIndex={isPastFold ? undefined : -1}
         >
           <Text>Writing</Text>
         </Link>
         <Link
-          className="shrink-0 rounded-xl px-4 py-3 text-[17px] hover:bg-secondary/80 hover:text-primary focus-visible:bg-secondary max-[521px]:px-3 max-[521px]:py-2.5 max-[521px]:text-[14px]"
+          className={navigationItemClass('hobbies')}
           href="/hobbies"
+          aria-current={activeItem === 'hobbies' ? 'page' : undefined}
           tabIndex={isPastFold ? undefined : -1}
         >
           <Text>Hobbies</Text>

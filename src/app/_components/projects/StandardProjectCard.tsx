@@ -17,6 +17,9 @@ export function StandardProjectCard({
           src={project.image}
           alt={project.title}
           fill
+          loading="lazy"
+          placeholder={project.lqip ? 'blur' : 'empty'}
+          blurDataURL={project.lqip || undefined}
           sizes="(max-width: 721px) 86vw, 360px"
         />
       </div>

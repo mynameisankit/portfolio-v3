@@ -15,7 +15,7 @@ export default async function Page() {
   const [portfolio, library] = await Promise.all([getPortfolio(), getGameLibrary()]);
 
   return (
-    <div className="site-shell w-full lg:w-[50%] my-0 mx-auto" id="top">
+    <div className="site-shell w-full lg:w-[60%] min-[2560px]:w-[50%] my-0 mx-auto" id="top">
       <SiteHeader content={portfolio} />
       <HobbiesPage library={library} />
       <SiteFooter content={portfolio} />

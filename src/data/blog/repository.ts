@@ -12,10 +12,10 @@ const postSchema = z.object({
   tags: z.array(z.string()).default([]),
   bodyText: z.string().default(''),
   richBody: z.array(z.object({ _type: z.string() }).passthrough()).default([]),
-  cover: z.object({ url: z.string().url(), alt: z.string() }).nullable(),
+  cover: z.object({ url: z.string().url(), alt: z.string(), lqip: z.string() }).nullable(),
 });
 const query =
-  '*[_type == "blogPost" && defined(slug.current) && defined(publishedAt) && dateTime(publishedAt) <= dateTime(now())] | order(publishedAt desc) {title, "slug": slug.current, category, "description": coalesce(description, ""), "date": publishedAt, "tags": coalesce(tags, []), "bodyText": coalesce(pt::text(body), ""), "richBody": coalesce(body[]{..., _type == "image" => {"url": asset->url}}, []), "cover": select(defined(cover.asset) => {"url": cover.asset->url, "alt": coalesce(cover.alt, "")}, null)}';
+  '*[_type == "blogPost" && defined(slug.current) && defined(publishedAt) && dateTime(publishedAt) <= dateTime(now())] | order(publishedAt desc) {title, "slug": slug.current, category, "description": coalesce(description, ""), "date": publishedAt, "tags": coalesce(tags, []), "bodyText": coalesce(pt::text(body), ""), "richBody": coalesce(body[]{..., _type == "image" => {"url": asset->url, "lqip": coalesce(asset->metadata.lqip, "")}}, []), "cover": select(defined(cover.asset) => {"url": cover.asset->url, "alt": coalesce(cover.alt, ""), "lqip": coalesce(cover.asset->metadata.lqip, "")}, null)}';
 
 export const getPosts = cache(async (): Promise<Post[]> => {
   const documents = z.array(postSchema).parse(await sanityClient.fetch<unknown>(query));

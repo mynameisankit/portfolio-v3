@@ -26,8 +26,7 @@ export function ThemeToggle() {
             aria-label={label}
             onClick={toggleTheme}
           >
-            {isLight && <Moon size={18} />}
-            {!isLight && <Sun size={18} />}
+            {isLight ? <Moon size={18} /> : <Sun size={18} />}
           </Button>
         </TooltipTrigger>
         <TooltipContent>{label}</TooltipContent>

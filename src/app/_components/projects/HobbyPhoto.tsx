@@ -1,7 +1,8 @@
 'use client';
-import { useState } from 'react';
+import { type CSSProperties, useState } from 'react';
 import Image from 'next/image';
 import { Text } from '@/app/_components/localization/Text';
+import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { cn } from '@/lib/utils';
 import { ImageIcon } from 'lucide-react';
@@ -18,6 +19,7 @@ export function HobbyPhoto({
   const [photoIndex, setPhotoIndex] = useState(0);
   const selectedIndex = photoIndex % items.length;
   const selected = items[selectedIndex];
+  const progress = `${((selectedIndex + 1) / items.length) * 100}%`;
   if (!selected) {
     return null;
   }
@@ -25,7 +27,7 @@ export function HobbyPhoto({
   return (
     <button
       type="button"
-      className="hobby-photo group/photo [&[hidden]]:hidden! col-start-2 row-start-1 justify-self-center w-full p-3 pb-5 border border-border bg-card text-foreground [transform:rotate(calc(var(--tilt)_*_-0.65))] rounded-lg text-left shadow-[0_15px_28px_#0003] motion-safe:transition-shadow motion-safe:duration-300 hover:shadow-[0_20px_40px_#0004] focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 max-[721px]:col-auto max-[721px]:row-auto max-[721px]:order-3 block"
+      className="hobby-photo group/photo [&[hidden]]:hidden! col-start-2 row-start-1 justify-self-center w-full p-3 pb-5 border border-border bg-card text-foreground [transform:rotate(calc(var(--tilt)_*_-0.65))] rounded-lg text-left shadow-[0_15px_28px_#0003] motion-safe:[animation:project-float_8s_ease-in-out_infinite] motion-safe:[animation-delay:-2s] motion-safe:transition-shadow motion-safe:duration-300 hover:shadow-[0_20px_40px_#0004] focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-4 max-[721px]:col-auto max-[721px]:row-auto max-[721px]:order-3 block"
       hidden={isHidden}
       onClick={() => setPhotoIndex((index) => (index + 1) % items.length)}
       aria-label={`${selected.name}. ${selectedIndex + 1} / ${items.length}`}
@@ -40,15 +42,18 @@ export function HobbyPhoto({
               index === selectedIndex ? 'opacity-100' : 'opacity-0',
             )}
           >
-            {!!item.image && (
+            <ConditionalRenderer shouldRender={!!item.image}>
               <Image
                 className="h-full w-full object-contain"
-                src={item.image}
+                src={item.image || ''}
                 alt={item.caption || item.name}
                 fill
+                loading="lazy"
+                placeholder={item.lqip ? 'blur' : 'empty'}
+                blurDataURL={item.lqip || undefined}
                 sizes="(max-width: 721px) 86vw, 480px"
               />
-            )}
+            </ConditionalRenderer>
             {!item.image && (
               <span className="h-full border border-dashed border-border text-muted-foreground flex flex-col gap-3 items-center justify-center font-mono text-xs uppercase tracking-wider">
                 <ImageIcon size={26} />
@@ -57,6 +62,12 @@ export function HobbyPhoto({
             )}
           </span>
         ))}
+      </span>
+      <span className="mt-3 block h-px overflow-hidden bg-border" aria-hidden="true">
+        <span
+          className="block h-full bg-primary transition-[width] duration-500 motion-reduce:transition-none"
+          style={{ width: progress } as CSSProperties}
+        />
       </span>
       <span className="photo-caption block text-[30px] leading-[1.3] mt-4">
         <Text>{selected.name}</Text>

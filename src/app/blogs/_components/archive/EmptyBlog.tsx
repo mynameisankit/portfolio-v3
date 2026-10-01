@@ -1,6 +1,7 @@
 import Link from '@/app/_components/localization/Link';
 import { Text } from '@/app/_components/localization/Text';
 import { Button } from '@/app/_components/ui/Button';
+import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 
 export function EmptyBlog({
   category,
@@ -41,25 +42,25 @@ export function EmptyBlog({
         </Text>
       </p>
       <div className="blog-empty-actions flex flex-wrap justify-center gap-3 mt-6">
-        {isSearching && (
+        <ConditionalRenderer shouldRender={isSearching}>
           <Button onClick={onClear}>
             <Text>Clear search</Text>
           </Button>
-        )}
-        {!isSearching && (
+        </ConditionalRenderer>
+        <ConditionalRenderer shouldRender={!isSearching}>
           <Button asChild>
             <Link href="/#projects">
               <Text>Explore projects ↗</Text>
             </Link>
           </Button>
-        )}
-        {category && (
+        </ConditionalRenderer>
+        <ConditionalRenderer shouldRender={!!category}>
           <Button variant="outline" asChild>
             <Link href="/blogs">
               <Text>All writing</Text>
             </Link>
           </Button>
-        )}
+        </ConditionalRenderer>
       </div>
     </section>
   );

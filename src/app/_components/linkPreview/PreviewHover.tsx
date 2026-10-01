@@ -1,5 +1,6 @@
 'use client';
 import type { ReactElement } from 'react';
+import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import { PreviewCard } from './PreviewCard';
 import type { PreviewData } from './previewData';
 import { SteamStorePreview } from './SteamStorePreview';
@@ -29,7 +30,9 @@ export function PreviewHover({
           collisionPadding={16}
           align="start"
         >
-          {!!appId && <SteamStorePreview appId={appId} title={preview?.title} />}
+          <ConditionalRenderer shouldRender={!!appId}>
+            <SteamStorePreview appId={appId ?? ''} title={preview?.title} />
+          </ConditionalRenderer>
           {!appId && (
             <div className="link-preview-display [pointer-events:none]" inert>
               <PreviewCard href={href} preview={preview} />

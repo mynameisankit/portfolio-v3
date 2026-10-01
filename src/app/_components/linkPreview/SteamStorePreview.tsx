@@ -15,7 +15,7 @@ export function SteamStorePreview({ appId, title }: { appId: string; title?: str
     <iframe
       className="steam-store-widget block w-full h-[190px] border-0"
       src={`https://store.steampowered.com/widget/${appId}/?l=${languages[locale] ?? 'english'}`}
-      title={`${title || 'Game'} — Steam Store`}
+      title={`${title ?? 'Game'} — Steam Store`}
       width={646}
       height={190}
       loading="lazy"

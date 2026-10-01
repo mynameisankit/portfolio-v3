@@ -2,6 +2,7 @@
 import '@mynameisankit/react-json-renderer/style.css';
 import { useState } from 'react';
 import { Text } from '@/app/_components/localization/Text';
+import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import { rendererData, rendererTheme } from './rendererConfig';
 import { useRendererWidth } from './useRendererWidth';
 import JSONRenderer from '@mynameisankit/react-json-renderer';
@@ -39,7 +40,7 @@ export function JsonRendererDemo() {
         role="region"
         aria-label="React JSON Renderer interactive demo"
       >
-        {width > 0 && (
+        <ConditionalRenderer shouldRender={width > 0}>
           <JSONRenderer
             json={rendererData}
             width={width}
@@ -49,7 +50,7 @@ export function JsonRendererDemo() {
             shouldRemoveQuotesFromKeys={!shouldQuoteKeys}
             theme={rendererTheme}
           />
-        )}
+        </ConditionalRenderer>
       </div>
     </div>
   );

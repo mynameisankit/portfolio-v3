@@ -1,4 +1,8 @@
 export function isSimpleTernaryBranch(node, shouldAllowCall = true) {
+  if (node.type === 'JSXElement') {
+    return true;
+  }
+
   if (node.type === 'Identifier' || (node.type === 'Literal' && !node.regex)) {
     return true;
   }

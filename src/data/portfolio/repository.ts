@@ -29,6 +29,7 @@ const schema = z.object({
         title: z.string().min(1),
         description: z.string(),
         image: z.string().url(),
+        lqip: z.string(),
         source: z.string().url(),
       }),
     )
@@ -36,7 +37,9 @@ const schema = z.object({
     .optional(),
   skills: z.array(skillCategorySchema).nullable().optional(),
   career: z.array(careerEntrySchema).nullable().optional(),
-  hobbies: z.array(z.object({ name: z.string(), image: z.string(), caption: z.string() })).min(1),
+  hobbies: z
+    .array(z.object({ name: z.string(), image: z.string(), lqip: z.string(), caption: z.string() }))
+    .min(1),
 });
 
 const query = `
@@ -58,6 +61,7 @@ const query = `
       title,
       "description": coalesce(description, ""),
       "image": image.asset->url,
+      "lqip": coalesce(image.asset->metadata.lqip, ""),
       source
     },
     skills[] {
@@ -78,6 +82,7 @@ const query = `
     hobbies[] {
       name,
       "image": coalesce(image.asset->url, ""),
+      "lqip": coalesce(image.asset->metadata.lqip, ""),
       "caption": coalesce(caption, "")
     }
   }

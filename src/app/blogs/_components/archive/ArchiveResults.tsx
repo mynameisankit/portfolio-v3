@@ -1,4 +1,5 @@
 import { useCopy } from '@/app/_components/localization/useCopy';
+import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import { type Category, getCategory, type Post } from '@/data/blog/model';
 import { cn } from '@/lib/utils';
 import { EmptyBlog } from './EmptyBlog';
@@ -54,13 +55,13 @@ export function ArchiveResults({
           ))}
         </div>
       )}
-      {!results.length && (
+      <ConditionalRenderer shouldRender={!results.length}>
         <EmptyBlog
           category={categoryLabel}
           isSearching={!!query.trim()}
           onClear={() => updateSearch('')}
         />
-      )}
+      </ConditionalRenderer>
     </>
   );
 }

@@ -3,6 +3,7 @@ import type { MouseEventHandler } from 'react';
 import Link from '@/app/_components/localization/Link';
 import { Text } from '@/app/_components/localization/Text';
 import { Button } from '@/app/_components/ui/Button';
+import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { cn } from '@/lib/utils';
 import { LifeDemo } from './gameOfLife/LifeDemo';
@@ -26,10 +27,10 @@ export function ProjectCard({ project, index, isExpanded, isHidden, onToggle }: 
     <article
       data-project={project.id}
       className={cn(
-        'project-object group/project relative min-w-0 rounded-[9px] border border-border shadow-[0_15px_28px_#0003] [&[hidden]]:hidden!',
+        'project-object group/project relative min-w-0 rounded-[9px] border border-border shadow-[0_15px_28px_#0003] motion-safe:[animation:project-float_7s_ease-in-out_infinite] [&[hidden]]:hidden!',
         project.id === 'json'
           ? 'json-project bg-card text-foreground z-2'
-          : 'life-project bg-primary text-primary-foreground',
+          : 'life-project bg-primary text-primary-foreground motion-safe:[animation-delay:-3.5s]',
         isExpanded
           ? 'expanded col-start-1 row-start-1 m-0 transform-none order-0'
           : collapsedLayout,
@@ -42,9 +43,9 @@ export function ProjectCard({ project, index, isExpanded, isHidden, onToggle }: 
           {project.name}
         </h3>
         <Button
-          variant="ghost"
+          variant="projectAction"
           className={cn(
-            'open-project inline-flex min-h-10 items-center gap-[7px] border-0 bg-transparent px-0 py-[7px] text-[13px] font-normal whitespace-nowrap has-[>svg]:px-0',
+            'open-project inline-flex min-h-10 items-center gap-[7px] -mx-2 rounded-none px-2 py-[7px] text-[13px] font-normal whitespace-nowrap',
             project.id === 'json' ? 'text-primary' : 'text-inherit',
           )}
           aria-expanded={isExpanded}
@@ -65,8 +66,12 @@ export function ProjectCard({ project, index, isExpanded, isHidden, onToggle }: 
           )}
         </Button>
       </div>
-      {project.id === 'json' && <JsonRendererDemo />}
-      {project.id !== 'json' && <LifeDemo />}
+      <ConditionalRenderer shouldRender={project.id === 'json'}>
+        <JsonRendererDemo />
+      </ConditionalRenderer>
+      <ConditionalRenderer shouldRender={project.id !== 'json'}>
+        <LifeDemo />
+      </ConditionalRenderer>
       <div
         className={cn(
           'object-footer flex flex-wrap justify-between gap-3 border-t border-current/20 px-4 py-3 font-mono text-[12px] leading-[1.5]',
@@ -91,10 +96,10 @@ export function ProjectCard({ project, index, isExpanded, isHidden, onToggle }: 
         <p className="text-[17px] leading-[1.7] max-w-[650px] my-[14px] mx-0 min-[2560px]:text-[18px]">
           <Text>{project.description}</Text>
         </p>
-        {project.source && (
+        <ConditionalRenderer shouldRender={!!project.source}>
           <Link
             className="text-link inline-flex items-center gap-[10px] [border-bottom:1px_solid_currentColor] pb-[3px] mt-[6px] text-[15px]"
-            href={project.source}
+            href={project.source || ''}
             preview={{ title: project.name, description: project.description }}
             target="_blank"
             rel="noreferrer"
@@ -102,7 +107,7 @@ export function ProjectCard({ project, index, isExpanded, isHidden, onToggle }: 
             <Text>Read the source</Text>
             <ArrowUpRight size={17} />
           </Link>
-        )}
+        </ConditionalRenderer>
         {project.id === 'json' && (
           <p className="detail-note text-[17px] leading-[1.7] max-w-[650px] my-[14px] mx-0 min-[2560px]:text-[18px]">
             <Text>The live demo uses the published React JSON Renderer component.</Text>

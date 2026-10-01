@@ -23,7 +23,7 @@ export type Post = {
   body: string[];
   isSample: boolean;
   richBody?: { _type: string; [key: string]: unknown }[];
-  cover?: { url: string; alt: string } | null;
+  cover?: { url: string; alt: string; lqip: string } | null;
 };
 export function getCategory(slug: string) {
   return categories.find((category) => category.slug === slug);

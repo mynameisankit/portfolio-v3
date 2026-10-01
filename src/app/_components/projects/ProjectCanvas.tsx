@@ -75,6 +75,20 @@ export function ProjectCanvas({ content }: { content: PortfolioContent }) {
           </span>
         </aside>
       </div>
+      <div className="canvas-footer flex justify-between items-center gap-5 py-6 px-[5%] [&_.button]:text-[13px]">
+        <span className="eyebrow font-mono text-[12px] leading-[1.6] tracking-[1.2px] uppercase text-muted-foreground">
+          <Text>Selected work + outside work</Text>
+        </span>
+        <Button
+          variant="canvas"
+          size="canvas"
+          className="button text-[13px]"
+          onClick={() => setAligned(!isAligned)}
+          aria-pressed={isAligned}
+        >
+          <Text>{isAligned ? 'Scatter the canvas' : 'Align the canvas'}</Text>
+        </Button>
+      </div>
       {!!content.additionalProjects.length && (
         <div className="additional-projects border-t border-border px-[7%] py-10">
           <div className="mb-6 flex items-center justify-between gap-5">
@@ -92,20 +106,6 @@ export function ProjectCanvas({ content }: { content: PortfolioContent }) {
           </div>
         </div>
       )}
-      <div className="canvas-footer flex justify-between items-center gap-5 py-6 px-[5%] [&_.button]:text-[13px]">
-        <span className="eyebrow font-mono text-[12px] leading-[1.6] tracking-[1.2px] uppercase text-muted-foreground">
-          <Text>Selected work + outside work</Text>
-        </span>
-        <Button
-          variant="canvas"
-          size="canvas"
-          className="button text-[13px]"
-          onClick={() => setAligned(!isAligned)}
-          aria-pressed={isAligned}
-        >
-          <Text>{isAligned ? 'Scatter the canvas' : 'Align the canvas'}</Text>
-        </Button>
-      </div>
     </section>
   );
 }

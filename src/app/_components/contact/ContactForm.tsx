@@ -7,6 +7,11 @@ import { useContactForm } from './useContactForm';
 export function ContactForm() {
   const { submit, status, feedback } = useContactForm();
   const copy = useCopy();
+  const submitLabel = copy(
+    { idle: 'Send message', sending: 'Sending…', success: 'Message sent ✓', error: 'Send message' }[
+      status
+    ],
+  );
 
   return (
     <form className="contact-form" onSubmit={submit} aria-busy={status === 'sending'}>
@@ -52,7 +57,7 @@ export function ContactForm() {
         <Text>Your message is sent through EmailJS to my inbox.</Text>
       </p>
       <Button type="submit" size="lg" disabled={status === 'sending'}>
-        {copy(status === 'sending' ? 'Sending…' : 'Send message')} <span aria-hidden="true">↗</span>
+        {submitLabel} {status !== 'success' && <span aria-hidden="true">↗</span>}
       </Button>
       <p
         className="contact-feedback min-h-[26px] mt-[14px] text-[14px] [&[data-status='success']]:text-primary [&[data-status='error']]:text-foreground [&[data-status='error']]:[border-left:3px_solid_var(--primary)] [&[data-status='error']]:pl-[10px]"

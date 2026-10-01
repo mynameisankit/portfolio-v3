@@ -5,7 +5,7 @@ import type { SteamGame } from '@/data/gaming/model';
 
 export function GameArtwork({ game }: { game: SteamGame }) {
   const [hasFailed, setHasFailed] = useState(false);
-  const fallback = game.fallbackImage || '/favicon.svg';
+  const fallback = game.fallbackImage ?? '/favicon.svg';
   const source = hasFailed ? fallback : game.image;
 
   if (source) {
@@ -16,6 +16,7 @@ export function GameArtwork({ game }: { game: SteamGame }) {
         alt=""
         width={460}
         height={215}
+        loading="lazy"
         unoptimized
         onError={() => setHasFailed(true)}
       />

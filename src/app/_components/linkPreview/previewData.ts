@@ -55,7 +55,7 @@ export function getPreviewData(
     description:
       supplied?.description ?? known?.description ?? (isGithub ? 'GitHub ↗' : url.pathname),
     image: supplied?.image ?? image,
-    fallbackImage: supplied?.fallbackImage || '/favicon.svg',
+    fallbackImage: supplied?.fallbackImage ?? '/favicon.svg',
     hostname: isInternal ? 'ankitkumar.fyi' : url.hostname,
   };
 }
