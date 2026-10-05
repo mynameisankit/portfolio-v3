@@ -1,5 +1,5 @@
-import { nextGeneration } from '@/lib/life/life';
-import { nameSeed } from '@/lib/life/lifePatterns';
+import { nextGeneration } from '@/lib/life/life.utils';
+import { nameSeed } from '@/lib/life/lifePatterns.utils';
 import { heroColumns, heroRows } from './heroConfig';
 
 export type LifeSnapshot = { cells: Uint8Array; generation: number; isRunning: boolean };

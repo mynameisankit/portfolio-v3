@@ -1582,18 +1582,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dhaiwat10/react-link-preview@npm:^1.15.0":
-  version: 1.15.0
-  resolution: "@dhaiwat10/react-link-preview@npm:1.15.0"
-  dependencies:
-    react-loading-skeleton: "npm:^3.1.0"
-  peerDependencies:
-    react: ^16.0.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.0.0 || ^17.0.0 || ^18.0.0
-  checksum: 10c0/82c358a35b160fa020c13a76165435637c88d22f70844479fe8ab683b5d088d238455daaad367ba20671d38a9718903438294486f17c9e30fa7d78c6a31a89a9
-  languageName: node
-  linkType: hard
-
 "@dnd-kit/accessibility@npm:^3.1.1":
   version: 3.1.1
   resolution: "@dnd-kit/accessibility@npm:3.1.1"
@@ -7152,7 +7140,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "ankit-portfolio@workspace:."
   dependencies:
-    "@dhaiwat10/react-link-preview": "npm:^1.15.0"
     "@emailjs/browser": "npm:^4.4.1"
     "@mynameisankit/react-json-renderer": "npm:1.2.0"
     "@portabletext/react": "npm:^8.0.1"
@@ -13388,15 +13375,6 @@ __metadata:
   version: 19.3.0
   resolution: "react-is@npm:19.3.0"
   checksum: 10c0/99b16fc1009222ec0bbe05286566c865908430778ea6ba90dd418c7a11594c6cbb8db58432735b9203e3c6463e3eef5a399df1317ee2d75fd96b3a88cfaa662e
-  languageName: node
-  linkType: hard
-
-"react-loading-skeleton@npm:^3.1.0":
-  version: 3.5.0
-  resolution: "react-loading-skeleton@npm:3.5.0"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 10c0/a081f561c9700fead6ba98b91e3fe77a36a680e3fd69dbf4eecbaa5fabcb7173049c6d6fb7487355331a770bed432356edaa147702f3d46ddf0d6caa623e779f
   languageName: node
   linkType: hard
 

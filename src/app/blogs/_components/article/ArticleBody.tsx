@@ -4,7 +4,7 @@ import Link from '@/app/_components/localization/Link';
 import { Text } from '@/app/_components/localization/Text';
 import { useCopy } from '@/app/_components/localization/useCopy';
 import type { Post } from '@/data/blog/model';
-import { translateRichBody } from './translateRichBody';
+import { translateRichBody } from './translateRichBody.utils';
 import { PortableText } from '@portabletext/react';
 
 export function ArticleBody({ post }: { post: Post }) {

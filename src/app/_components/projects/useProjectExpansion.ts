@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import { flushSync } from 'react-dom';
-import { createProjectTransition } from './projectTransition';
+import { createProjectTransition } from './projectTransition.utils';
 
 export function useProjectExpansion() {
   const [open, setOpen] = useState<string | null>(null);

@@ -1,10 +1,11 @@
 'use client';
 import { type CSSProperties, useState } from 'react';
 import Image from 'next/image';
+import { LocalizedDate } from '@/app/_components/localization/LocalizedDate';
 import { Text } from '@/app/_components/localization/Text';
 import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import type { PortfolioContent } from '@/data/portfolio/content';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/className.utils';
 import { ImageIcon } from 'lucide-react';
 
 export function HobbyPhoto({
@@ -72,6 +73,17 @@ export function HobbyPhoto({
       <span className="photo-caption block text-[30px] leading-[1.3] mt-4">
         <Text>{selected.name}</Text>
       </span>
+      <span className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-xs text-muted-foreground">
+        {selected.location && <span>{selected.location}</span>}
+        <ConditionalRenderer shouldRender={!!selected.takenOn}>
+          <LocalizedDate value={selected.takenOn} />
+        </ConditionalRenderer>
+      </span>
+      {(selected.story || (selected.image && selected.caption !== selected.name)) && (
+        <span className="mt-3 block text-sm leading-relaxed text-muted-foreground">
+          <Text>{selected.story || selected.caption}</Text>
+        </span>
+      )}
       <span
         className="photo-counter flex items-center justify-between font-mono text-xs text-muted-foreground mt-3"
         aria-live="polite"

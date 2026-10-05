@@ -5,7 +5,7 @@ import { Text } from '@/app/_components/localization/Text';
 import { Button } from '@/app/_components/ui/Button';
 import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import type { PortfolioContent } from '@/data/portfolio/content';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/className.utils';
 import { LifeDemo } from './gameOfLife/LifeDemo';
 import { JsonRendererDemo } from './jsonRenderer/JsonRendererDemo';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
@@ -100,7 +100,6 @@ export function ProjectCard({ project, index, isExpanded, isHidden, onToggle }: 
           <Link
             className="text-link inline-flex items-center gap-[10px] [border-bottom:1px_solid_currentColor] pb-[3px] mt-[6px] text-[15px]"
             href={project.source || ''}
-            preview={{ title: project.name, description: project.description }}
             target="_blank"
             rel="noreferrer"
           >

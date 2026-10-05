@@ -6,7 +6,8 @@ import { Text } from '@/app/_components/localization/Text';
 import { ThemeToggle } from '@/app/_components/theme/ThemeToggle';
 import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import type { PortfolioContent } from '@/data/portfolio/content';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/className.utils';
+import { MobileNavigation } from './MobileNavigation';
 import { useActiveNavigation } from './useActiveNavigation';
 import { useIsPastFold } from './useIsPastFold';
 
@@ -38,14 +39,15 @@ export function FloatingNavigation({ content }: { content: PortfolioContent }) {
         >
           <Brand />
         </Link>
-        <div className="flex shrink-0 items-center gap-2.5 [&_.theme-toggle]:size-10 [&_.language-selector_select]:max-w-[115px] [&_.language-selector_select]:px-3 [&_.language-selector_select]:py-2.5 [&_.language-selector_select]:text-[16px] max-[521px]:gap-2 max-[521px]:[&_.theme-toggle]:size-9 max-[521px]:[&_.language-selector_select]:max-w-[105px] max-[521px]:[&_.language-selector_select]:px-2.5 max-[521px]:[&_.language-selector_select]:py-2 max-[521px]:[&_.language-selector_select]:text-[14px]">
+        <div className="flex shrink-0 items-center gap-2.5 [&_.theme-toggle]:size-10 [&_.language-selector_select]:max-w-[115px] [&_.language-selector_select]:px-3 [&_.language-selector_select]:py-2.5 [&_.language-selector_select]:text-[16px] max-[761px]:hidden">
           <ThemeToggle />
           <LanguageSelector />
         </div>
+        <MobileNavigation github={content.github} hasSkills={content.skills.length > 0} />
       </header>
       <nav
         className={cn(
-          'fixed bottom-4 left-1/2 z-50 flex w-[min(calc(100%-2rem),920px)] -translate-x-1/2 items-center justify-center gap-1 overflow-x-auto rounded-2xl border border-border/70 bg-background/65 p-3 shadow-[0_16px_40px_#0005] backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 motion-reduce:transition-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-[521px]:w-[calc(100%-1rem)]',
+          'fixed bottom-4 left-1/2 z-50 flex w-[min(calc(100%-2rem),920px)] -translate-x-1/2 items-center justify-center gap-1 overflow-x-auto rounded-2xl border border-border/70 bg-background/65 p-3 shadow-[0_16px_40px_#0005] backdrop-blur-xl backdrop-saturate-150 transition-all duration-300 motion-reduce:transition-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-[761px]:hidden',
           isPastFold ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0',
         )}
         aria-label="Quick navigation"
@@ -62,7 +64,7 @@ export function FloatingNavigation({ content }: { content: PortfolioContent }) {
         </Link>
         <Link
           className={navigationItemClass('experience')}
-          href="/#experience"
+          href="/experience"
           aria-current={activeItem === 'experience' ? 'page' : undefined}
           tabIndex={isPastFold ? undefined : -1}
         >

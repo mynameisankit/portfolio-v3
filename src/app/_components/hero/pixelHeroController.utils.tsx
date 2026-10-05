@@ -1,5 +1,5 @@
-import { createLifePlayer, type LifeSnapshot } from './lifePlayer';
-import { createPixelRenderer, type Point } from './pixelRenderer';
+import { createLifePlayer, type LifeSnapshot } from './lifePlayer.utils';
+import { createPixelRenderer, type Point } from './pixelRenderer.utils';
 
 export type HeroStatus = { isRunning: boolean; generation: number; isReducedMotion: boolean };
 

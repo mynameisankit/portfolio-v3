@@ -1,6 +1,6 @@
 'use client';
 import { type FormEvent, useEffect, useRef, useState } from 'react';
-import { sendContactMessage } from './sendMessage';
+import { sendContactMessage } from './sendMessage.utils';
 
 export function useContactForm() {
   const pending = useRef(false);

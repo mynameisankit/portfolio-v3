@@ -2,9 +2,9 @@
 import { useState } from 'react';
 import { Text } from '@/app/_components/localization/Text';
 import { Button } from '@/app/_components/ui/Button';
-import { nextGeneration } from '@/lib/life/life';
-import { gliderSeed } from '@/lib/life/lifePatterns';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/className.utils';
+import { nextGeneration } from '@/lib/life/life.utils';
+import { gliderSeed } from '@/lib/life/lifePatterns.utils';
 import { RotateCcw } from 'lucide-react';
 
 export function LifeDemo() {

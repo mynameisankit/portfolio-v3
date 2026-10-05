@@ -1,6 +1,6 @@
 import 'server-only';
 import { steamConfig } from '@/config/steamConfig';
-import { parseOwnedGames } from './parseOwnedGames';
+import { parseOwnedGames } from './parseOwnedGames.utils';
 
 export async function getOwnedGames(apiKey: string) {
   const url = new URL('https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/');

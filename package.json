@@ -20,7 +20,6 @@
     "wrangler": "node node_modules/wrangler/bin/wrangler.js"
   },
   "dependencies": {
-    "@dhaiwat10/react-link-preview": "^1.15.0",
     "@emailjs/browser": "^4.4.1",
     "@mynameisankit/react-json-renderer": "1.2.0",
     "@portabletext/react": "^8.0.1",

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/className.utils"
 import { buttonVariants } from './buttonVariants';
 import { type VariantProps } from "class-variance-authority"
 import { Slot } from "radix-ui"

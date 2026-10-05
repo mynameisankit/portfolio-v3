@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { connectPixelHero, type HeroStatus } from './pixelHeroController';
+import { connectPixelHero, type HeroStatus } from './pixelHeroController.utils';
 
 export function usePixelHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);

@@ -131,3 +131,22 @@
     }
   }
 }
+@keyframes experience-page-first {
+  0%, 43%, 100% { opacity: 1; }
+  48%, 93% { opacity: 0; }
+}
+
+@keyframes experience-page-second {
+  0%, 43%, 100% { opacity: 0; }
+  48%, 93% { opacity: 1; }
+}
+
+@keyframes experience-flow {
+  from { stroke-dashoffset: 42; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes experience-confirm {
+  0%, 100% { opacity: 0.65; }
+  50% { opacity: 1; }
+}

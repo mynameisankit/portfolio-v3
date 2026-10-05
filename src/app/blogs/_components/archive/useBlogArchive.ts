@@ -2,8 +2,8 @@
 import { useMemo } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { type Category, getCategory, type Post } from '@/data/blog/model';
-import { createPostSearch } from '@/data/blog/search';
-import { getArchivePage, withSearchParams } from './archiveNavigation';
+import { createPostSearch } from '@/data/blog/search.utils';
+import { getArchivePage, withSearchParams } from './archiveNavigation.utils';
 
 export function useBlogArchive(posts: Post[], category?: Category) {
   const params = useSearchParams();

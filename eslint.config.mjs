@@ -103,7 +103,7 @@ export default defineConfig([
     files: ['src/**/*.{ts,tsx}', 'scripts/*.mjs'],
   },
   {
-    files: ['src/app/**/*.{ts,tsx}', 'src/data/**/*.{ts,tsx}', 'src/lib/**/*.ts'],
+    files: ['src/app/**/*.{ts,tsx}', 'src/data/**/*.{ts,tsx}', 'src/lib/**/*.{ts,tsx}'],
     rules: {
       curly: ['error', 'all'],
       '@typescript-eslint/prefer-nullish-coalescing': 'error',

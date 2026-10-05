@@ -1,4 +1,442 @@
 [
+  { "en": "Open navigation menu", "nl": "Navigatiemenu openen", "de": "Navigationsmenü öffnen", "sv": "Öppna navigeringsmenyn", "ja": "ナビゲーションメニューを開く" },
+  { "en": "Close navigation menu", "nl": "Navigatiemenu sluiten", "de": "Navigationsmenü schließen", "sv": "Stäng navigeringsmenyn", "ja": "ナビゲーションメニューを閉じる" },
+  { "en": "Navigation", "nl": "Navigatie", "de": "Navigation", "sv": "Navigering", "ja": "ナビゲーション" },
+  { "en": "Main navigation", "nl": "Hoofdnavigatie", "de": "Hauptnavigation", "sv": "Huvudnavigering", "ja": "メインナビゲーション" },
+  { "en": "Explore the portfolio and adjust your preferences.", "nl": "Verken het portfolio en pas je voorkeuren aan.", "de": "Erkunde das Portfolio und passe deine Einstellungen an.", "sv": "Utforska portfolion och anpassa dina inställningar.", "ja": "ポートフォリオを閲覧し、表示設定を調整できます。" },
+  { "en": "HIERARCHY / CROSS-PAGE SELECTION", "nl": "HIËRARCHIE / SELECTIE OVER PAGINA’S", "de": "HIERARCHIE / SEITENÜBERGREIFENDE AUSWAHL", "sv": "HIERARKI / VAL ÖVER FLERA SIDOR", "ja": "階層 / ページをまたぐ選択" },
+  { "en": "Organization", "nl": "Organisatie", "de": "Organisation", "sv": "Organisation", "ja": "組織" },
+  { "en": "Group A", "nl": "Groep A", "de": "Gruppe A", "sv": "Grupp A", "ja": "グループA" },
+  { "en": "Group B", "nl": "Groep B", "de": "Gruppe B", "sv": "Grupp B", "ja": "グループB" },
+  { "en": "Select across all pages", "nl": "Selecteer op alle pagina’s", "de": "Auf allen Seiten auswählen", "sv": "Välj över alla sidor", "ja": "全ページから選択" },
+  { "en": "account / a", "nl": "account / a", "de": "Konto / a", "sv": "konto / a", "ja": "アカウント / a" },
+  { "en": "account / b", "nl": "account / b", "de": "Konto / b", "sv": "konto / b", "ja": "アカウント / b" },
+  { "en": "account / c", "nl": "account / c", "de": "Konto / c", "sv": "konto / c", "ja": "アカウント / c" },
+  { "en": "account / d", "nl": "account / d", "de": "Konto / d", "sv": "konto / d", "ja": "アカウント / d" },
+  { "en": "account / e", "nl": "account / e", "de": "Konto / e", "sv": "konto / e", "ja": "アカウント / e" },
+  { "en": "account / f", "nl": "account / f", "de": "Konto / f", "sv": "konto / f", "ja": "アカウント / f" },
+  { "en": "PAGE 01 →", "nl": "PAGINA 01 →", "de": "SEITE 01 →", "sv": "SIDA 01 →", "ja": "ページ01 →" },
+  { "en": "PAGE 02 →", "nl": "PAGINA 02 →", "de": "SEITE 02 →", "sv": "SIDA 02 →", "ja": "ページ02 →" },
+  { "en": "Selection retained", "nl": "Selectie behouden", "de": "Auswahl beibehalten", "sv": "Val behålls", "ja": "選択を保持" },
+  { "en": "CONTRACT / MIGRATION / CHECKS", "nl": "CONTRACT / MIGRATIE / CONTROLES", "de": "VERTRAG / MIGRATION / PRÜFUNGEN", "sv": "KONTRAKT / MIGRERING / KONTROLLER", "ja": "仕様 / 移行 / チェック" },
+  { "en": "Clear component API", "nl": "Duidelijke component-API", "de": "Klare Komponenten-API", "sv": "Tydligt komponent-API", "ja": "明確なコンポーネントAPI" },
+  { "en": "Automated migration", "nl": "Automatische migratie", "de": "Automatisierte Migration", "sv": "Automatiserad migrering", "ja": "自動マイグレーション" },
+  { "en": "CODEMODS + AI SKILLS", "nl": "CODEMODS + AI-SKILLS", "de": "CODEMODS + KI-SKILLS", "sv": "CODEMODS + AI-SKILLS", "ja": "CODEMOD + AIスキル" },
+  { "en": "Usage updated", "nl": "Gebruik bijgewerkt", "de": "Verwendung aktualisiert", "sv": "Användning uppdaterad", "ja": "利用箇所を更新" },
+  { "en": "Type-safe contracts. Lint-enforced conventions.", "nl": "Typeveilige contracten. Conventies afgedwongen door lint.", "de": "Typsichere Verträge. Durch Lint erzwungene Konventionen.", "sv": "Typsäkra kontrakt. Konventioner som lint upprätthåller.", "ja": "型安全な仕様。lintで規約を徹底。" },
+  { "en": "AUTHENTICATION / SHARED WORKFLOWS", "nl": "AUTHENTICATIE / GEDEELDE WORKFLOWS", "de": "AUTHENTIFIZIERUNG / GEMEINSAME ABLÄUFE", "sv": "AUTENTISERING / GEMENSAMMA FLÖDEN", "ja": "認証 / 共通ワークフロー" },
+  { "en": "Sign in", "nl": "Inloggen", "de": "Anmelden", "sv": "Logga in", "ja": "ログイン" },
+  { "en": "Shared OAuth", "nl": "Gedeelde OAuth", "de": "Gemeinsames OAuth", "sv": "Gemensam OAuth", "ja": "共通OAuth" },
+  { "en": "Hooks + packages", "nl": "Hooks + pakketten", "de": "Hooks + Pakete", "sv": "Hooks + paket", "ja": "フック + パッケージ" },
+  { "en": "Workflow 1", "nl": "Workflow 1", "de": "Ablauf 1", "sv": "Arbetsflöde 1", "ja": "ワークフロー1" },
+  { "en": "Workflow 2", "nl": "Workflow 2", "de": "Ablauf 2", "sv": "Arbetsflöde 2", "ja": "ワークフロー2" },
+  { "en": "One implementation. Reused by multiple features.", "nl": "Eén implementatie. Hergebruikt door meerdere features.", "de": "Eine Implementierung. Von mehreren Funktionen genutzt.", "sv": "En implementation. Återanvänd av flera funktioner.", "ja": "一つの実装を複数の機能で再利用。" },
+  { "en": "PACKAGE IMPORTS / TOOLCHAIN MIGRATION", "nl": "PAKKETIMPORTS / TOOLCHAINMIGRATIE", "de": "PAKET-IMPORTS / TOOLCHAIN-MIGRATION", "sv": "PAKETIMPORTER / VERKTYGSMIGRERING", "ja": "パッケージインポート / ツールチェーン移行" },
+  { "en": "Stable package-root reference", "nl": "Stabiele verwijzing vanaf de pakketroot", "de": "Stabile Referenz ab der Paketwurzel", "sv": "Stabil referens från paketroten", "ja": "パッケージルート基準の安定した参照" },
+  { "en": "Code generators", "nl": "Codegenerators", "de": "Codegeneratoren", "sv": "Kodgeneratorer", "ja": "コードジェネレーター" },
+  { "en": "Scaffolding", "nl": "Scaffolding", "de": "Grundgerüste", "sv": "Kodmallar", "ja": "ひな型生成" },
+  { "en": "Staged rollout · Human and AI-assisted development", "nl": "Gefaseerde uitrol · Ontwikkeling door mensen en met AI", "de": "Gestaffelte Einführung · Menschliche und KI-gestützte Entwicklung", "sv": "Stegvis utrullning · Mänsklig och AI-stödd utveckling", "ja": "段階的な展開 · 人とAIによる開発" },
+  { "en": "SHARED LOCALIZATION / REGIONAL BEHAVIOR", "nl": "GEDEELDE LOKALISATIE / REGIONAAL GEDRAG", "de": "GEMEINSAME LOKALISIERUNG / REGIONALE LOGIK", "sv": "GEMENSAM LOKALISERING / REGIONALT BETEENDE", "ja": "共通ローカライズ / 地域対応" },
+  { "en": "Shared formatting APIs", "nl": "Gedeelde formatterings-API’s", "de": "Gemeinsame Formatierungs-APIs", "sv": "Gemensamma formaterings-API:er", "ja": "共通の書式設定API" },
+  { "en": "Currency · Date", "nl": "Valuta · Datum", "de": "Währung · Datum", "sv": "Valuta · Datum", "ja": "通貨 · 日付" },
+  { "en": "Unit · Address", "nl": "Eenheid · Adres", "de": "Einheit · Adresse", "sv": "Enhet · Adress", "ja": "単位 · 住所" },
+  { "en": "Regional formats. Reused across product workflows.", "nl": "Regionale notaties. Hergebruikt in productworkflows.", "de": "Regionale Formate. In Produktabläufen wiederverwendet.", "sv": "Regionala format. Återanvända i produktflöden.", "ja": "地域ごとの形式を製品ワークフローで再利用。" },
+  { "en": "SCHEMA-DRIVEN API EXPERIENCES", "nl": "SCHEMAGESTUURDE API-ERVARINGEN", "de": "SCHEMAGESTEUERTE API-ERLEBNISSE", "sv": "SCHEMADRIVNA API-UPPLEVELSER", "ja": "スキーマ駆動のAPI体験" },
+  { "en": "Backend schemas", "nl": "Backendschema’s", "de": "Backend-Schemas", "sv": "Backendscheman", "ja": "バックエンドのスキーマ" },
+  { "en": "Server rendering", "nl": "Serverrendering", "de": "Server-Rendering", "sv": "Serverrendering", "ja": "サーバー側の描画" },
+  { "en": "Documentation", "nl": "Documentatie", "de": "Dokumentation", "sv": "Dokumentation", "ja": "ドキュメント" },
+  { "en": "Request / response", "nl": "Verzoek / antwoord", "de": "Anfrage / Antwort", "sv": "Begäran / svar", "ja": "リクエスト / レスポンス" },
+  { "en": "Generated views. Less work on the client.", "nl": "Gegenereerde weergaven. Minder werk voor de client.", "de": "Generierte Ansichten. Weniger Arbeit auf dem Client.", "sv": "Genererade vyer. Mindre arbete på klienten.", "ja": "ビューを生成し、クライアントの処理を削減。" },
+  {
+    "en": "I’m a software engineer at Rubrik, working on Rubrik Security Cloud. My work spans product features, shared UI architecture, and the tools and conventions other engineers build with.",
+    "nl": "Ik ben software-engineer bij Rubrik en werk aan Rubrik Security Cloud. Mijn werk omvat productfeatures, gedeelde UI-architectuur en de tools en conventies waarmee andere engineers werken.",
+    "de": "Ich bin Software Engineer bei Rubrik und arbeite an Rubrik Security Cloud. Meine Arbeit umfasst Produktfunktionen, gemeinsame UI-Architektur sowie Werkzeuge und Konventionen, auf denen andere Engineers aufbauen.",
+    "sv": "Jag är mjukvaruingenjör på Rubrik och arbetar med Rubrik Security Cloud. Mitt arbete omfattar produktfunktioner, gemensam UI-arkitektur samt verktyg och konventioner som andra utvecklare bygger vidare på.",
+    "ja": "RubrikでソフトウェアエンジニアとしてRubrik Security Cloudを開発しています。製品機能、共通のUIアーキテクチャ、他のエンジニアが使うツールや規約まで、幅広く取り組んでいます。"
+  },
+  {
+    "en": "I take features from design through release, build reusable components and workflows, and lead changes across existing code. These examples show what I owned, the engineering decisions behind it, and their impact.",
+    "nl": "Ik begeleid features van ontwerp tot release, bouw herbruikbare componenten en workflows en leid veranderingen in bestaande code. Deze voorbeelden laten mijn verantwoordelijkheid, de technische keuzes en hun impact zien.",
+    "de": "Ich begleite Funktionen vom Entwurf bis zum Release, entwickle wiederverwendbare Komponenten und Abläufe und leite Änderungen im bestehenden Code. Diese Beispiele zeigen meine Verantwortung, die technischen Entscheidungen und ihre Wirkung.",
+    "sv": "Jag tar funktioner från design till release, bygger återanvändbara komponenter och arbetsflöden och leder förändringar i befintlig kod. Exemplen visar mitt ansvar, de tekniska besluten och deras effekt.",
+    "ja": "設計からリリースまで機能開発を担当し、再利用可能なコンポーネントやワークフローを構築し、既存コード全体の変更を主導しています。以下では、担当範囲、技術的な判断、その成果を紹介します。"
+  },
+  {
+    "en": "I built a hierarchical, paginated table for discovering and connecting AWS accounts in bulk. Users could drill into account groups, navigate asynchronously loaded pages, and select hundreds of accounts without being limited to the rows currently on screen.",
+    "nl": "Ik bouwde een hiërarchische tabel met paginering om AWS-accounts te vinden en in bulk te koppelen. Gebruikers konden accountgroepen verkennen, door asynchroon geladen pagina’s navigeren en honderden accounts selecteren, zonder beperkt te zijn tot de zichtbare rijen.",
+    "de": "Ich entwickelte eine hierarchische, paginierte Tabelle zum Finden und gesammelten Verbinden von AWS-Konten. Nutzer konnten Kontogruppen erkunden, asynchron geladene Seiten durchlaufen und Hunderte Konten auswählen, ohne auf die aktuell sichtbaren Zeilen beschränkt zu sein.",
+    "sv": "Jag byggde en hierarkisk, sidindelad tabell för att hitta och ansluta AWS-konton i bulk. Användare kunde utforska kontogrupper, navigera mellan asynkront laddade sidor och välja hundratals konton utan att begränsas till de synliga raderna.",
+    "ja": "AWSアカウントを検索し、一括で接続するための階層型・ページ分割テーブルを構築しました。アカウントグループをたどり、非同期で読み込まれるページを移動しながら、画面上の行に限定されず数百件のアカウントを選択できます。"
+  },
+  {
+    "en": "The challenge was keeping the interaction correct as the visible data changed. I implemented “Select All Across Pages” and coordinated asynchronously loaded organization settings with form state. I also refactored the legacy setup flow into modular patterns.",
+    "nl": "De uitdaging was de interactie correct te houden terwijl de zichtbare data veranderde. Ik implementeerde ‘Alles selecteren over alle pagina’s’ en stemde asynchroon geladen organisatie-instellingen af op de formulierstatus. Ook maakte ik de bestaande configuratieflow modulair.",
+    "de": "Die Herausforderung war, das Verhalten bei wechselnden sichtbaren Daten korrekt zu halten. Ich implementierte die seitenübergreifende Gesamtauswahl und stimmte asynchron geladene Organisationseinstellungen mit dem Formularzustand ab. Außerdem überführte ich den bisherigen Einrichtungsablauf in modulare Strukturen.",
+    "sv": "Utmaningen var att hålla interaktionen korrekt när synliga data förändrades. Jag implementerade ‘Välj alla över alla sidor’ och samordnade asynkront laddade organisationsinställningar med formulärets tillstånd. Jag gjorde också det äldre konfigurationsflödet modulärt.",
+    "ja": "表示データが変わっても操作の整合性を保つことが課題でした。「全ページのすべてを選択」を実装し、非同期で読み込まれる組織設定とフォームの状態を連携させました。既存の設定フローもモジュール化しました。"
+  },
+  {
+    "en": "The result replaced one-at-a-time account setup with a bulk workflow. It brought together hierarchical navigation, cross-page selection, asynchronous data handling, and form-state coordination in one UI.",
+    "nl": "Het resultaat verving het één voor één instellen van accounts door een bulkworkflow. Hiërarchische navigatie, selectie over pagina’s heen, asynchrone dataverwerking en coördinatie van formulierstatus kwamen samen in één UI.",
+    "de": "Das Ergebnis ersetzte die Einrichtung einzelner Konten durch einen Sammelablauf. Hierarchische Navigation, seitenübergreifende Auswahl, asynchrone Datenverarbeitung und die Koordination des Formularzustands kamen in einer UI zusammen.",
+    "sv": "Resultatet ersatte konfiguration av ett konto i taget med ett bulkflöde. Hierarkisk navigering, val över flera sidor, asynkron datahantering och samordning av formulärtillstånd samlades i ett gränssnitt.",
+    "ja": "アカウントを一件ずつ設定する操作を、一括処理のワークフローに置き換えました。階層ナビゲーション、ページをまたぐ選択、非同期データ処理、フォーム状態の連携を、一つのUIにまとめました。"
+  },
+  {
+    "en": "I investigated and removed obscure TypeScript patterns from our component library, replacing implicit behavior and difficult-to-extend types with clearer component contracts. I carried those changes through existing usages across the codebase using codemods and reusable AI skills.",
+    "nl": "Ik onderzocht en verwijderde onduidelijke TypeScript-patronen uit onze componentbibliotheek. Impliciet gedrag en moeilijk uitbreidbare typen verving ik door duidelijkere componentcontracten. Met codemods en herbruikbare AI-skills voerde ik die veranderingen door in bestaande toepassingen in de hele codebase.",
+    "de": "Ich untersuchte und entfernte schwer verständliche TypeScript-Muster aus unserer Komponentenbibliothek. Implizites Verhalten und schwer erweiterbare Typen ersetzte ich durch klarere Komponentenverträge. Mit Codemods und wiederverwendbaren KI-Skills übertrug ich die Änderungen auf bestehende Verwendungen in der gesamten Codebasis.",
+    "sv": "Jag undersökte och tog bort svårbegripliga TypeScript-mönster från vårt komponentbibliotek. Implicit beteende och svårutökade typer ersattes med tydligare komponentkontrakt. Med codemods och återanvändbara AI-skills genomförde jag ändringarna i befintliga användningar i hela kodbasen.",
+    "ja": "コンポーネントライブラリのわかりにくいTypeScriptパターンを調査して取り除き、暗黙の挙動や拡張しづらい型を、明確なコンポーネント仕様に置き換えました。codemodと再利用可能なAIスキルを使い、コードベース全体の既存の利用箇所にも変更を適用しました。"
+  },
+  {
+    "en": "The work made shared components easier to understand and extend while preserving type safety. Automated migrations brought existing code along, and lint rules made the new conventions consistent rather than optional.",
+    "nl": "Hierdoor werden gedeelde componenten begrijpelijker en eenvoudiger uit te breiden, met behoud van typeveiligheid. Automatische migraties namen bestaande code mee, en lintregels maakten de nieuwe conventies consequent toepasbaar in plaats van vrijblijvend.",
+    "de": "Dadurch wurden gemeinsame Komponenten leichter verständlich und erweiterbar, ohne die Typsicherheit aufzugeben. Automatisierte Migrationen bezogen bestehenden Code ein, und Lint-Regeln machten die neuen Konventionen verbindlich statt optional.",
+    "sv": "Arbetet gjorde gemensamma komponenter lättare att förstå och utöka utan att förlora typsäkerheten. Automatiserade migreringar tog med befintlig kod, och lintregler gjorde de nya konventionerna konsekventa i stället för valfria.",
+    "ja": "型安全性を保ちながら、共通コンポーネントを理解しやすく、拡張しやすくしました。自動マイグレーションで既存コードも移行し、lintルールで新しい規約を任意ではなく一貫したものにしました。"
+  },
+  {
+    "en": "I authored an approved RFC to replace deep relative imports with package-root TypeScript subpath imports. The change gives files a stable reference within their package instead of making developers—or AI agents—count directory levels.",
+    "nl": "Ik schreef een goedgekeurde RFC om diepe relatieve imports te vervangen door TypeScript-subpadimports vanuit de pakketroot. Bestanden krijgen zo een stabiele verwijzing binnen hun pakket, zonder dat ontwikkelaars of AI-agents directoryniveaus hoeven te tellen.",
+    "de": "Ich verfasste eine genehmigte RFC, um tief verschachtelte relative Imports durch TypeScript-Subpath-Imports ab der Paketwurzel zu ersetzen. Dateien erhalten dadurch stabile Referenzen innerhalb ihres Pakets, statt dass Entwickler oder KI-Agenten Verzeichnisebenen zählen müssen.",
+    "sv": "Jag skrev en godkänd RFC för att ersätta djupa relativa importer med TypeScript-subpath-importer från paketroten. Det ger filer stabila referenser inom paketet i stället för att utvecklare eller AI-agenter måste räkna katalognivåer.",
+    "ja": "深い相対インポートを、パッケージルート基準のTypeScriptサブパスインポートに置き換えるRFCを執筆し、承認を得ました。開発者やAIエージェントがディレクトリ階層を数える必要がなくなり、パッケージ内で安定した参照を使えます。"
+  },
+  {
+    "en": "The migration design spans package.json imports, Jest resolution, Bazel package generation, code generators, and package scaffolding. I built proofs of concept for the codemod, lint rule, and toolchain changes, with a staged rollout designed to check development, production builds, Bazel, and Jest together.",
+    "nl": "Het migratieontwerp omvat package.json-imports, Jest-resolutie, Bazel-pakketgeneratie, codegenerators en pakketscaffolding. Ik bouwde proofs of concept voor de codemod, lintregel en toolchainwijzigingen, met een gefaseerde uitrol die ontwikkeling, productiebuilds, Bazel en Jest samen controleert.",
+    "de": "Der Migrationsentwurf umfasst package.json-Imports, Jest-Auflösung, Bazel-Paketgenerierung, Codegeneratoren und Paketgerüste. Ich entwickelte Machbarkeitsnachweise für Codemod, Lint-Regel und Toolchain-Änderungen sowie eine gestaffelte Einführung, die Entwicklung, Produktions-Builds, Bazel und Jest gemeinsam prüft.",
+    "sv": "Migreringsdesignen omfattar package.json-importer, Jest-upplösning, Bazel-paketgenerering, kodgeneratorer och paketmallar. Jag byggde koncepttester för codemod, lintregel och verktygskedjans förändringar, med en stegvis utrullning som kontrollerar utveckling, produktionsbyggen, Bazel och Jest tillsammans.",
+    "ja": "移行設計はpackage.jsonのimports、Jestの解決処理、Bazelのパッケージ生成、コードジェネレーター、パッケージのひな型生成まで含みます。codemod、lintルール、ツールチェーン変更の実証を行い、開発環境、本番ビルド、Bazel、Jestをまとめて検証する段階的な展開を設計しました。"
+  },
+  {
+    "en": "Stable package-root paths give AI agents fewer opportunities to miscount directory levels. The approach is designed to reduce incorrect imports and repeated type-check and lint attempts, improving the accuracy of generated code while reducing wasted tokens and their cost.",
+    "nl": "Stabiele paden vanuit de pakketroot verkleinen de kans dat AI-agents directoryniveaus verkeerd tellen. De aanpak is ontworpen om foutieve imports en herhaalde type- en lintcontroles te verminderen, zodat gegenereerde code nauwkeuriger wordt en minder tokens en kosten worden verspild.",
+    "de": "Stabile Pfade ab der Paketwurzel verringern die Möglichkeiten für KI-Agenten, Verzeichnisebenen falsch zu zählen. Der Ansatz soll fehlerhafte Imports und wiederholte Typ- und Lint-Prüfungen reduzieren, die Genauigkeit generierten Codes verbessern und unnötige Tokens samt Kosten einsparen.",
+    "sv": "Stabila sökvägar från paketroten minskar risken att AI-agenter räknar katalognivåer fel. Metoden är utformad för att minska felaktiga importer och upprepade typ- och lintkontroller, förbättra genererad kod och minska slöseri med tokens och deras kostnad.",
+    "ja": "安定したパッケージルート基準のパスにより、AIエージェントが階層数を間違える機会を減らせます。誤ったインポートや型チェック・lintのやり直しを減らし、生成コードの精度を高めながら、無駄なトークンとそのコストを削減することを目指した設計です。"
+  },
+  {
+    "en": "I co-led a product integration and owned its UI from design through release, including complex OAuth authentication within multi-step workflows. I extracted duplicated authentication logic into shared hooks and packages so other features could reuse the same implementation.",
+    "nl": "Ik leidde samen een productintegratie en was verantwoordelijk voor de UI van ontwerp tot release, inclusief complexe OAuth-authenticatie in meerstapsworkflows. Dubbele authenticatielogica bracht ik onder in gedeelde hooks en pakketten, zodat andere features dezelfde implementatie konden hergebruiken.",
+    "de": "Ich leitete eine Produktintegration mit und verantwortete ihre UI vom Entwurf bis zum Release, einschließlich komplexer OAuth-Authentifizierung in mehrstufigen Abläufen. Doppelte Authentifizierungslogik extrahierte ich in gemeinsame Hooks und Pakete, damit andere Funktionen dieselbe Implementierung nutzen konnten.",
+    "sv": "Jag var med och ledde en produktintegration och ansvarade för dess UI från design till release, inklusive komplex OAuth-autentisering i flerstegsflöden. Jag flyttade duplicerad autentiseringslogik till gemensamma hooks och paket så att andra funktioner kunde återanvända implementationen.",
+    "ja": "製品統合を共同で主導し、複数ステップのワークフロー内での複雑なOAuth認証を含め、設計からリリースまでUIを担当しました。重複した認証ロジックを共通のフックとパッケージに抽出し、他の機能でも同じ実装を再利用できるようにしました。"
+  },
+  {
+    "en": "My ownership included the design document, coordination across teams, and stability through beta and launch. The integration reached general availability and left reusable authentication and setup workflows for the wider codebase.",
+    "nl": "Mijn verantwoordelijkheid omvatte het ontwerpdocument, afstemming tussen teams en stabiliteit tijdens bèta en lancering. De integratie bereikte algemene beschikbaarheid en leverde herbruikbare authenticatie- en configuratieworkflows op voor de rest van de codebase.",
+    "de": "Meine Verantwortung umfasste das Entwurfsdokument, die Abstimmung zwischen Teams und die Stabilität während Beta und Einführung. Die Integration wurde allgemein verfügbar und hinterließ wiederverwendbare Authentifizierungs- und Einrichtungsabläufe für die gesamte Codebasis.",
+    "sv": "Mitt ansvar omfattade designdokumentet, samordning mellan team och stabilitet genom beta och lansering. Integrationen nådde allmän tillgänglighet och gav återanvändbara autentiserings- och konfigurationsflöden till den bredare kodbasen.",
+    "ja": "設計ドキュメント、チーム間の調整、ベータから正式公開までの安定性を担当しました。統合機能は正式リリースされ、コードベース全体で使える認証・設定ワークフローも残しました。"
+  },
+  {
+    "en": "I designed shared frontend components and APIs for currencies, dates, units, and addresses across accounting, payroll, sales, and other product workflows.",
+    "nl": "Ik ontwierp gedeelde frontendcomponenten en API’s voor valuta, datums, eenheden en adressen in boekhouding, salarisadministratie, verkoop en andere productworkflows.",
+    "de": "Ich entwarf gemeinsame Frontend-Komponenten und APIs für Währungen, Datumsangaben, Einheiten und Adressen in Buchhaltung, Gehaltsabrechnung, Vertrieb und weiteren Produktabläufen.",
+    "sv": "Jag utformade gemensamma frontendkomponenter och API:er för valutor, datum, enheter och adresser inom bokföring, löner, försäljning och andra produktflöden.",
+    "ja": "会計、給与、販売などの製品ワークフローで使う、通貨、日付、単位、住所の共通フロントエンドコンポーネントとAPIを設計しました。"
+  },
+  {
+    "en": "My ownership covered API design, packaging, and releases for localization libraries supporting the US, Canada, UK, France, and Australia. Product teams could use shared regional behavior rather than build a separate implementation for each feature.",
+    "nl": "Ik was verantwoordelijk voor API-ontwerp, verpakking en releases van lokalisatiebibliotheken voor de VS, Canada, het VK, Frankrijk en Australië. Productteams konden gedeeld regionaal gedrag gebruiken in plaats van voor elke feature een aparte implementatie te bouwen.",
+    "de": "Ich verantwortete API-Entwurf, Paketierung und Releases von Lokalisierungsbibliotheken für die USA, Kanada, Großbritannien, Frankreich und Australien. Produktteams konnten gemeinsame regionale Logik nutzen, statt für jede Funktion eine eigene Implementierung zu entwickeln.",
+    "sv": "Jag ansvarade för API-design, paketering och releaser av lokaliseringsbibliotek för USA, Kanada, Storbritannien, Frankrike och Australien. Produktteam kunde använda gemensamt regionalt beteende i stället för att bygga separata implementationer för varje funktion.",
+    "ja": "米国、カナダ、英国、フランス、オーストラリアに対応するローカライズライブラリのAPI設計、パッケージ化、リリースを担当しました。製品チームは機能ごとに別実装を作るのではなく、共通の地域対応ロジックを利用できます。"
+  },
+  {
+    "en": "The work made localization a reusable platform capability, with common APIs that could serve different workflows and markets.",
+    "nl": "Hierdoor werd lokalisatie een herbruikbare platformfunctie, met gemeenschappelijke API’s voor verschillende workflows en markten.",
+    "de": "Dadurch wurde Lokalisierung zu einer wiederverwendbaren Plattformfunktion mit gemeinsamen APIs für verschiedene Abläufe und Märkte.",
+    "sv": "Arbetet gjorde lokalisering till en återanvändbar plattformsförmåga, med gemensamma API:er för olika arbetsflöden och marknader.",
+    "ja": "ローカライズを再利用可能なプラットフォーム機能にし、さまざまなワークフローや市場で使える共通APIを整備しました。"
+  },
+  {
+    "en": "I built schema-driven API documentation and interactive request-and-response experiences, connecting backend definitions to the frontend tools developers used to explore APIs.",
+    "nl": "Ik bouwde schemagestuurde API-documentatie en interactieve request-en-response-ervaringen, waarmee backenddefinities werden verbonden met de frontendtools die ontwikkelaars gebruiken om API’s te verkennen.",
+    "de": "Ich entwickelte schemagesteuerte API-Dokumentation und interaktive Anfrage-Antwort-Ansichten und verband Backend-Definitionen mit den Frontend-Werkzeugen, mit denen Entwickler APIs erkunden.",
+    "sv": "Jag byggde schemadriven API-dokumentation och interaktiva begäran-och-svar-vyer som kopplade backenddefinitioner till frontendverktygen utvecklare använde för att utforska API:er.",
+    "ja": "スキーマ駆動のAPIドキュメントと、リクエスト・レスポンスを対話的に試せる仕組みを構築し、バックエンドの定義を開発者向けのフロントエンドツールにつなげました。"
+  },
+  {
+    "en": "I moved documentation rendering to React Server Components with Suspense, reducing client-side data fetching and rendering work. The focus was both the generated experience and the architecture delivering it.",
+    "nl": "Ik verplaatste de rendering van documentatie naar React Server Components met Suspense, waardoor minder data aan de clientzijde werd opgehaald en minder rendering nodig was. Ik richtte me zowel op de gegenereerde ervaring als op de architectuur die deze levert.",
+    "de": "Ich verlagerte das Rendering der Dokumentation auf React Server Components mit Suspense und reduzierte dadurch clientseitiges Laden und Rendern. Im Fokus standen sowohl das generierte Erlebnis als auch die Architektur dahinter.",
+    "sv": "Jag flyttade dokumentationens rendering till React Server Components med Suspense och minskade klientens datahämtning och renderingsarbete. Fokus låg både på den genererade upplevelsen och arkitekturen som levererade den.",
+    "ja": "ドキュメントのレンダリングをSuspenseを使ったReact Server Componentsに移し、クライアント側のデータ取得と描画処理を減らしました。生成される体験と、それを届けるアーキテクチャの両方に取り組みました。"
+  },
+  {
+    "en": "My platform work starts with understanding how a change will affect the whole codebase: the developers using it, the environments it runs in, and the existing code that must move with it. I write RFCs that connect the design decision to its trade-offs and rollout, then take approved proposals through implementation.",
+    "nl": "Mijn platformwerk begint met inzicht in de invloed van een verandering op de hele codebase: de ontwikkelaars die ermee werken, de omgevingen waarin de code draait en de bestaande code die mee moet veranderen. Ik schrijf RFC’s die ontwerpkeuzes verbinden met afwegingen en uitrol, en voer goedgekeurde voorstellen vervolgens uit.",
+    "de": "Meine Plattformarbeit beginnt damit, die Folgen einer Änderung für die gesamte Codebasis zu verstehen: für die Entwickler, die Laufzeitumgebungen und den bestehenden Code, der mitziehen muss. Ich schreibe RFCs, die Entwurfsentscheidungen mit Abwägungen und Einführung verbinden, und setze genehmigte Vorschläge um.",
+    "sv": "Mitt plattformsarbete börjar med att förstå hur en förändring påverkar hela kodbasen: utvecklarna som använder den, miljöerna där den körs och befintlig kod som måste följa med. Jag skriver RFC:er som kopplar designbeslut till avvägningar och utrullning och genomför sedan godkända förslag.",
+    "ja": "基盤開発では、変更がコードベース全体に与える影響をまず理解します。利用する開発者、動作する環境、一緒に移行すべき既存コードまで考慮します。設計判断をトレードオフや展開計画と結び付けるRFCを書き、承認された提案を実装まで進めます。"
+  },
+  {
+    "en": "I use evidence to choose the approach. That can mean tracing whether a dependency still does useful work, checking where a browser API is available, or benchmarking competing lint checks. Removing a library is only useful if its replacement preserves the behavior the application needs. A new check also needs to justify the cost it adds to everyday development.",
+    "nl": "Ik kies mijn aanpak op basis van bewijs: nagaan of een afhankelijkheid nog nuttig werk doet, controleren waar een browser-API beschikbaar is of concurrerende lintcontroles benchmarken. Een bibliotheek verwijderen is alleen zinvol als de vervanging het benodigde applicatiegedrag behoudt. Ook een nieuwe controle moet de extra kosten voor dagelijks ontwikkelwerk rechtvaardigen.",
+    "de": "Ich wähle den Ansatz anhand von Belegen: etwa indem ich prüfe, ob eine Abhängigkeit noch nützlich ist, wo eine Browser-API verfügbar ist oder wie konkurrierende Lint-Prüfungen abschneiden. Eine Bibliothek zu entfernen ist nur sinnvoll, wenn der Ersatz das benötigte Verhalten bewahrt. Auch eine neue Prüfung muss ihren Aufwand im Entwicklungsalltag rechtfertigen.",
+    "sv": "Jag väljer metod utifrån belägg: undersöker om ett beroende fortfarande gör nytta, var ett webbläsar-API är tillgängligt eller jämför prestandan hos olika lintkontroller. Att ta bort ett bibliotek är bara värdefullt om ersättningen bevarar beteendet applikationen behöver. En ny kontroll måste också motivera kostnaden den tillför i det dagliga arbetet.",
+    "ja": "根拠に基づいて方法を選びます。依存ライブラリが今も有用かを調べたり、ブラウザーAPIが使える環境を確認したり、lintチェック同士をベンチマークしたりします。ライブラリの削除は、代替手段が必要な挙動を保つ場合にのみ意味があります。新しいチェックも、日々の開発に加えるコストに見合う必要があります。"
+  },
+  {
+    "en": "The migration is part of the engineering. I build shared helpers, update existing uses, and use automated scripts where the change is mechanical. Type checks and lint rules make the new conventions enforceable, so teams can follow them without relying on a document or remembering every exception.",
+    "nl": "De migratie hoort bij het engineeringwerk. Ik bouw gedeelde helpers, werk bestaande toepassingen bij en gebruik automatische scripts voor mechanische veranderingen. Typecontroles en lintregels maken de nieuwe conventies afdwingbaar, zodat teams ze kunnen volgen zonder op documentatie te vertrouwen of elke uitzondering te onthouden.",
+    "de": "Die Migration gehört zur technischen Arbeit. Ich entwickle gemeinsame Helfer, aktualisiere bestehende Verwendungen und automatisiere mechanische Änderungen mit Skripten. Typprüfungen und Lint-Regeln machen die neuen Konventionen durchsetzbar, sodass Teams weder auf ein Dokument angewiesen sind noch jede Ausnahme auswendig kennen müssen.",
+    "sv": "Migreringen är en del av ingenjörsarbetet. Jag bygger gemensamma hjälpfunktioner, uppdaterar befintliga användningar och använder automatiserade skript för mekaniska ändringar. Typkontroller och lintregler gör konventionerna möjliga att upprätthålla, så att teamen slipper förlita sig på dokument eller minnas varje undantag.",
+    "ja": "移行もエンジニアリングの一部です。共通ヘルパーを作り、既存の利用箇所を更新し、機械的な変更はスクリプトで自動化します。型チェックとlintルールで新しい規約を強制できるようにし、チームがドキュメントや例外の暗記に頼らず従えるようにします。"
+  },
+  {
+    "en": "Across the shipped work, this approach removed unnecessary dependencies, standardized common utilities, and made shared component behavior explicit. My contribution spans the proposal, implementation, migration, and checks that keep the change in place.",
+    "nl": "In het opgeleverde werk verwijderde deze aanpak onnodige afhankelijkheden, standaardiseerde hij algemene utilities en maakte hij het gedrag van gedeelde componenten expliciet. Mijn bijdrage omvat het voorstel, de implementatie, de migratie en de controles die de verandering blijvend maken.",
+    "de": "Bei den ausgelieferten Änderungen beseitigte dieser Ansatz unnötige Abhängigkeiten, vereinheitlichte allgemeine Hilfsfunktionen und machte das Verhalten gemeinsamer Komponenten explizit. Mein Beitrag umfasst Vorschlag, Implementierung, Migration und die Prüfungen, die die Änderung dauerhaft absichern.",
+    "sv": "I det levererade arbetet tog metoden bort onödiga beroenden, standardiserade gemensamma verktyg och gjorde komponenternas beteende tydligt. Mitt bidrag omfattar förslag, implementation, migrering och kontroller som håller förändringen på plats.",
+    "ja": "リリース済みの取り組みでは、この方法によって不要な依存関係を取り除き、共通ユーティリティを標準化し、共有コンポーネントの挙動を明確にしました。提案、実装、移行、変更を維持するためのチェックまで一貫して担当しています。"
+  },
+  {
+    "en": "As a certified UI code reviewer, I review changes daily across the UI organization. I also interview frontend candidates, author interview questions, and run knowledge-sharing sessions.",
+    "nl": "Als gecertificeerd UI-codereviewer beoordeel ik dagelijks wijzigingen binnen de UI-organisatie. Daarnaast interview ik frontendkandidaten, schrijf ik interviewvragen en organiseer ik kennissessies.",
+    "de": "Als zertifizierter UI-Code-Reviewer prüfe ich täglich Änderungen in der UI-Organisation. Außerdem interviewe ich Frontend-Bewerber, entwerfe Interviewfragen und veranstalte Wissensaustausch-Sessions.",
+    "sv": "Som certifierad UI-kodgranskare granskar jag dagligen ändringar i UI-organisationen. Jag intervjuar också frontendkandidater, skriver intervjufrågor och håller kunskapsdelningssessioner.",
+    "ja": "認定UIコードレビュアーとして、UI組織全体の変更を日々レビューしています。フロントエンド候補者の面接、面接問題の作成、知識共有セッションも担当しています。"
+  },
+  {
+    "en": "React and TypeScript are my core tools. I also work with GraphQL, forms, automated tests, shared UI components, and AWS and Azure backup workflows.",
+    "nl": "React en TypeScript zijn mijn belangrijkste tools. Ik werk ook met GraphQL, formulieren, automatische tests, gedeelde UI-componenten en AWS- en Azure-backupworkflows.",
+    "de": "React und TypeScript sind meine zentralen Werkzeuge. Außerdem arbeite ich mit GraphQL, Formularen, automatisierten Tests, gemeinsamen UI-Komponenten sowie AWS- und Azure-Backup-Abläufen.",
+    "sv": "React och TypeScript är mina huvudsakliga verktyg. Jag arbetar även med GraphQL, formulär, automatiserade tester, gemensamma UI-komponenter samt backupflöden för AWS och Azure.",
+    "ja": "主にReactとTypeScriptを使っています。GraphQL、フォーム、自動テスト、共通UIコンポーネント、AWS・Azureのバックアップワークフローにも取り組んでいます。"
+  },
+  { "en": "Frontend engineering.", "nl": "Frontend-engineering.", "de": "Frontend-Engineering.", "sv": "Frontendutveckling.", "ja": "フロントエンドエンジニアリング。" },
+  { "en": "From design to delivery.", "nl": "Van ontwerp tot oplevering.", "de": "Vom Entwurf bis zur Auslieferung.", "sv": "Från design till leverans.", "ja": "設計からリリースまで。" },
+  { "en": "A hierarchy to explore.", "nl": "Een hiërarchie om te verkennen.", "de": "Eine Hierarchie zum Erkunden.", "sv": "En hierarki att utforska.", "ja": "階層をたどる。" },
+  { "en": "Selection that carries across pages.", "nl": "Selecties die over pagina’s heen behouden blijven.", "de": "Eine Auswahl, die über Seiten hinweg bestehen bleibt.", "sv": "Val som följer med mellan sidor.", "ja": "ページをまたいでも選択を保持。" },
+  { "en": "AWS bulk account setup · UI engineering", "nl": "AWS-accounts in bulk instellen · UI-engineering", "de": "AWS-Konten gesammelt einrichten · UI-Engineering", "sv": "Masskonfiguration av AWS-konton · UI-utveckling", "ja": "AWSアカウントの一括設定 · UIエンジニアリング" },
+  { "en": "Pages change. Selection stays intact across the hierarchy.", "nl": "De pagina verandert. De selectie blijft binnen de hiërarchie behouden.", "de": "Die Seite wechselt. Die Auswahl bleibt in der Hierarchie erhalten.", "sv": "Sidorna ändras. Valen behålls genom hierarkin.", "ja": "ページが変わっても、階層全体で選択は保持されます。" },
+  { "en": "Clearer components.", "nl": "Duidelijkere componenten.", "de": "Verständlichere Komponenten.", "sv": "Tydligare komponenter.", "ja": "わかりやすいコンポーネント。" },
+  { "en": "Consistent across the codebase.", "nl": "Consistent in de hele codebase.", "de": "Konsistent in der gesamten Codebasis.", "sv": "Konsekvent i hela kodbasen.", "ja": "コードベース全体で一貫性を。" },
+  { "en": "Component library modernization", "nl": "Modernisering van de componentbibliotheek", "de": "Modernisierung der Komponentenbibliothek", "sv": "Modernisering av komponentbiblioteket", "ja": "コンポーネントライブラリの刷新" },
+  { "en": "A clearer contract, migrated across usages and reinforced by automated checks.", "nl": "Een duidelijker contract, doorgevoerd in alle toepassingen en ondersteund door automatische controles.", "de": "Ein klarerer Vertrag, auf bestehende Verwendungen übertragen und durch automatische Prüfungen abgesichert.", "sv": "Ett tydligare kontrakt, infört överallt och stärkt av automatiserade kontroller.", "ja": "明確な仕様を既存の利用箇所にも適用し、自動チェックで徹底。" },
+  { "en": "Stable imports.", "nl": "Stabiele imports.", "de": "Stabile Imports.", "sv": "Stabila importer.", "ja": "安定したインポート。" },
+  { "en": "Across the whole toolchain.", "nl": "In de volledige toolchain.", "de": "In der gesamten Toolchain.", "sv": "Genom hela verktygskedjan.", "ja": "ツールチェーン全体で。" },
+  { "en": "TypeScript subpath imports", "nl": "TypeScript-subpadimports", "de": "TypeScript-Subpath-Imports", "sv": "TypeScript-subpath-importer", "ja": "TypeScriptのサブパスインポート" },
+  { "en": "A package-root import convention carried through resolution, build tooling, and generated code.", "nl": "Een importconventie vanuit de pakketroot, toegepast op resolutie, buildtools en gegenereerde code.", "de": "Eine Importkonvention ab der Paketwurzel, umgesetzt in Auflösung, Build-Werkzeugen und generiertem Code.", "sv": "En importkonvention från paketroten, genomförd i upplösning, byggverktyg och genererad kod.", "ja": "パッケージルート基準のインポート規約を、解決処理、ビルドツール、生成コードまで適用。" },
+  { "en": "Complex authentication.", "nl": "Complexe authenticatie.", "de": "Komplexe Authentifizierung.", "sv": "Komplex autentisering.", "ja": "複雑な認証。" },
+  { "en": "Reusable workflows.", "nl": "Herbruikbare workflows.", "de": "Wiederverwendbare Abläufe.", "sv": "Återanvändbara arbetsflöden.", "ja": "再利用できるワークフロー。" },
+  { "en": "Authentication and feature ownership", "nl": "Authenticatie en verantwoordelijkheid voor features", "de": "Authentifizierung und Feature-Verantwortung", "sv": "Autentisering och funktionsansvar", "ja": "認証と機能開発の主導" },
+  { "en": "Shared authentication logic supports multiple setup workflows without duplicated implementations.", "nl": "Gedeelde authenticatielogica ondersteunt meerdere configuratieworkflows zonder dubbele implementaties.", "de": "Gemeinsame Authentifizierungslogik unterstützt mehrere Einrichtungsabläufe ohne doppelte Implementierungen.", "sv": "Gemensam autentiseringslogik stöder flera konfigurationsflöden utan duplicerad implementation.", "ja": "共有の認証ロジックで、実装を重複させずに複数の設定フローを支援。" },
+  { "en": "Local formats.", "nl": "Lokale notaties.", "de": "Lokale Formate.", "sv": "Lokala format.", "ja": "地域に合った表示形式。" },
+  { "en": "A shared platform.", "nl": "Een gedeeld platform.", "de": "Eine gemeinsame Plattform.", "sv": "En gemensam plattform.", "ja": "共通のプラットフォーム。" },
+  { "en": "Tekion · Localization libraries", "nl": "Tekion · Lokalisatiebibliotheken", "de": "Tekion · Lokalisierungsbibliotheken", "sv": "Tekion · Lokaliseringsbibliotek", "ja": "Tekion · ローカライズライブラリ" },
+  { "en": "Shared formatting APIs adapt currency, date, unit, and address behavior for different markets.", "nl": "Gedeelde formatterings-API’s passen valuta, datums, eenheden en adressen aan verschillende markten aan.", "de": "Gemeinsame Formatierungs-APIs passen Währungen, Datumsangaben, Einheiten und Adressen an verschiedene Märkte an.", "sv": "Gemensamma formaterings-API:er anpassar valuta, datum, enheter och adresser för olika marknader.", "ja": "共通の書式設定APIで、通貨、日付、単位、住所を各市場に対応。" },
+  { "en": "Backend schemas.", "nl": "Backendschema’s.", "de": "Backend-Schemas.", "sv": "Backendscheman.", "ja": "バックエンドのスキーマ。" },
+  { "en": "Usable API experiences.", "nl": "Bruikbare API-ervaringen.", "de": "Nutzbare API-Erlebnisse.", "sv": "Användbara API-upplevelser.", "ja": "使いやすいAPI体験へ。" },
+  { "en": "Tekion · Frontend platform work", "nl": "Tekion · Frontend-platformontwikkeling", "de": "Tekion · Frontend-Plattformentwicklung", "sv": "Tekion · Frontendplattform", "ja": "Tekion · フロントエンド基盤の開発" },
+  { "en": "Backend schemas feed documentation and interactive API views, with rendering moved toward the server.", "nl": "Backendschema’s voeden documentatie en interactieve API-weergaven, waarbij rendering naar de server is verplaatst.", "de": "Backend-Schemas liefern die Grundlage für Dokumentation und interaktive API-Ansichten; das Rendering wurde zum Server verlagert.", "sv": "Backendscheman ligger till grund för dokumentation och interaktiva API-vyer, med rendering flyttad mot servern.", "ja": "バックエンドのスキーマからドキュメントと対話型APIビューを生成し、レンダリングをサーバー側へ。" },
+  { "en": "Design decisions", "nl": "Ontwerpkeuzes", "de": "Entwurfsentscheidungen", "sv": "Designbeslut", "ja": "設計上の判断" },
+  { "en": "Simplify the platform.", "nl": "Vereenvoudig het platform.", "de": "Die Plattform vereinfachen.", "sv": "Förenkla plattformen.", "ja": "プラットフォームをシンプルに。" },
+  { "en": "Carry the change through.", "nl": "Voer de verandering volledig door.", "de": "Die Änderung konsequent umsetzen.", "sv": "Genomför förändringen fullt ut.", "ja": "変更を最後までやり遂げる。" },
+  { "en": "Alongside the feature work", "nl": "Naast de featureontwikkeling", "de": "Neben der Feature-Entwicklung", "sv": "Vid sidan av funktionsutvecklingen", "ja": "機能開発に加えて" },
+  {
+    "en": "Engineering at Rubrik",
+    "nl": "Engineering bij Rubrik",
+    "de": "Engineering bei Rubrik",
+    "sv": "Ingenjörsarbete på Rubrik",
+    "ja": "Rubrikでのエンジニアリング"
+  },
+  {
+    "en": "Engineering at Tekion",
+    "nl": "Engineering bij Tekion",
+    "de": "Engineering bei Tekion",
+    "sv": "Ingenjörsarbete på Tekion",
+    "ja": "Tekionでのエンジニアリング"
+  },
+  {
+    "en": "Inside the workflow",
+    "nl": "Binnen de workflow",
+    "de": "Im Workflow",
+    "sv": "Inuti arbetsflödet",
+    "ja": "ワークフローの仕組み"
+  },
+  {
+    "en": "Conceptual illustration—not a product screenshot.",
+    "nl": "Conceptuele illustratie, geen productscreenshot.",
+    "de": "Konzeptionelle Darstellung, kein Produkt-Screenshot.",
+    "sv": "Konceptuell illustration, inte en produktskärmbild.",
+    "ja": "概念図です。製品のスクリーンショットではありません。"
+  },
+  {
+    "en": "The problem",
+    "nl": "Het probleem",
+    "de": "Das Problem",
+    "sv": "Problemet",
+    "ja": "課題"
+  },
+  {
+    "en": "My role",
+    "nl": "Mijn rol",
+    "de": "Meine Rolle",
+    "sv": "Min roll",
+    "ja": "担当した役割"
+  },
+  {
+    "en": "Engineering decisions",
+    "nl": "Technische keuzes",
+    "de": "Technische Entscheidungen",
+    "sv": "Tekniska beslut",
+    "ja": "技術的な判断"
+  },
+  { "en": "Outcome", "nl": "Resultaat", "de": "Ergebnis", "sv": "Resultat", "ja": "成果" },
+  {
+    "en": "Selected engineering work",
+    "nl": "Geselecteerd technisch werk",
+    "de": "Ausgewählte Engineering-Arbeit",
+    "sv": "Utvalda tekniska projekt",
+    "ja": "主なエンジニアリング実績"
+  },
+  {
+    "en": "Beyond feature delivery",
+    "nl": "Meer dan functies opleveren",
+    "de": "Mehr als Feature-Entwicklung",
+    "sv": "Mer än funktionsleverans",
+    "ja": "機能開発にとどまらない取り組み"
+  },
+  {
+    "en": "Platform improvements with guardrails",
+    "nl": "Platformverbeteringen met waarborgen",
+    "de": "Plattformverbesserungen mit Leitplanken",
+    "sv": "Plattformsförbättringar med skyddsräcken",
+    "ja": "仕組みで品質を守るプラットフォーム改善"
+  },
+  {
+    "en": "AI-assisted, review-driven",
+    "nl": "AI-ondersteund, gestuurd door reviews",
+    "de": "KI-gestützt, revieworientiert",
+    "sv": "AI-stödd, granskningsdriven",
+    "ja": "AIを活用し、レビューで品質を確保"
+  },
+  {
+    "en": "Design, share, and raise the bar",
+    "nl": "Ontwerpen, delen en de lat hoger leggen",
+    "de": "Entwerfen, teilen und Maßstäbe setzen",
+    "sv": "Designa, dela och höj ribban",
+    "ja": "設計し、共有し、基準を高める"
+  },
+  {
+    "en": "Tools & domains",
+    "nl": "Tools en domeinen",
+    "de": "Werkzeuge & Fachgebiete",
+    "sv": "Verktyg & domäner",
+    "ja": "ツールと専門領域"
+  },
+  {
+    "en": "Web platform",
+    "nl": "Webplatform",
+    "de": "Webplattform",
+    "sv": "Webbplattform",
+    "ja": "Webプラットフォーム"
+  },
+  {
+    "en": "Quality & tooling",
+    "nl": "Kwaliteit en tooling",
+    "de": "Qualität & Werkzeuge",
+    "sv": "Kvalitet & verktyg",
+    "ja": "品質と開発ツール"
+  },
+  {
+    "en": "Cloud domain",
+    "nl": "Clouddomein",
+    "de": "Cloud-Fachgebiet",
+    "sv": "Molndomän",
+    "ja": "クラウド領域"
+  },
+  {
+    "en": "Some work is intentionally generalized to protect confidential product and implementation details.",
+    "nl": "Sommige projecten zijn bewust algemeen beschreven om vertrouwelijke product- en implementatiedetails te beschermen.",
+    "de": "Einige Arbeiten sind bewusst allgemein beschrieben, um vertrauliche Produkt- und Implementierungsdetails zu schützen.",
+    "sv": "Vissa projekt beskrivs medvetet övergripande för att skydda konfidentiella produkt- och implementationsdetaljer.",
+    "ja": "製品や実装の機密情報を守るため、一部の実績は意図的に一般化して記載しています。"
+  },
+  {
+    "en": "Frontend-focused software engineer at Rubrik, building cloud data-protection interfaces for Rubrik Security Cloud.",
+    "nl": "Frontendgerichte software-engineer bij Rubrik, waar ik cloudgegevensbeschermingsinterfaces bouw voor Rubrik Security Cloud.",
+    "de": "Frontendorientierter Softwareentwickler bei Rubrik, der Cloud-Datenschutzoberflächen für Rubrik Security Cloud entwickelt.",
+    "sv": "Frontendinriktad mjukvaruingenjör på Rubrik som bygger gränssnitt för skydd av molndata i Rubrik Security Cloud.",
+    "ja": "Rubrikのフロントエンドを専門とするソフトウェアエンジニアとして、Rubrik Security Cloudのクラウドデータ保護インターフェースを開発しています。"
+  },
+  {
+    "en": "I own complex workflows end-to-end, build reusable foundations, and improve the platform that teams build on.",
+    "nl": "Ik neem complexe workflows van begin tot eind voor mijn rekening, bouw herbruikbare fundamenten en verbeter het platform waarop teams bouwen.",
+    "de": "Ich verantworte komplexe Workflows durchgängig, entwickle wiederverwendbare Grundlagen und verbessere die Plattform, auf der Teams aufbauen.",
+    "sv": "Jag ansvarar för komplexa arbetsflöden från början till slut, bygger återanvändbara grunder och förbättrar plattformen som teamen bygger på.",
+    "ja": "複雑なワークフローを一貫して担当し、再利用可能な基盤を構築し、チームの開発を支えるプラットフォームを改善しています。"
+  },
+  {
+    "en": "Complex workflows, shared foundations, and the decisions that make them maintainable. Open a case study to explore the problem, my role, and the outcome.",
+    "nl": "Complexe workflows, gedeelde fundamenten en keuzes die ze onderhoudbaar maken. Open een casestudy voor het probleem, mijn rol en het resultaat.",
+    "de": "Komplexe Workflows, gemeinsame Grundlagen und Entscheidungen für Wartbarkeit. Öffnen Sie eine Fallstudie, um Problem, Rolle und Ergebnis kennenzulernen.",
+    "sv": "Komplexa arbetsflöden, gemensamma grunder och beslut som gör dem underhållbara. Öppna en fallstudie för att se problemet, min roll och resultatet.",
+    "ja": "複雑なワークフロー、共通基盤、保守性を支える判断。事例を開くと、課題、担当した役割、成果をご覧いただけます。"
+  },
+  {
+    "en": "Explore my experience",
+    "nl": "Bekijk mijn ervaring",
+    "de": "Meine Erfahrung entdecken",
+    "sv": "Utforska min erfarenhet",
+    "ja": "職歴を詳しく見る"
+  },
+  {
+    "en": "Back to home",
+    "nl": "Terug naar de startpagina",
+    "de": "Zurück zur Startseite",
+    "sv": "Tillbaka till startsidan",
+    "ja": "ホームに戻る"
+  },
+  { "en": "Currently", "nl": "Momenteel", "de": "Aktuell", "sv": "Just nu", "ja": "現在" },
+  {
+    "en": "Career journey",
+    "nl": "Loopbaan",
+    "de": "Beruflicher Werdegang",
+    "sv": "Karriärresa",
+    "ja": "これまでのキャリア"
+  },
+  { "en": "Résumé", "nl": "Cv", "de": "Lebenslauf", "sv": "CV", "ja": "履歴書" },
+  {
+    "en": "Behind the interface",
+    "nl": "Achter de interface",
+    "de": "Hinter der Oberfläche",
+    "sv": "Bakom gränssnittet",
+    "ja": "インターフェースの裏側"
+  },
+  {
+    "en": "Component or hook",
+    "nl": "Component of hook",
+    "de": "Komponente oder Hook",
+    "sv": "Komponent eller hook",
+    "ja": "コンポーネントとフック"
+  },
+  {
+    "en": "Use the renderer component or build a custom view with useJsonLines.",
+    "nl": "Gebruik de renderercomponent of bouw een eigen weergave met useJsonLines.",
+    "de": "Nutze die Renderer-Komponente oder erstelle mit useJsonLines eine eigene Ansicht.",
+    "sv": "Använd rendererkomponenten eller bygg en egen vy med useJsonLines.",
+    "ja": "レンダラーコンポーネントを使うか、useJsonLinesで独自の表示を作れます。"
+  },
+  {
+    "en": "One generation at a time",
+    "nl": "Eén generatie per keer",
+    "de": "Eine Generation nach der anderen",
+    "sv": "En generation i taget",
+    "ja": "一世代ずつ"
+  },
+  {
+    "en": "What comes next",
+    "nl": "Wat hierna komt",
+    "de": "Was als Nächstes kommt",
+    "sv": "Vad som kommer härnäst",
+    "ja": "今後の予定"
+  },
   {
     "en": "Some article content is available only in English.",
     "nl": "Sommige artikelinhoud is alleen in het Engels beschikbaar.",

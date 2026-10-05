@@ -1,7 +1,7 @@
 import { Text } from '@/app/_components/localization/Text';
 import type { GameLibrary } from '@/data/gaming/model';
 import { GameCard } from './GameCard';
-import { SteamProfilePreview } from './SteamProfilePreview';
+import { SteamProfileLink } from './SteamProfileLink';
 
 export function GamingLibrary({ library }: { library: GameLibrary }) {
   const isRanked = library.mode === 'most-played';
@@ -22,7 +22,7 @@ export function GamingLibrary({ library }: { library: GameLibrary }) {
             : 'What I have been playing lately, from my public Steam profile.'}
         </Text>
       </p>
-      <SteamProfilePreview avatar={library.avatar} />
+      <SteamProfileLink />
       {!!library.games.length && (
         <>
           <div className="gaming-meta flex flex-wrap justify-between gap-3 font-mono text-[12px] leading-[normal] text-muted-foreground mt-11 mx-0 mb-5">

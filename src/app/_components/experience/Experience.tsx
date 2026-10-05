@@ -1,8 +1,17 @@
+import Link from '@/app/_components/localization/Link';
 import { Text } from '@/app/_components/localization/Text';
+import { Button } from '@/app/_components/ui/Button';
+import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { JourneyStop } from './JourneyStop';
 
-export function Experience({ content }: { content: PortfolioContent }) {
+export function Experience({
+  content,
+  shouldShowHighlights = false,
+}: {
+  content: PortfolioContent;
+  shouldShowHighlights?: boolean;
+}) {
   return (
     <section
       id="experience"
@@ -22,13 +31,20 @@ export function Experience({ content }: { content: PortfolioContent }) {
         <p className="experience-summary max-w-65 text-muted-foreground max-[761px]:max-w-full">
           <Text>From shared frontend libraries to owning cloud product interfaces.</Text>
         </p>
+        <ConditionalRenderer shouldRender={!shouldShowHighlights}>
+          <Button asChild variant="outline" className="mt-5">
+            <Link href="/experience">
+              <Text>Explore my experience</Text> <span aria-hidden="true">↗</span>
+            </Link>
+          </Button>
+        </ConditionalRenderer>
       </div>
       <ol
         className="journey-timeline list-none m-0 [padding:0_0_0_10px]"
         aria-label="Career journey, most recent first"
       >
         {content.career.map((entry) => (
-          <JourneyStop key={entry.id} entry={entry} />
+          <JourneyStop key={entry.id} entry={entry} shouldShowHighlights={shouldShowHighlights} />
         ))}
       </ol>
     </section>

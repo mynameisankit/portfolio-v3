@@ -4,7 +4,7 @@ import { LocalizedDate } from '@/app/_components/localization/LocalizedDate';
 import { Text } from '@/app/_components/localization/Text';
 import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import { getCategory, type Post, postPath } from '@/data/blog/model';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/className.utils';
 
 export function PostCard({
   post,
@@ -26,7 +26,6 @@ export function PostCard({
     >
       <Link
         href={postPath(post)}
-        preview={{ title: post.title, description: post.description, image: post.cover?.url }}
         className={cn(
           'blog-card group/post block overflow-hidden',
           isList ? 'border-t border-border' : 'rounded-lg border border-border bg-card',

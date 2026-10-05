@@ -1,14 +1,13 @@
 'use client';
 import { useFormatter } from 'next-intl';
+import { SteamGamePreview } from '@/app/_components/linkPreview/SteamGamePreview';
 import Link from '@/app/_components/localization/Link';
 import { Text } from '@/app/_components/localization/Text';
-import { useCopy } from '@/app/_components/localization/useCopy';
 import type { SteamGame } from '@/data/gaming/model';
 import { GameArtwork } from './GameArtwork';
 
 export function GameCard({ game, rank }: { game: SteamGame; rank?: number }) {
   const format = useFormatter();
-  const copy = useCopy();
   const hours = format.number(game.playtime_forever / 60, { maximumFractionDigits: 1 });
 
   return (
@@ -20,19 +19,15 @@ export function GameCard({ game, rank }: { game: SteamGame; rank?: number }) {
         </div>
       )}
       <h3 className="text-[20px] leading-[1.4] my-[22px] mx-0 [overflow-wrap:anywhere]">
-        <Link
-          href={`https://store.steampowered.com/app/${game.appid}/`}
-          preview={{
-            title: game.name,
-            image: game.image,
-            fallbackImage: game.fallbackImage,
-            description: `${hours} ${copy('hours on record')}`,
-          }}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {game.name} ↗
-        </Link>
+        <SteamGamePreview appId={game.appid} title={game.name}>
+          <Link
+            href={`https://store.steampowered.com/app/${game.appid}/`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {game.name} ↗
+          </Link>
+        </SteamGamePreview>
       </h3>
       <p className="font-mono text-[18px] leading-[normal]">
         {hours}{' '}

@@ -2,7 +2,7 @@
 import { useEffect, useSyncExternalStore } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import type { TranslationEntry } from '@/localization/translationModel';
-import { getLocaleSnapshot, subscribeLocale } from './localeStore';
+import { getLocaleSnapshot, subscribeLocale } from './localeStore.utils';
 import { TranslationContext } from './translationContext';
 
 export function LocalizationProvider({

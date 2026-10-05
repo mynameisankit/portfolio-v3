@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { BlogArticle } from '@/app/blogs/_components/article/BlogArticle';
 import { categories } from '@/data/blog/model';
 import { getPosts } from '@/data/blog/repository';
-import { getOpenGraphImages } from './metadataHelpers';
+import { getOpenGraphImages } from './metadataHelpers.utils';
 
 export const dynamicParams = false;
 export async function generateStaticParams() {

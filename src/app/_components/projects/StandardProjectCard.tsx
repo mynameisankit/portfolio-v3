@@ -31,7 +31,6 @@ export function StandardProjectCard({
         <Link
           className="mt-5 inline-flex items-center gap-2 border-b border-current pb-1 text-[15px] text-primary"
           href={project.source}
-          preview={{ title: project.title, description: project.description, image: project.image }}
           target="_blank"
           rel="noreferrer"
         >

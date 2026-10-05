@@ -26,7 +26,6 @@ export function SkillLink({ skill }: { skill: Skill }) {
       className={`${
         className
       } transition-colors hover:border-primary hover:bg-secondary focus-visible:border-primary motion-reduce:transition-none`}
-      preview={{ title: skill.name, description: 'Documentation & reference' }}
     >
       {label}
       <ArrowUpRight aria-hidden="true" className="size-3 shrink-0 text-muted-foreground" />

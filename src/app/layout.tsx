@@ -1,5 +1,6 @@
 import './globals.css';
 import type { Metadata, Viewport } from 'next';
+import { InitialAnchorScroll } from '@/app/_components/layout/InitialAnchorScroll';
 import { LocalizationProvider } from '@/app/_components/localization/Provider';
 import { ServiceWorkerRegistration } from '@/app/_components/pwa/ServiceWorkerRegistration';
 import { siteConfig } from '@/config/siteConfig';
@@ -47,6 +48,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en" data-theme="dark">
       <body>
         <LocalizationProvider translations={translations}>
+          <InitialAnchorScroll />
           {children}
           <ServiceWorkerRegistration />
         </LocalizationProvider>

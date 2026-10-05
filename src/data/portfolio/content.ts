@@ -8,6 +8,7 @@ export const portfolio = {
   headline: 'I build web interfaces.',
   subtitle: 'Web interfaces, frontend infrastructure, and a few things outside work.',
   github: 'https://github.com/mynameisankit',
+  resumeUrl: '',
   projects: [
     {
       id: 'json',
@@ -40,6 +41,6 @@ export const portfolio = {
     { name: 'Motorcycling', image: '', lqip: '', caption: 'Photo placeholder' },
     { name: 'Running', image: '', lqip: '', caption: 'Photo placeholder' },
     { name: 'Video games', image: '', lqip: '', caption: 'Photo placeholder' },
-  ],
+  ].map((hobby) => ({ ...hobby, location: '', takenOn: '', story: '' })),
 };
 export type PortfolioContent = typeof portfolio;

@@ -1,7 +1,7 @@
 'use client';
 import { useLocale } from 'next-intl';
 import { isLocale, languageNames, locales } from '@/localization/model';
-import { changeLocale } from './localeStore';
+import { changeLocale } from './localeStore.utils';
 import { useCopy } from './useCopy';
 
 export function LanguageSelector() {

@@ -1,5 +1,6 @@
 import { portfolio } from '@/data/portfolio/content';
 import { careerField } from './career';
+import { experiencePageField, experiencePageInitialValue } from './experiencePage';
 import { skillsField } from './skills';
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
@@ -9,6 +10,7 @@ export const portfolioSite = defineType({
   type: 'document',
   initialValue: {
     ...portfolio,
+    experiencePage: experiencePageInitialValue,
     skills: portfolio.skills.map((group) => ({
       ...group,
       _key: group.id,
@@ -23,6 +25,7 @@ export const portfolioSite = defineType({
     })),
   },
   fields: [
+    experiencePageField,
     careerField,
     skillsField,
     ...(['name', 'role', 'company', 'headline', 'subtitle'] as const).map((name) =>
@@ -32,6 +35,13 @@ export const portfolioSite = defineType({
       name: 'github',
       type: 'url',
       validation: (rule) => rule.required().uri({ scheme: ['https'] }),
+    }),
+    defineField({
+      name: 'resumeUrl',
+      title: 'Résumé URL',
+      description: 'Link to a hosted résumé or PDF. Leave empty to hide the résumé action.',
+      type: 'url',
+      validation: (rule) => rule.uri({ scheme: ['https'] }),
     }),
     defineField({
       name: 'projects',
@@ -110,6 +120,16 @@ export const portfolioSite = defineType({
               title: 'Photo description',
               type: 'string',
               validation: (rule) => rule.required(),
+            }),
+            defineField({ name: 'location', title: 'Place', type: 'string' }),
+            defineField({ name: 'takenOn', title: 'Date taken', type: 'date' }),
+            defineField({
+              name: 'story',
+              title: 'Photo story',
+              description:
+                'A short personal note displayed below the photo. The photo description remains the image’s accessible text.',
+              type: 'text',
+              rows: 3,
             }),
           ],
         }),

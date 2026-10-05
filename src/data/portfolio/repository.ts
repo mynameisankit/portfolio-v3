@@ -12,6 +12,7 @@ const schema = z.object({
   headline: z.string().min(1),
   subtitle: z.string(),
   github: z.string().url(),
+  resumeUrl: z.union([z.literal(''), z.string().url()]).default(''),
   projects: z
     .array(
       z.object({
@@ -38,7 +39,17 @@ const schema = z.object({
   skills: z.array(skillCategorySchema).nullable().optional(),
   career: z.array(careerEntrySchema).nullable().optional(),
   hobbies: z
-    .array(z.object({ name: z.string(), image: z.string(), lqip: z.string(), caption: z.string() }))
+    .array(
+      z.object({
+        name: z.string(),
+        image: z.string(),
+        lqip: z.string(),
+        caption: z.string(),
+        location: z.string().default(''),
+        takenOn: z.string().default(''),
+        story: z.string().default(''),
+      }),
+    )
     .min(1),
 });
 
@@ -50,6 +61,7 @@ const query = `
     headline,
     subtitle,
     github,
+    "resumeUrl": coalesce(resumeUrl, ""),
     projects[] {
       id,
       name,
@@ -83,7 +95,10 @@ const query = `
       name,
       "image": coalesce(image.asset->url, ""),
       "lqip": coalesce(image.asset->metadata.lqip, ""),
-      "caption": coalesce(caption, "")
+      "caption": coalesce(caption, ""),
+      "location": coalesce(location, ""),
+      "takenOn": coalesce(takenOn, ""),
+      "story": coalesce(story, "")
     }
   }
 `;

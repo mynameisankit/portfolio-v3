@@ -4,7 +4,7 @@ import { Text } from '@/app/_components/localization/Text';
 import { HobbyPhoto } from '@/app/_components/projects/HobbyPhoto';
 import { Button } from '@/app/_components/ui/Button';
 import type { PortfolioContent } from '@/data/portfolio/content';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/className.utils';
 import { ProjectCard } from './ProjectCard';
 import { StandardProjectCard } from './StandardProjectCard';
 import { useProjectExpansion } from './useProjectExpansion';

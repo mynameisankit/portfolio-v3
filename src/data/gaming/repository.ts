@@ -3,8 +3,8 @@ import { cache } from 'react';
 import { serverConfig } from '@/config/serverConfig';
 import { steamConfig } from '@/config/steamConfig';
 import type { GameLibrary } from './model';
-import { parseSteamProfile } from './parseSteamProfile';
-import { getOwnedGames } from './steamApi';
+import { parseSteamProfile } from './parseSteamProfile.utils';
+import { getOwnedGames } from './steamApi.utils';
 
 async function getProfileLibrary(): Promise<GameLibrary> {
   try {

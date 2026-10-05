@@ -11,7 +11,9 @@ export function getActiveRouteItem(pathname: string) {
   const normalizedPathname = pathname.replace(/\/$/, '');
   const routePathname = normalizedPathname === '' ? '/' : normalizedPathname;
 
-  return routePathname === '/blogs' || routePathname === '/hobbies' ? routePathname.slice(1) : '';
+  return ['/blogs', '/hobbies', '/experience'].includes(routePathname)
+    ? routePathname.slice(1)
+    : '';
 }
 
 export function getNavigationSections() {

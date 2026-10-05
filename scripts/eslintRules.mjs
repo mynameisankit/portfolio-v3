@@ -17,6 +17,16 @@ const kindOf = (name) => {
   return 'helper';
 };
 
+const getStem = (file) => {
+  const isUtility = file.endsWith('.utils.tsx');
+
+  if (isUtility) {
+    return path.basename(file, '.utils.tsx');
+  }
+
+  return path.basename(file, path.extname(file));
+};
+
 const projectRules = {
   rules: {
     'simple-ternary': {
@@ -55,8 +65,9 @@ const projectRules = {
               /^(page|layout|loading|error|not-found|template|default|global-error|route|manifest|sitemap|robots)\.[^.]+$/.test(
                 path.basename(file),
               );
-            const stem = path.basename(file, path.extname(file));
-            const isComponent = file.endsWith('.tsx') && !isRoute;
+            const isUtility = file.endsWith('.utils.tsx');
+            const stem = getStem(file);
+            const isComponent = file.endsWith('.tsx') && !isRoute && !isUtility;
             if (!isRoute && !(isComponent ? pascalCase : camelCase).test(stem)) {
               context.report({
                 node,

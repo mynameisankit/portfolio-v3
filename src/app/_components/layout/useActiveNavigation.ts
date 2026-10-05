@@ -1,21 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-import { getActiveRouteItem } from './activeNavigation';
+import { usePathname } from 'next/navigation';
+import { getActiveRouteItem } from './activeNavigation.utils';
 import { useSectionNavigation } from './useSectionNavigation';
 
 export function useActiveNavigation() {
-  const [activeItem, setActiveItem] = useState(() => {
-    if (typeof window === 'undefined') {
-      return '';
-    }
+  const pathname = usePathname();
+  const activeRouteItem = getActiveRouteItem(pathname);
+  const [activeSectionItem, setActiveSectionItem] = useState('');
+  const shouldObserveSections = activeRouteItem === '';
 
-    return getActiveRouteItem(window.location.pathname);
-  });
-  const shouldObserveSections =
-    typeof window !== 'undefined' && getActiveRouteItem(window.location.pathname) === '';
+  useSectionNavigation(shouldObserveSections, setActiveSectionItem);
 
-  useSectionNavigation(shouldObserveSections, setActiveItem);
-
-  return activeItem;
+  return shouldObserveSections ? activeSectionItem : activeRouteItem;
 }

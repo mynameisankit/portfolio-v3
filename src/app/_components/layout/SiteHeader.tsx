@@ -6,23 +6,28 @@ import { ThemeToggle } from '@/app/_components/theme/ThemeToggle';
 import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { FloatingNavigation } from './FloatingNavigation';
+import { MobileNavigation } from './MobileNavigation';
 import { PortfolioStructuredData } from './PortfolioStructuredData';
 
 export function SiteHeader({ content }: { content: PortfolioContent }) {
   return (
     <>
-      <header className="site-header flex flex-wrap items-center justify-between gap-5 border-b border-border px-[5%] py-6 max-[761px]:gap-4 max-[521px]:gap-3">
-        <Link href="/" className="wordmark inline-flex" aria-label="ankitkumar.fyi home">
+      <header className="site-header flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-b border-border px-[5%] py-5 max-[761px]:gap-3">
+        <Link
+          href="/"
+          className="wordmark inline-flex [&_.brand-symbol]:size-9 [&_.brand-name]:text-[20px] min-[2560px]:[&_.brand-symbol]:size-10 min-[2560px]:[&_.brand-name]:text-[23px]"
+          aria-label="ankitkumar.fyi home"
+        >
           <Brand />
         </Link>
         <nav
-          className="flex flex-wrap items-center gap-7 text-[14px] max-[761px]:w-full max-[761px]:justify-between max-[761px]:gap-3 max-[651px]:text-[13px]"
+          className="flex flex-wrap items-center gap-1.5 text-[15px] min-[2560px]:text-[17px] [&>a]:rounded-xl [&>a]:px-2 [&>a]:py-2 [&>a]:transition-colors [&>a:hover]:bg-button-hover [&>a:hover]:text-primary [&>a]:motion-reduce:transition-none max-[761px]:hidden"
           aria-label="Main navigation"
         >
           <Link className="hover:text-primary" href="/#projects">
             <Text>Projects</Text>
           </Link>
-          <Link className="hover:text-primary" href="/#experience">
+          <Link className="hover:text-primary" href="/experience">
             <Text>Experience</Text>
           </Link>
           <ConditionalRenderer shouldRender={!!content.skills.length}>
@@ -47,6 +52,7 @@ export function SiteHeader({ content }: { content: PortfolioContent }) {
           <ThemeToggle />
           <LanguageSelector />
         </nav>
+        <MobileNavigation github={content.github} hasSkills={content.skills.length > 0} />
       </header>
       <FloatingNavigation content={content} />
       <PortfolioStructuredData content={content} />

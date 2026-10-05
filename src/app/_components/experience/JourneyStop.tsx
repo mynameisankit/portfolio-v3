@@ -3,9 +3,15 @@
 import { type CSSProperties, useEffect, useRef, useState } from 'react';
 import { Text } from '@/app/_components/localization/Text';
 import type { CareerEntry } from '@/data/experience/model';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/className.utils';
 
-export function JourneyStop({ entry }: { entry: CareerEntry }) {
+export function JourneyStop({
+  entry,
+  shouldShowHighlights = false,
+}: {
+  entry: CareerEntry;
+  shouldShowHighlights?: boolean;
+}) {
   const stopRef = useRef<HTMLLIElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -74,7 +80,7 @@ export function JourneyStop({ entry }: { entry: CareerEntry }) {
         <p className="journey-summary mt-5 text-muted-foreground text-[16px] leading-[1.75] min-[2560px]:text-[17px]">
           <Text>{entry.summary}</Text>
         </p>
-        {!!entry.highlights.length && (
+        {shouldShowHighlights && !!entry.highlights.length && (
           <details
             className="journey-details group/journey mt-5 border-t border-border"
             open={entry.current}
