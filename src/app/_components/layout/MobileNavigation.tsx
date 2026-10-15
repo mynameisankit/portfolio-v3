@@ -13,7 +13,7 @@ import { useMobileNavigation } from './useMobileNavigation';
 import { Menu, X } from 'lucide-react';
 import { Dialog } from 'radix-ui';
 
-export function MobileNavigation({ github, hasSkills }: { github: string; hasSkills: boolean }) {
+export function MobileNavigation({ hasSkills }: { hasSkills: boolean }) {
   const copy = useCopy();
   const activeItem = useActiveNavigation();
   const { isOpen, setIsOpen, closeMenu } = useMobileNavigation();
@@ -68,15 +68,6 @@ export function MobileNavigation({ github, hasSkills }: { github: string; hasSki
                   <Text>{item.label}</Text>
                 </Link>
               ))}
-              <Link
-                href={github}
-                target="_blank"
-                rel="noreferrer"
-                onClick={closeMenu}
-                className="rounded-xl px-4 py-3 text-lg transition-colors hover:bg-button-hover hover:text-primary motion-reduce:transition-none"
-              >
-                <Text>GitHub ↗</Text>
-              </Link>
             </nav>
             <div className="mt-6 flex shrink-0 flex-wrap items-center justify-between gap-4 border-t border-border pt-6">
               <ThemeToggle />

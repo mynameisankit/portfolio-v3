@@ -27,9 +27,6 @@ export function SiteHeader({ content }: { content: PortfolioContent }) {
           <Link className="hover:text-primary" href="/#projects">
             <Text>Projects</Text>
           </Link>
-          <Link className="hover:text-primary" href="/experience">
-            <Text>Experience</Text>
-          </Link>
           <ConditionalRenderer shouldRender={!!content.skills.length}>
             <Link className="hover:text-primary" href="/#skills">
               <Text>Skills</Text>
@@ -41,18 +38,10 @@ export function SiteHeader({ content }: { content: PortfolioContent }) {
           <Link className="hover:text-primary" href="/hobbies">
             <Text>Hobbies</Text>
           </Link>
-          <Link
-            className="hover:text-primary"
-            href={content.github}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Text>GitHub ↗</Text>
-          </Link>
           <ThemeToggle />
           <LanguageSelector />
         </nav>
-        <MobileNavigation github={content.github} hasSkills={content.skills.length > 0} />
+        <MobileNavigation hasSkills={content.skills.length > 0} />
       </header>
       <FloatingNavigation content={content} />
       <PortfolioStructuredData content={content} />

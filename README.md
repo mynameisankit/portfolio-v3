@@ -69,6 +69,10 @@ Blogs support technical, travelling, and video-games categories. Supply a title,
 
 With no published posts, `/blogs` shows the empty state. `/blogs/preview-samples` provides layout fixtures and `/blogs/preview-empty` previews the empty design; both are marked noindex. Blog data is exported for local Fuse search, with no browser-side Sanity query.
 
+### Open source contributions
+
+The homepage shows curated contributions from the Portfolio document's **Open source contributions** list, with bundled defaults in `src/data/contributions/content.ts`. Each entry includes a repository, issue or PR number, title, summary, GitHub URL, and `kind` (`issue` or `pullRequest`). Pull requests use their own label and icon in the same card layout. Add or reorder entries in Studio, publish, then rebuild. Missing CMS content uses the defaults; an empty list hides the section. GitHub status is not fetched at runtime.
+
 ### Automatic CMS deployments
 
 Sanity stores the content, but this application renders that content during `yarn build`. A Sanity webhook must therefore trigger a new Cloudflare Workers Build; sending it to `https://ankitkumar.fyi` cannot update an already-deployed static site.

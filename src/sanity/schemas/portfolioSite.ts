@@ -1,5 +1,6 @@
 import { portfolio } from '@/data/portfolio/content';
 import { careerField } from './career';
+import { contributionsField } from './contributions';
 import { experiencePageField, experiencePageInitialValue } from './experiencePage';
 import { skillsField } from './skills';
 import { defineArrayMember, defineField, defineType } from 'sanity';
@@ -17,6 +18,7 @@ export const portfolioSite = defineType({
       items: group.items.map((skill, index) => ({ ...skill, _type: 'skill', _key: String(index) })),
     })),
     career: portfolio.career.map((entry) => ({ ...entry, _key: entry.id })),
+    contributions: portfolio.contributions.map((entry) => ({ ...entry, _key: entry.id })),
     projects: portfolio.projects.map((project) => ({ ...project, _key: project.id })),
     hobbies: portfolio.hobbies.map(({ name, caption }, index) => ({
       name,
@@ -28,6 +30,7 @@ export const portfolioSite = defineType({
     experiencePageField,
     careerField,
     skillsField,
+    contributionsField,
     ...(['name', 'role', 'company', 'headline', 'subtitle'] as const).map((name) =>
       defineField({ name, type: 'string', validation: (rule) => rule.required() }),
     ),

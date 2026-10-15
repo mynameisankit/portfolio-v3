@@ -1,4 +1,5 @@
 import { Contact } from '@/app/_components/contact/Contact';
+import { Contributions } from '@/app/_components/contributions/Contributions';
 import { Experience } from '@/app/_components/experience/Experience';
 import { PixelHero } from '@/app/_components/hero/PixelHero';
 import { SiteFooter } from '@/app/_components/layout/SiteFooter';
@@ -23,6 +24,7 @@ export default async function Home() {
         <PixelHero content={portfolio} />
         <ProjectCanvas content={portfolio} />
         <Experience content={portfolio} />
+        <Contributions entries={portfolio.contributions} />
         <Skills groups={portfolio.skills} />
         <Contact content={portfolio} />
       </main>

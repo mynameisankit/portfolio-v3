@@ -1,4 +1,5 @@
 import { cache } from 'react';
+import { contributionSchema } from '@/data/contributions/schema';
 import { careerEntrySchema } from '@/data/experience/schema';
 import { skillCategorySchema } from '@/data/skills/schema';
 import { sanityClient } from '@/sanity/client';
@@ -37,6 +38,7 @@ const schema = z.object({
     .nullable()
     .optional(),
   skills: z.array(skillCategorySchema).nullable().optional(),
+  contributions: z.array(contributionSchema).nullable().optional(),
   career: z.array(careerEntrySchema).nullable().optional(),
   hobbies: z
     .array(
@@ -81,6 +83,15 @@ const query = `
       title,
       items
     },
+    contributions[] {
+      "id": coalesce(id, _key),
+      kind,
+      repository,
+      number,
+      title,
+      summary,
+      url
+    },
     career[] {
       "id": coalesce(id, _key),
       organization,
@@ -115,5 +126,6 @@ export const getPortfolio = cache(async (): Promise<PortfolioContent> => {
     additionalProjects: parsed.additionalProjects ?? portfolio.additionalProjects,
     career: parsed.career ?? portfolio.career,
     skills: parsed.skills ?? portfolio.skills,
+    contributions: parsed.contributions ?? portfolio.contributions,
   };
 });

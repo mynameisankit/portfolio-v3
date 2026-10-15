@@ -1,4 +1,4 @@
-const SECTION_IDS = ['projects', 'experience', 'skills'];
+const SECTION_IDS = ['projects', 'experience', 'contributions', 'skills'];
 const SECTION_ENTRY_THRESHOLD = 0.1;
 const SECTION_DOMINANT_THRESHOLD = 0.4;
 const SECTION_FULLY_VISIBLE_THRESHOLD = 0.7;

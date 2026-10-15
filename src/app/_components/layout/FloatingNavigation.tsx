@@ -39,11 +39,11 @@ export function FloatingNavigation({ content }: { content: PortfolioContent }) {
         >
           <Brand />
         </Link>
-        <div className="flex shrink-0 items-center gap-2.5 [&_.theme-toggle]:size-10 [&_.language-selector_select]:max-w-[115px] [&_.language-selector_select]:px-3 [&_.language-selector_select]:py-2.5 [&_.language-selector_select]:text-[16px] max-[761px]:hidden">
+        <div className="flex shrink-0 items-center gap-2.5 [&_.theme-toggle]:size-10 [&_.language-selector-trigger]:text-[16px] max-[761px]:hidden">
           <ThemeToggle />
           <LanguageSelector />
         </div>
-        <MobileNavigation github={content.github} hasSkills={content.skills.length > 0} />
+        <MobileNavigation hasSkills={content.skills.length > 0} />
       </header>
       <nav
         className={cn(
@@ -61,14 +61,6 @@ export function FloatingNavigation({ content }: { content: PortfolioContent }) {
           tabIndex={isPastFold ? undefined : -1}
         >
           <Text>Projects</Text>
-        </Link>
-        <Link
-          className={navigationItemClass('experience')}
-          href="/experience"
-          aria-current={activeItem === 'experience' ? 'page' : undefined}
-          tabIndex={isPastFold ? undefined : -1}
-        >
-          <Text>Experience</Text>
         </Link>
         <ConditionalRenderer shouldRender={!!content.skills.length}>
           <Link
@@ -95,15 +87,6 @@ export function FloatingNavigation({ content }: { content: PortfolioContent }) {
           tabIndex={isPastFold ? undefined : -1}
         >
           <Text>Hobbies</Text>
-        </Link>
-        <Link
-          className="shrink-0 rounded-xl px-4 py-3 text-[17px] hover:bg-secondary/80 hover:text-primary focus-visible:bg-secondary max-[521px]:px-3 max-[521px]:py-2.5 max-[521px]:text-[14px]"
-          href={content.github}
-          target="_blank"
-          rel="noreferrer"
-          tabIndex={isPastFold ? undefined : -1}
-        >
-          <Text>GitHub ↗</Text>
         </Link>
       </nav>
     </>

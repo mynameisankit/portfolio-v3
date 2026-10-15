@@ -90,6 +90,16 @@
     scroll-behavior: smooth;
     scroll-padding-top: 30px;
   }
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 350ms;
+    animation-timing-function: ease-in-out;
+  }
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    mix-blend-mode: normal;
+  }
   body {
     margin: 0;
     background: var(--background);
@@ -125,7 +135,10 @@
     }
     *,
     *::before,
-    *::after {
+    *::after,
+    ::view-transition-group(root),
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
       animation-duration: 0.01ms !important;
       transition-duration: 0.01ms !important;
     }

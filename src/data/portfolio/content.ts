@@ -1,3 +1,4 @@
+import { contributions } from '@/data/contributions/content';
 import { career } from '@/data/experience/content';
 import { skills } from '@/data/skills/content';
 
@@ -35,6 +36,7 @@ export const portfolio = {
     source: string;
   }[],
   career,
+  contributions,
   skills,
   hobbies: [
     { name: 'Hiking', image: '', lqip: '', caption: 'Photo placeholder' },
