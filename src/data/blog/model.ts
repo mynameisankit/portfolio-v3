@@ -12,7 +12,10 @@ export const categories = [
   },
 ] as const;
 export type Category = (typeof categories)[number]['slug'];
+export type ArticleHeading = { id: string; text: string; depth: number };
+export type ArticleHeadingNode = ArticleHeading & { children: ArticleHeadingNode[] };
 export type Post = {
+  source?: 'sanity' | 'mdx';
   slug: string;
   category: Category;
   title: string;
@@ -22,6 +25,7 @@ export type Post = {
   tags: string[];
   body: string[];
   isSample: boolean;
+  headings?: ArticleHeading[];
   richBody?: { _type: string; [key: string]: unknown }[];
   cover?: { url: string; alt: string; lqip: string } | null;
 };

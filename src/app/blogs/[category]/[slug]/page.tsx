@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { BlogArticle } from '@/app/blogs/_components/article/BlogArticle';
+import { MdxArticleBody } from '@/app/blogs/_components/article/MdxArticleBody';
 import { categories } from '@/data/blog/model';
 import { getPosts } from '@/data/blog/repository';
 import { getOpenGraphImages } from './metadataHelpers.utils';
@@ -50,6 +51,14 @@ export default async function ArticlePage({
   const post = posts.find((item) => item.category === category && item.slug === slug);
   if (!post) {
     notFound();
+  }
+
+  if (post.source === 'mdx') {
+    return (
+      <BlogArticle post={post}>
+        <MdxArticleBody post={post} />
+      </BlogArticle>
+    );
   }
 
   return <BlogArticle post={post} />;

@@ -25,6 +25,33 @@ export function ArticleBody({ post }: { post: Post }) {
     <PortableText
       value={translateRichBody(post.richBody, translate)}
       components={{
+        block: {
+          h2: ({ value, children }) => (
+            <h2 id={`section-${value._key}`} className="scroll-mt-24">
+              {children}
+            </h2>
+          ),
+          h3: ({ value, children }) => (
+            <h3 id={`section-${value._key}`} className="scroll-mt-24">
+              {children}
+            </h3>
+          ),
+          h4: ({ value, children }) => (
+            <h4 id={`section-${value._key}`} className="scroll-mt-24">
+              {children}
+            </h4>
+          ),
+          h5: ({ value, children }) => (
+            <h5 id={`section-${value._key}`} className="scroll-mt-24">
+              {children}
+            </h5>
+          ),
+          h6: ({ value, children }) => (
+            <h6 id={`section-${value._key}`} className="scroll-mt-24">
+              {children}
+            </h6>
+          ),
+        },
         types: {
           image: ({ value }) => {
             if (typeof value.url === 'string' && value.url.startsWith('https://cdn.sanity.io/')) {

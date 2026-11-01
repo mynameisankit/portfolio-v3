@@ -65,6 +65,11 @@ export default defineConfig([
     'next-env.d.ts',
   ]),
   {
+    // Next.js requires this exact filename and export for MDX component mapping.
+    files: ['src/mdx-components.tsx', 'src/data/blog/mdx.d.ts'],
+    rules: { 'project/file-boundaries': 'off' },
+  },
+  {
     files: ['src/app/_components/ui/**/*.{ts,tsx}'],
     rules: {
       '@typescript-eslint/no-unused-vars': 'off',

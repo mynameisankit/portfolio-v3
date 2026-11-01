@@ -69,6 +69,22 @@ Blogs support technical, travelling, and video-games categories. Supply a title,
 
 With no published posts, `/blogs` shows the empty state. `/blogs/preview-samples` provides layout fixtures and `/blogs/preview-empty` previews the empty design; both are marked noindex. Blog data is exported for local Fuse search, with no browser-side Sanity query.
 
+### Local MDX articles
+
+Use Sanity for simple posts and local MDX for articles that import React components. Both sources feed the same archive, search, category routes, metadata, and sitemap. Each article has one owner: a duplicate category/slug URL fails the build rather than overriding another post. CMS errors still fail the build.
+
+1. Create `src/content/blog/myArticle/index.mdx`. Export a `post` object containing `title`, `slug`, `category`, `description` (up to 240 characters), `date` (an ISO timestamp with timezone), `tags`, and `isDraft`. See `src/content/blog/interactiveMdx/index.mdx` for a complete example.
+2. Add an entry to `src/data/blog/mdxRegistry.ts` with the relative `file` path and an explicit `load: () => import('@/content/blog/myArticle/index.mdx')`. Metadata stays in the MDX file. Use camelCase for source folder names and hyphenated slugs for public URLs.
+3. Import interactive components from `src/app/blogs/_components`. Add `'use client'` to components that need browser APIs or React state; the MDX article itself remains a Server Component. Shared Markdown element mappings belong in `src/mdx-components.tsx`.
+4. Keep images beside the article and import them explicitly for use with `next/image`, providing alternative text. Static export currently uses unoptimized images. An optional `cover` metadata object accepts an absolute image `url`, `alt`, and optional `lqip`.
+5. Set `isDraft: false`, commit, rebuild, and deploy. Only non-draft articles with a publication date at or before build time appear. Scheduled articles need a rebuild when due. Search text and reading time come from Markdown prose, excluding code blocks and JavaScript expressions.
+
+The bundled counter example remains a draft. Preview it at `/blogs/preview-samples/interactive-mdx`; this public, noindex layout fixture is intentionally excluded from the archive and sitemap. Noindex is not access control: do not put private content in preview pages. Other drafts receive no public route automatically.
+
+Local MDX is trusted repository code and can execute imports at build time. Sanity posts continue using Portable Text. MDX prose is authored in its original language; unlike Portable Text, it is not automatically passed through the body translation helper. UI labels and the existing language notice remain available.
+
+Articles automatically show an **On this page** table of contents using nested lists that preserve heading hierarchy. MDX supports all Markdown heading levels; prefer `##` through `######` inside articles because the layout supplies the article title. Sanity supports Heading (`h2`), Subheading (`h3`), and Heading 4 through Heading 6 blocks. Each heading belongs to the nearest preceding heading with a shallower level; skipped levels attach directly without creating empty sections. MDX headings receive generated anchor IDs (including suffixes for repeated headings); Sanity anchors use stable block keys so translations do not change the destination. Articles without headings omit the table of contents.
+
 ### Open source contributions
 
 The homepage shows curated contributions from the Portfolio document's **Open source contributions** list, with bundled defaults in `src/data/contributions/content.ts`. Each entry includes a repository, issue or PR number, title, summary, GitHub URL, and `kind` (`issue` or `pullRequest`). Pull requests use their own label and icon in the same card layout. Add or reorder entries in Studio, publish, then rebuild. Missing CMS content uses the defaults; an empty list hides the section. GitHub status is not fetched at runtime.
