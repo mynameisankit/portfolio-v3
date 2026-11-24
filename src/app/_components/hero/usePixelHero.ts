@@ -8,6 +8,7 @@ export function usePixelHero() {
   const [status, setStatus] = useState<HeroStatus>({
     isRunning: false,
     generation: 0,
+    showWantedLevel: false,
     isReducedMotion: false,
   });
   useEffect(() => {

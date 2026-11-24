@@ -60,30 +60,29 @@ The configured project is `yek4giks`, dataset `production`. Integration settings
 1. Run `yarn studio` and sign in with an authorized Sanity account.
 2. If needed, add `http://127.0.0.1:3333` to the project's API/CORS origins with credentials enabled.
 3. Open the Portfolio document, review its initial content, and publish it. Until a published document exists, the site uses `src/data/portfolio/content.ts` and its related fallback content.
-4. Publish blog posts or translations as needed.
+4. Publish portfolio changes or translations as needed.
 5. Run `yarn build`, preview with `yarn start`, and deploy `out`.
 
-The dataset is publicly readable, so build-time reads need no API token. Never put write tokens in browser configuration. Failed CMS requests or invalid published data fail the build rather than silently substituting sample blog posts.
+The dataset is publicly readable, so build-time reads need no API token. Never put write tokens in browser configuration. Failed CMS requests or invalid published data fail the build for CMS-managed content.
 
 Blogs support technical, travelling, and video-games categories. Supply a title, category, unique slug within that category, publication date, and content; images require alternative text. Only published posts whose publication date has arrived appear. Scheduled posts still require a rebuild when due. Avoid changing published slugs without adding redirects.
 
-With no published posts, `/blogs` shows the empty state. `/blogs/preview-samples` provides layout fixtures and `/blogs/preview-empty` previews the empty design; both are marked noindex. Blog data is exported for local Fuse search, with no browser-side Sanity query.
+With no published posts, `/blogs` shows the empty state. Blog data is exported for local Fuse search, with no browser-side Sanity query.
 
 ### Local MDX articles
 
-Use Sanity for simple posts and local MDX for articles that import React components. Both sources feed the same archive, search, category routes, metadata, and sitemap. Each article has one owner: a duplicate category/slug URL fails the build rather than overriding another post. CMS errors still fail the build.
+Write blog posts locally in MDX. Registered articles feed the archive, search, category routes, metadata, and sitemap. Duplicate category/slug URLs fail the build. Edit Selected Work project cards in `src/data/portfolio/content.ts`. Sanity manages More Work (Additional projects in Studio) and the adjacent hobby photo gallery.
 
-1. Create `src/content/blog/myArticle/index.mdx`. Export a `post` object containing `title`, `slug`, `category`, `description` (up to 240 characters), `date` (an ISO timestamp with timezone), `tags`, and `isDraft`. See `src/content/blog/interactiveMdx/index.mdx` for a complete example.
+1. Create `src/content/blog/myArticle/index.mdx`. Export a `post` object containing `title`, `slug`, `category`, `description` (up to 240 characters), `date` (an ISO timestamp with timezone), `tags`, and `isDraft`.
 2. Add an entry to `src/data/blog/mdxRegistry.ts` with the relative `file` path and an explicit `load: () => import('@/content/blog/myArticle/index.mdx')`. Metadata stays in the MDX file. Use camelCase for source folder names and hyphenated slugs for public URLs.
 3. Import interactive components from `src/app/blogs/_components`. Add `'use client'` to components that need browser APIs or React state; the MDX article itself remains a Server Component. Shared Markdown element mappings belong in `src/mdx-components.tsx`.
 4. Keep images beside the article and import them explicitly for use with `next/image`, providing alternative text. Static export currently uses unoptimized images. An optional `cover` metadata object accepts an absolute image `url`, `alt`, and optional `lqip`.
 5. Set `isDraft: false`, commit, rebuild, and deploy. Only non-draft articles with a publication date at or before build time appear. Scheduled articles need a rebuild when due. Search text and reading time come from Markdown prose, excluding code blocks and JavaScript expressions.
 
-The bundled counter example remains a draft. Preview it at `/blogs/preview-samples/interactive-mdx`; this public, noindex layout fixture is intentionally excluded from the archive and sitemap. Noindex is not access control: do not put private content in preview pages. Other drafts receive no public route automatically.
 
-Local MDX is trusted repository code and can execute imports at build time. Sanity posts continue using Portable Text. MDX prose is authored in its original language; unlike Portable Text, it is not automatically passed through the body translation helper. UI labels and the existing language notice remain available.
+Local MDX is trusted repository code and can execute imports at build time. MDX prose is displayed in its original language. UI labels and the existing language notice remain available.
 
-Articles automatically show an **On this page** table of contents using nested lists that preserve heading hierarchy. MDX supports all Markdown heading levels; prefer `##` through `######` inside articles because the layout supplies the article title. Sanity supports Heading (`h2`), Subheading (`h3`), and Heading 4 through Heading 6 blocks. Each heading belongs to the nearest preceding heading with a shallower level; skipped levels attach directly without creating empty sections. MDX headings receive generated anchor IDs (including suffixes for repeated headings); Sanity anchors use stable block keys so translations do not change the destination. Articles without headings omit the table of contents.
+Articles automatically show an **On this page** table of contents using nested lists that preserve heading hierarchy. MDX supports all Markdown heading levels; prefer `##` through `######` inside articles because the layout supplies the article title. Each heading belongs to the nearest preceding heading with a shallower level; skipped levels attach directly without creating empty sections. MDX headings receive generated anchor IDs (including suffixes for repeated headings). Articles without headings omit the table of contents.
 
 ### Open source contributions
 
@@ -103,7 +102,7 @@ Sanity stores the content, but this application renders that content during `yar
    | HTTP method    | `POST`                                                  |
    | Dataset        | `production`                                            |
    | Trigger events | Create, Update, Delete                                  |
-   | Filter         | `_type in ["portfolioSite", "blogPost", "translation"]` |
+   | Filter         | `_type in ["portfolioSite", "translation"]` |
    | Include drafts | Disabled                                                |
 
 4. Publish one change in Sanity. Its delivery log should receive a 2xx response, and Cloudflare's Builds page should show a new production build with `deploy hook` as the trigger. Once the build succeeds, reload the portfolio normally.
@@ -186,7 +185,7 @@ For CMS overrides:
 2. In Studio's Translations section, add the exact English source, target language, and translation.
 3. Publish, rebuild, and redeploy.
 
-Published Sanity translations override JSON entries. Matching normalizes whitespace but otherwise requires the same source text. Avoid duplicate source/language entries. Changed or untranslated text falls back to English; update CMS overrides if JSON changes appear ineffective. Rich-text translations match individual spans while preserving formatting and links; code remains unchanged.
+Published Sanity translations override JSON entries. Matching normalizes whitespace but otherwise requires the same source text. Avoid duplicate source/language entries. Changed or untranslated text falls back to English; update CMS overrides if JSON changes appear ineffective.
 
 English, Dutch, German, Swedish, and Japanese are supported. Language selection persists locally and can be shared using `?lang=nl` (or `en`, `de`, `sv`, `ja`). Internal links preserve it. Switching occurs after hydration; exported HTML and search metadata remain English. Translations are maintained manually; no automatic translation service is connected.
 

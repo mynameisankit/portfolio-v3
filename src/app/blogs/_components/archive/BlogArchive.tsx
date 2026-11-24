@@ -1,5 +1,4 @@
 'use client';
-import { Text } from '@/app/_components/localization/Text';
 import { type Category, type Post } from '@/data/blog/model';
 import { ArchiveCategories } from './ArchiveCategories';
 import { ArchiveIntro } from './ArchiveIntro';
@@ -14,11 +13,6 @@ export function BlogArchive({ posts, category }: { posts: Post[]; category?: Cat
   return (
     <section className="blog-archive py-10 px-[5%]">
       <ArchiveIntro selected={archive.selected} />
-      {posts.some((post) => post.isSample) && (
-        <p className="blog-notice text-muted-foreground font-mono text-[12px] leading-[1.6] my-5 mx-0">
-          <Text>Layout preview — these articles are sample content.</Text>
-        </p>
-      )}
       <ArchiveSearch query={archive.query} updateSearch={archive.updateSearch} />
       <ArchiveCategories
         posts={posts}

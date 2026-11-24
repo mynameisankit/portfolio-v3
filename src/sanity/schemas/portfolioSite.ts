@@ -1,7 +1,6 @@
 import { portfolio } from '@/data/portfolio/content';
 import { careerField } from './career';
 import { contributionsField } from './contributions';
-import { experiencePageField, experiencePageInitialValue } from './experiencePage';
 import { skillsField } from './skills';
 import { defineArrayMember, defineField, defineType } from 'sanity';
 
@@ -10,16 +9,21 @@ export const portfolioSite = defineType({
   title: 'Portfolio',
   type: 'document',
   initialValue: {
-    ...portfolio,
-    experiencePage: experiencePageInitialValue,
-    skills: portfolio.skills.map((group) => ({
+    name: portfolio.name,
+    role: portfolio.role,
+    company: portfolio.company,
+    headline: portfolio.headline,
+    subtitle: portfolio.subtitle,
+    github: portfolio.github,
+    resumeUrl: portfolio.resumeUrl,
+    skills: portfolio.skills.map(({ id, ...group }) => ({
       ...group,
-      _key: group.id,
+      _key: id,
       items: group.items.map((skill, index) => ({ ...skill, _type: 'skill', _key: String(index) })),
     })),
-    career: portfolio.career.map((entry) => ({ ...entry, _key: entry.id })),
-    contributions: portfolio.contributions.map((entry) => ({ ...entry, _key: entry.id })),
-    projects: portfolio.projects.map((project) => ({ ...project, _key: project.id })),
+    additionalProjects: portfolio.additionalProjects,
+    career: portfolio.career.map(({ id, ...entry }) => ({ ...entry, _key: id })),
+    contributions: portfolio.contributions.map(({ id, ...entry }) => ({ ...entry, _key: id })),
     hobbies: portfolio.hobbies.map(({ name, caption }, index) => ({
       name,
       caption,
@@ -27,7 +31,6 @@ export const portfolioSite = defineType({
     })),
   },
   fields: [
-    experiencePageField,
     careerField,
     skillsField,
     contributionsField,
@@ -45,33 +48,6 @@ export const portfolioSite = defineType({
       description: 'Link to a hosted résumé or PDF. Leave empty to hide the résumé action.',
       type: 'url',
       validation: (rule) => rule.uri({ scheme: ['https'] }),
-    }),
-    defineField({
-      name: 'projects',
-      type: 'array',
-      validation: (rule) => rule.required().min(1),
-      of: [
-        defineArrayMember({
-          type: 'object',
-          fields: [
-            defineField({
-              name: 'id',
-              title: 'Interactive demo',
-              type: 'string',
-              options: { list: ['json', 'life'] },
-              validation: (rule) => rule.required(),
-            }),
-            ...['name', 'category', 'description'].map((name) =>
-              defineField({ name, type: 'string', validation: (rule) => rule.required() }),
-            ),
-            defineField({
-              name: 'source',
-              type: 'url',
-              validation: (rule) => rule.uri({ scheme: ['https'] }),
-            }),
-          ],
-        }),
-      ],
     }),
     defineField({
       name: 'additionalProjects',

@@ -8,12 +8,19 @@ import {
   TooltipTrigger,
 } from '@/app/_components/ui/Tooltip';
 import { useTheme } from './useTheme';
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sun, TreePalm } from 'lucide-react';
+
+const options = {
+  dark: { label: 'Switch to light theme', Icon: Sun },
+  light: { label: 'Switch to GTA VI theme', Icon: TreePalm },
+  vice: { label: 'Switch to dark theme', Icon: Moon },
+};
 
 export function ThemeToggle() {
-  const { isLight, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const copy = useCopy();
-  const label = copy(isLight ? 'Switch to dark theme' : 'Switch to light theme');
+  const { label: action, Icon } = options[theme];
+  const label = copy(action);
 
   return (
     <TooltipProvider>
@@ -26,7 +33,7 @@ export function ThemeToggle() {
             aria-label={label}
             onClick={toggleTheme}
           >
-            {isLight ? <Moon size={18} /> : <Sun size={18} />}
+            <Icon size={18} />
           </Button>
         </TooltipTrigger>
         <TooltipContent>{label}</TooltipContent>

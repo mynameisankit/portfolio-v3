@@ -1103,18 +1103,25 @@
     "ja": "分で読めます"
   },
   {
-    "en": "Sample post",
-    "nl": "Voorbeeldartikel",
-    "de": "Beispielartikel",
-    "sv": "Exempelinlägg",
-    "ja": "サンプル記事"
-  },
-  {
     "en": "Browse all writing ↗",
     "nl": "Bekijk alle artikelen ↗",
     "de": "Alle Artikel ansehen ↗",
     "sv": "Se alla texter ↗",
     "ja": "すべての記事を見る ↗"
+  },
+  {
+    "en": "Six-star wanted level",
+    "nl": "Gezocht met zes sterren",
+    "de": "Sechs Fahndungssterne",
+    "sv": "Efterlyst med sex stjärnor",
+    "ja": "手配度：星6つ"
+  },
+  {
+    "en": "Switch to GTA VI theme",
+    "nl": "GTA VI-thema gebruiken",
+    "de": "GTA VI-Design aktivieren",
+    "sv": "Byt till GTA VI-temat",
+    "ja": "GTA VIテーマに切り替える"
   },
   {
     "en": "Switch to dark theme",

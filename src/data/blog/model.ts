@@ -15,7 +15,6 @@ export type Category = (typeof categories)[number]['slug'];
 export type ArticleHeading = { id: string; text: string; depth: number };
 export type ArticleHeadingNode = ArticleHeading & { children: ArticleHeadingNode[] };
 export type Post = {
-  source?: 'sanity' | 'mdx';
   slug: string;
   category: Category;
   title: string;
@@ -24,18 +23,12 @@ export type Post = {
   minutes: number;
   tags: string[];
   body: string[];
-  isSample: boolean;
   headings?: ArticleHeading[];
-  richBody?: { _type: string; [key: string]: unknown }[];
   cover?: { url: string; alt: string; lqip: string } | null;
 };
 export function getCategory(slug: string) {
   return categories.find((category) => category.slug === slug);
 }
 export function postPath(post: Post) {
-  if (post.isSample) {
-    return `/blogs/preview-samples/${post.slug}`;
-  }
-
   return `/blogs/${post.category}/${post.slug}`;
 }

@@ -53,13 +53,9 @@ export default async function ArticlePage({
     notFound();
   }
 
-  if (post.source === 'mdx') {
-    return (
-      <BlogArticle post={post}>
-        <MdxArticleBody post={post} />
-      </BlogArticle>
-    );
-  }
-
-  return <BlogArticle post={post} />;
+  return (
+    <BlogArticle post={post}>
+      <MdxArticleBody post={post} />
+    </BlogArticle>
+  );
 }

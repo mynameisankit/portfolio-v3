@@ -10,7 +10,6 @@ export function useBlogArchive(posts: Post[], category?: Category) {
   const router = useRouter();
   const pathname = usePathname();
   const query = params.get('q') ?? '';
-  const isSamplePreview = pathname === '/blogs/preview-samples';
   const selected = category ?? getCategory(params.get('category') ?? '')?.slug;
   const scope = useMemo(
     () =>
@@ -54,14 +53,10 @@ export function useBlogArchive(posts: Post[], category?: Category) {
     if (query) {
       next.set('q', query);
     }
-    if (isSamplePreview && slug) {
-      next.set('category', slug);
-    }
     const categoryPath = `/blogs/${slug}`;
     const archivePath = slug ? categoryPath : '/blogs';
-    const path = isSamplePreview ? '/blogs/preview-samples' : archivePath;
 
-    return withSearchParams(path, next);
+    return withSearchParams(archivePath, next);
   }
 
   return { query, selected, results, pages, page, visible, updateSearch, changePage, categoryHref };

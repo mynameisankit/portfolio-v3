@@ -43,38 +43,6 @@ export function PostCard({
             blurDataURL={post.cover?.lqip ?? undefined}
           />
         </ConditionalRenderer>
-        {post.isSample && index % 4 !== 3 && (
-          <div
-            className={cn(
-              'blog-art grid place-items-center border-b border-border bg-secondary p-5',
-              ['min-h-[170px]', 'min-h-[230px]', 'min-h-[125px]', 'min-h-[170px]'][index % 4],
-              isList && 'hidden',
-              post.category === 'travelling' &&
-                'bg-[linear-gradient(150deg,transparent_49%,var(--border)_50%,var(--secondary)_76%),linear-gradient(35deg,var(--secondary)_40%,var(--border)_41%,var(--background)_75%)]',
-              post.category === 'video-games' &&
-                'bg-[repeating-linear-gradient(0deg,transparent,transparent_17px,var(--border)_18px),var(--secondary)]',
-            )}
-            aria-hidden="true"
-          >
-            {post.category === 'technical' && (
-              <code className="font-mono text-[12px] leading-[1.9] text-primary wrap-anywhere">
-                const view = describe(state);
-                <br />
-                render(view);
-              </code>
-            )}
-            {post.category !== 'technical' && (
-              <span
-                className={cn(
-                  'font-mono text-[12px]',
-                  post.category === 'video-games' && 'bg-background p-3 text-primary',
-                )}
-              >
-                {post.category === 'travelling' ? 'Photo placeholder' : 'PAUSE / EXPLORE'}
-              </span>
-            )}
-          </div>
-        )}
         <div
           className={cn(
             'blog-card-content flex flex-col gap-3',
@@ -104,11 +72,6 @@ export function PostCard({
               {post.minutes} <Text>min read</Text>
             </span>
           </div>
-          {post.isSample && (
-            <span className="blog-sample font-mono text-[11px] leading-[1.5] text-muted-foreground">
-              <Text>Sample post</Text>
-            </span>
-          )}
         </div>
       </Link>
     </article>

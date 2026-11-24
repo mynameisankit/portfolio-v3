@@ -11,12 +11,6 @@ export const skillsField = defineField({
       name: 'skillCategory',
       type: 'object',
       fields: [
-        defineField({
-          name: 'id',
-          title: 'Stable ID',
-          type: 'string',
-          validation: (rule) => rule.required(),
-        }),
         defineField({ name: 'title', type: 'string', validation: (rule) => rule.required() }),
         defineField({
           name: 'items',

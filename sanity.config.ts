@@ -1,5 +1,4 @@
 import { sanityProject } from './src/config/sanityConfig';
-import { blogPost } from './src/sanity/schemas/blogPost';
 import { portfolioSite } from './src/sanity/schemas/portfolioSite';
 import { translation } from './src/sanity/schemas/translation';
 import { defineConfig } from 'sanity';
@@ -21,13 +20,12 @@ export default defineConfig({
               .listItem()
               .title('Portfolio')
               .child(builder.document().schemaType('portfolioSite').documentId('portfolio')),
-            builder.documentTypeListItem('blogPost').title('Blog posts'),
             builder.documentTypeListItem('translation').title('Translations'),
           ]),
     }),
   ],
   schema: {
-    types: [portfolioSite, blogPost, translation],
+    types: [portfolioSite, translation],
     templates: (templates) =>
       templates.filter((template) => template.schemaType !== 'portfolioSite'),
   },

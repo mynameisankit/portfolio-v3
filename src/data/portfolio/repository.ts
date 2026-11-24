@@ -14,17 +14,6 @@ const schema = z.object({
   subtitle: z.string(),
   github: z.string().url(),
   resumeUrl: z.union([z.literal(''), z.string().url()]).default(''),
-  projects: z
-    .array(
-      z.object({
-        id: z.enum(['json', 'life']),
-        name: z.string(),
-        category: z.string(),
-        description: z.string(),
-        source: z.union([z.literal(''), z.string().url()]),
-      }),
-    )
-    .min(1),
   additionalProjects: z
     .array(
       z.object({
@@ -64,13 +53,6 @@ const query = `
     subtitle,
     github,
     "resumeUrl": coalesce(resumeUrl, ""),
-    projects[] {
-      id,
-      name,
-      category,
-      description,
-      "source": coalesce(source, "")
-    },
     additionalProjects[] {
       title,
       "description": coalesce(description, ""),
@@ -123,6 +105,7 @@ export const getPortfolio = cache(async (): Promise<PortfolioContent> => {
 
   return {
     ...parsed,
+    projects: portfolio.projects,
     additionalProjects: parsed.additionalProjects ?? portfolio.additionalProjects,
     career: parsed.career ?? portfolio.career,
     skills: parsed.skills ?? portfolio.skills,

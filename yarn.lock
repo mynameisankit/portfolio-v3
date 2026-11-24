@@ -7286,7 +7286,6 @@ __metadata:
     "@mdx-js/react": "npm:^3.1.1"
     "@mynameisankit/react-json-renderer": "npm:1.2.0"
     "@next/mdx": "npm:16.3.4"
-    "@portabletext/react": "npm:^8.0.1"
     "@radix-ui/react-hover-card": "npm:^1.1.23"
     "@sanity/client": "npm:^8.7.0"
     "@tailwindcss/postcss": "npm:4.2.1"

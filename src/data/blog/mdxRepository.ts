@@ -48,10 +48,8 @@ export const getMdxArticles = cache(async () => {
       const text = prose.join(' ');
       const post: Post = {
         ...metadata,
-        source: 'mdx',
         body: [text],
         minutes: Math.max(1, Math.ceil(text.split(/\s+/).filter(Boolean).length / 220)),
-        isSample: false,
         headings,
       };
 

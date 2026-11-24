@@ -1,13 +1,18 @@
 import { flushSync } from 'react-dom';
 
+const nextTheme = { dark: 'light', light: 'vice', vice: 'dark' } as const;
+
+function parseTheme(value: string | null | undefined): keyof typeof nextTheme {
+  return value === 'light' || value === 'vice' ? value : 'dark';
+}
+
 export function getSnapshot() {
-  return document.documentElement.dataset.theme === 'light';
+  return parseTheme(document.documentElement.dataset.theme);
 }
 export function subscribe(onChange: () => void) {
   const restore = () => {
     try {
-      document.documentElement.dataset.theme =
-        localStorage.getItem('portfolio-theme') === 'light' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = parseTheme(localStorage.getItem('portfolio-theme'));
     } catch {
       /* Keep the current theme when browser storage is unavailable. */
     }
@@ -25,7 +30,7 @@ export function subscribe(onChange: () => void) {
 }
 
 function updateTheme() {
-  const next = getSnapshot() ? 'dark' : 'light';
+  const next = nextTheme[getSnapshot()];
   document.documentElement.dataset.theme = next;
   try {
     localStorage.setItem('portfolio-theme', next);

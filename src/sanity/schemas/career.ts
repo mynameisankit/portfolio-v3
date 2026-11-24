@@ -11,7 +11,7 @@ export const careerField = defineField({
       type: 'object',
       name: 'careerEntry',
       fields: [
-        ...['id', 'organization', 'role', 'period'].map((name) =>
+        ...['organization', 'role', 'period'].map((name) =>
           defineField({
             name,
             type: 'string',

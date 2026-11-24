@@ -1,7 +1,12 @@
 import { createLifePlayer, type LifeSnapshot } from './lifePlayer.utils';
 import { createPixelRenderer, type Point } from './pixelRenderer.utils';
 
-export type HeroStatus = { isRunning: boolean; generation: number; isReducedMotion: boolean };
+export type HeroStatus = {
+  isRunning: boolean;
+  generation: number;
+  isReducedMotion: boolean;
+  showWantedLevel: boolean;
+};
 
 export function connectPixelHero(
   canvas: HTMLCanvasElement,
@@ -24,20 +29,34 @@ export function connectPixelHero(
     const pointer = view.snapshot.isRunning || motion.matches ? null : view.pointer;
     renderer.draw(view.snapshot.cells, pointer);
   };
-  const player = createLifePlayer((snapshot) => {
-    view.snapshot = snapshot;
+  let eligibleForWantedLevel: boolean | null = null;
+  const publish = (snapshot: LifeSnapshot) => {
     draw();
     onStatus({
+      showWantedLevel: eligibleForWantedLevel === true && snapshot.generation >= 10,
       isRunning: snapshot.isRunning,
       generation: snapshot.generation,
       isReducedMotion: motion.matches,
     });
+  };
+  const player = createLifePlayer((snapshot) => {
+    view.snapshot = snapshot;
+    publish(snapshot);
   });
   const resize = new ResizeObserver(() => {
     renderer.resize();
     draw();
   });
-  const theme = new MutationObserver(draw);
+  const theme = new MutationObserver((changes) => {
+    if (
+      eligibleForWantedLevel &&
+      (document.documentElement.dataset.theme !== 'vice' ||
+        changes.some((change) => change.oldValue !== 'vice'))
+    ) {
+      eligibleForWantedLevel = false;
+    }
+    if (view.snapshot) publish(view.snapshot);
+  });
   const move = (event: PointerEvent) => {
     const bounds = canvas.getBoundingClientRect();
     view.pointer = { x: event.clientX - bounds.left, y: event.clientY - bounds.top };
@@ -56,7 +75,11 @@ export function connectPixelHero(
   };
   const motionChange = () => player.stop();
   resize.observe(canvas);
-  theme.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  theme.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme'],
+    attributeOldValue: true,
+  });
   canvas.addEventListener('pointermove', move);
   canvas.addEventListener('pointerleave', leave);
   document.addEventListener('visibilitychange', visibility);
@@ -66,6 +89,7 @@ export function connectPixelHero(
 
   return {
     run: () => {
+      eligibleForWantedLevel ??= document.documentElement.dataset.theme === 'vice';
       if (motion.matches) {
         return player.step();
       }
@@ -73,6 +97,7 @@ export function connectPixelHero(
       return player.toggle();
     },
     reset: () => {
+      eligibleForWantedLevel = null;
       view.pointer = null;
       player.reset();
     },
