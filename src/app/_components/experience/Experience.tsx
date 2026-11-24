@@ -2,13 +2,7 @@ import { Text } from '@/app/_components/localization/Text';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { JourneyStop } from './JourneyStop';
 
-export function Experience({
-  content,
-  shouldShowHighlights = false,
-}: {
-  content: PortfolioContent;
-  shouldShowHighlights?: boolean;
-}) {
+export function Experience({ content }: { content: PortfolioContent }) {
   return (
     <section
       id="experience"
@@ -34,7 +28,7 @@ export function Experience({
         aria-label="Career journey, most recent first"
       >
         {content.career.map((entry) => (
-          <JourneyStop key={entry.id} entry={entry} shouldShowHighlights={shouldShowHighlights} />
+          <JourneyStop key={entry.id} entry={entry} />
         ))}
       </ol>
     </section>

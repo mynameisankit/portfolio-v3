@@ -6,7 +6,8 @@ const skillSchema = z.object({
   url: z
     .string()
     .url()
-    .refine((url) => url.startsWith('https://'), 'Use an HTTPS reference URL'),
+    .refine((url) => url.startsWith('https://'), 'Use an HTTPS reference URL')
+    .optional(),
   icon: z.string().optional().default('code'),
 });
 

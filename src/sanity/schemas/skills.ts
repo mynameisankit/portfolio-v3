@@ -31,7 +31,7 @@ export const skillsField = defineField({
                   name: 'url',
                   title: 'Reference link',
                   type: 'url',
-                  validation: (rule) => rule.required().uri({ scheme: ['https'] }),
+                  validation: (rule) => rule.uri({ scheme: ['https'] }),
                 }),
                 defineField({
                   name: 'icon',

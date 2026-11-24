@@ -7288,6 +7288,7 @@ __metadata:
     "@next/mdx": "npm:16.3.4"
     "@radix-ui/react-hover-card": "npm:^1.1.23"
     "@sanity/client": "npm:^8.7.0"
+    "@sanity/ui": "npm:^4.2.3"
     "@tailwindcss/postcss": "npm:4.2.1"
     "@types/masonry-layout": "npm:^4.2.8"
     "@types/mdx": "npm:^2.0.14"
