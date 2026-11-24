@@ -12,7 +12,7 @@ export function Brand() {
           y="28"
           textAnchor="middle"
           fill="var(--primary-foreground)"
-          fontFamily="Space Grotesk, Arial, sans-serif"
+          fontFamily="var(--site-font)"
           fontWeight="900"
           fontSize="25"
           letterSpacing="-1.5"
@@ -20,7 +20,7 @@ export function Brand() {
           fyi
         </text>
       </svg>
-      <span className="brand-name text-[21px] font-semibold tracking-[-0.9px] text-foreground">
+      <span className="brand-name [html[data-theme='vice']_&]:font-bold text-[21px] font-semibold tracking-[-0.9px] text-foreground">
         ankitkumar<span className="brand-tld text-primary">.fyi</span>
       </span>
     </span>

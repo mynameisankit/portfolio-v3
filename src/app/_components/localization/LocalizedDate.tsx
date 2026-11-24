@@ -1,8 +1,12 @@
 'use client';
 import { useFormatter } from 'next-intl';
 
-export function LocalizedDate({ value }: { value: string }) {
+export function LocalizedDate({ value }: { value?: string }) {
   const format = useFormatter();
+
+  if (!value) {
+    return null;
+  }
 
   return (
     <time dateTime={value}>

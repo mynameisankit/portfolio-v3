@@ -8,6 +8,7 @@
   "scripts": {
     "install:ci": "yarn install --immutable",
     "dev": "yarn pwa:build && node node_modules/next/dist/bin/next dev --hostname 127.0.0.1",
+    "blog:publish": "node scripts/publishBlog.mjs",
     "build": "yarn pwa:build && node node_modules/next/dist/bin/next build && yarn studio:build && node scripts/packageStudio.mjs",
     "start": "serve out --config ../serve.json --no-clipboard",
     "lint": "node node_modules/eslint/bin/eslint.js . --max-warnings 0",
@@ -25,6 +26,7 @@
     "@mdx-js/react": "^3.1.1",
     "@mynameisankit/react-json-renderer": "1.2.0",
     "@next/mdx": "16.3.4",
+    "@portabletext/react": "^8.0.1",
     "@radix-ui/react-hover-card": "^1.1.23",
     "@sanity/client": "^8.7.0",
     "@sanity/ui": "^4.2.3",

@@ -2,7 +2,7 @@
 import { Text } from '@/app/_components/localization/Text';
 import { useCopy } from '@/app/_components/localization/useCopy';
 import { Button } from '@/app/_components/ui/Button';
-import { useContactForm } from './useContactForm';
+import { ContactFormStatus, useContactForm } from './useContactForm';
 
 const MAX_NAME_LENGTH = 100;
 const MAX_EMAIL_LENGTH = 254;
@@ -13,13 +13,20 @@ export function ContactForm() {
   const { submit, status, feedback } = useContactForm();
   const copy = useCopy();
   const submitLabel = copy(
-    { idle: 'Send message', sending: 'Sending…', success: 'Message sent ✓', error: 'Send message' }[
-      status
-    ],
+    {
+      [ContactFormStatus.Idle]: 'Send message',
+      [ContactFormStatus.Sending]: 'Sending…',
+      [ContactFormStatus.Success]: 'Message sent',
+      [ContactFormStatus.Error]: 'Send message',
+    }[status],
   );
 
   return (
-    <form className="contact-form" onSubmit={submit} aria-busy={status === 'sending'}>
+    <form
+      className="contact-form"
+      onSubmit={submit}
+      aria-busy={status === ContactFormStatus.Sending}
+    >
       <div className="contact-fields grid gap-2">
         <label className="text-[14px] mt-3" htmlFor="contact-name">
           <Text>Your name</Text>
@@ -31,7 +38,7 @@ export function ContactForm() {
           autoComplete="name"
           required
           maxLength={MAX_NAME_LENGTH}
-          disabled={status === 'sending'}
+          disabled={status === ContactFormStatus.Sending}
         />
         <label className="text-[14px] mt-3" htmlFor="contact-email">
           <Text>Email (optional, for a reply)</Text>
@@ -43,7 +50,7 @@ export function ContactForm() {
           type="email"
           autoComplete="email"
           maxLength={MAX_EMAIL_LENGTH}
-          disabled={status === 'sending'}
+          disabled={status === ContactFormStatus.Sending}
         />
         <label className="text-[14px] mt-3" htmlFor="contact-message">
           <Text>Message</Text>
@@ -55,14 +62,19 @@ export function ContactForm() {
           required
           maxLength={MAX_MESSAGE_LENGTH}
           rows={MESSAGE_ROWS}
-          disabled={status === 'sending'}
+          disabled={status === ContactFormStatus.Sending}
         />
       </div>
       <p className="contact-privacy text-[12px] text-muted-foreground my-4 mx-0">
         <Text>Your message is sent through EmailJS to my inbox.</Text>
       </p>
-      <Button type="submit" size="lg" disabled={status === 'sending'}>
-        {submitLabel} {status !== 'success' && <span aria-hidden="true">↗</span>}
+      <Button
+        hasExternalIcon={status !== ContactFormStatus.Success}
+        type="submit"
+        size="lg"
+        disabled={status === ContactFormStatus.Sending}
+      >
+        {submitLabel}
       </Button>
       <p
         className="contact-feedback min-h-[26px] mt-[14px] text-[14px] [&[data-status='success']]:text-primary [&[data-status='error']]:text-foreground [&[data-status='error']]:[border-left:3px_solid_var(--primary)] [&[data-status='error']]:pl-[10px]"

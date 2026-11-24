@@ -1,4 +1,6 @@
+import Link from '@/app/_components/localization/Link';
 import { Text } from '@/app/_components/localization/Text';
+import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { JourneyStop } from './JourneyStop';
 
@@ -22,6 +24,17 @@ export function Experience({ content }: { content: PortfolioContent }) {
         <p className="experience-summary max-w-65 text-muted-foreground max-[761px]:max-w-full">
           <Text>From shared frontend libraries to owning cloud product interfaces.</Text>
         </p>
+        <ConditionalRenderer shouldRender={!!content.resumeUrl}>
+          <Link
+            className="mt-4 inline-flex items-center gap-2 text-primary underline underline-offset-4"
+            href={content.resumeUrl}
+            hasExternalIcon
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Text>Résumé</Text>
+          </Link>
+        </ConditionalRenderer>
       </div>
       <ol
         className="journey-timeline list-none m-0 [padding:0_0_0_10px]"

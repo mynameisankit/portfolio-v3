@@ -47,7 +47,7 @@ export function GamingLibrary({ library }: { library: GameLibrary }) {
         </>
       )}
       {!library.games.length && (
-        <div className="gaming-empty mt-12 py-16 px-5 border border-border rounded-[10px] text-center [&_>_span]:text-primary [&_>_span]:[font-family:monospace]">
+        <div className="gaming-empty mt-12 py-16 px-5 border border-border rounded-[10px] text-center [&_>_span]:text-primary">
           <span aria-hidden="true">
             <Text>[ pause ]</Text>
           </span>

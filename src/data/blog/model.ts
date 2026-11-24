@@ -19,12 +19,12 @@ export type Post = {
   category: Category;
   title: string;
   description: string;
-  date: string;
+  date?: string;
   minutes: number;
   tags: string[];
   body: string[];
   headings?: ArticleHeading[];
-  cover?: { url: string; alt: string; lqip: string } | null;
+  cover: { url: string; alt: string; lqip: string; caption?: string };
 };
 export function getCategory(slug: string) {
   return categories.find((category) => category.slug === slug);

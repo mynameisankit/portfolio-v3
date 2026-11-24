@@ -10,5 +10,7 @@ export function mergePosts(posts: Post[]) {
     paths.add(path);
   }
 
-  return posts.toSorted((a, b) => Date.parse(b.date) - Date.parse(a.date));
+  return posts.toSorted(
+    (a, b) => (b.date ? Date.parse(b.date) : 0) - (a.date ? Date.parse(a.date) : 0),
+  );
 }

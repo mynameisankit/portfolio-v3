@@ -13,10 +13,7 @@ export function useBlogArchive(posts: Post[], category?: Category) {
   const query = params.get('q') ?? '';
   const selected = category ?? getCategory(params.get('category') ?? '')?.slug;
   const scope = useMemo(
-    () =>
-      posts
-        .filter((post) => !selected || post.category === selected)
-        .sort((a, b) => b.date.localeCompare(a.date)),
+    () => posts.filter((post) => !selected || post.category === selected),
     [posts, selected],
   );
   const search = useMemo(() => createPostSearch(scope), [scope]);

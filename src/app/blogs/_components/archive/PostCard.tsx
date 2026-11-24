@@ -36,18 +36,17 @@ export function PostCard({
           isList ? 'border-t border-border' : 'rounded-lg border border-border bg-card',
         )}
       >
-        <ConditionalRenderer shouldRender={!!post.cover}>
-          <Image
-            className={cn('blog-cover h-auto w-full', isList && 'hidden')}
-            src={post.cover?.url ?? ''}
-            alt={post.cover?.alt ?? ''}
-            width={COVER_WIDTH}
-            height={COVER_HEIGHT}
-            loading="lazy"
-            placeholder={post.cover?.lqip ? 'blur' : 'empty'}
-            blurDataURL={post.cover?.lqip ?? undefined}
-          />
-        </ConditionalRenderer>
+        <Image
+          className={cn('blog-cover h-auto w-full', isList && 'hidden')}
+          src={post.cover.url}
+          alt={post.cover.alt}
+          width={COVER_WIDTH}
+          height={COVER_HEIGHT}
+          loading="lazy"
+          placeholder={post.cover.lqip ? 'blur' : 'empty'}
+          blurDataURL={post.cover.lqip ?? undefined}
+        />
+
         <div
           className={cn(
             'blog-card-content flex flex-col gap-3',
@@ -68,9 +67,11 @@ export function PostCard({
           >
             <Text>{post.title}</Text>
           </h2>
-          <p className="text-[14px] text-muted-foreground">
-            <Text>{post.description}</Text>
-          </p>
+          <ConditionalRenderer shouldRender={!!post.description}>
+            <p className="text-[14px] text-muted-foreground">
+              <Text>{post.description}</Text>
+            </p>
+          </ConditionalRenderer>
           <div className="blog-meta flex flex-wrap [gap:8px_14px] font-mono text-[11px] leading-[1.6] text-muted-foreground">
             <LocalizedDate value={post.date} />
             <span>

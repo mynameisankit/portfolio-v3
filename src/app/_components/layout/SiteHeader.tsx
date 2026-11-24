@@ -12,7 +12,7 @@ import { PortfolioStructuredData } from './PortfolioStructuredData';
 export function SiteHeader({ content }: { content: PortfolioContent }) {
   return (
     <>
-      <header className="site-header flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-b border-border px-[5%] py-5 max-[761px]:gap-3">
+      <header className="site-header flex flex-wrap items-center justify-between gap-x-6 vice:gap-x-2 gap-y-3 border-b border-border px-[5%] py-5 max-[761px]:gap-3">
         <Link
           href="/"
           className="wordmark inline-flex [&_.brand-symbol]:size-9 [&_.brand-name]:text-[20px] min-[2560px]:[&_.brand-symbol]:size-10 min-[2560px]:[&_.brand-name]:text-[23px]"
@@ -21,7 +21,7 @@ export function SiteHeader({ content }: { content: PortfolioContent }) {
           <Brand />
         </Link>
         <nav
-          className="flex flex-wrap items-center gap-1.5 text-[15px] min-[2560px]:text-[17px] [&>a]:rounded-xl [&>a]:px-2 [&>a]:py-2 [&>a]:transition-colors [&>a:hover]:bg-button-hover [&>a:hover]:text-primary [&>a]:motion-reduce:transition-none max-[761px]:hidden"
+          className="flex flex-wrap items-center gap-1.5 text-[15px] vice:text-lg vice:gap-1 vice:[&>a]:px-1.5 min-[2560px]:text-[17px] [&>a]:rounded-xl [&>a]:px-2 [&>a]:py-2 [&>a]:transition-colors [&>a:hover]:bg-button-hover [&>a:hover]:text-primary [&>a]:motion-reduce:transition-none max-[761px]:hidden"
           aria-label="Main navigation"
         >
           <Link className="hover:text-primary" href="/#projects">

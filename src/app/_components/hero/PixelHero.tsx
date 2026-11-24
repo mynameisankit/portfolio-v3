@@ -27,9 +27,13 @@ function WantedLevel() {
 
   return createPortal(
     <div
-      className="fixed inset-0 z-100 grid place-items-center isolate pointer-events-none backdrop-blur-[3px] bg-[rgb(8_5_20/12%)] text-[#ffe08a] text-[clamp(2rem,9vw,5rem)] leading-[1.4] [text-shadow:0_0_0.16em_#ff9b49,0_2px_6px_#120b20] animate-[vice-stars-out_600ms_ease-in-out_4.4s_forwards] before:absolute before:inset-0 before:-z-1 before:bg-[radial-gradient(ellipse_at_left_center,#ff204cab,transparent_78%)] after:absolute after:inset-0 after:-z-1 after:bg-[radial-gradient(ellipse_at_right_center,#126dffbf,transparent_78%)] motion-safe:before:animate-[vice-siren_700ms_ease-in-out_infinite_alternate,vice-lights-off_400ms_ease-out_3s_forwards] motion-safe:after:animate-[vice-siren_700ms_ease-in-out_-700ms_infinite_alternate,vice-lights-off_400ms_ease-out_3s_forwards]"
+      className="fixed inset-0 z-100 grid place-items-center isolate pointer-events-none backdrop-blur-[3px] bg-[rgb(8_5_20/12%)] text-[#ffe08a] text-[clamp(2rem,9vw,5rem)] leading-[1.4] [text-shadow:0_0_0.16em_#ff9b49,0_2px_6px_#120b20] animate-[vice-stars-out_600ms_ease-in-out_4.4s_forwards]"
       role="status"
     >
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-1 animate-[vice-stars-out_450ms_ease-out_3s_forwards] before:absolute before:inset-0 before:bg-[radial-gradient(ellipse_at_left_center,#ff204cab,transparent_78%)] after:absolute after:inset-0 after:bg-[radial-gradient(ellipse_at_right_center,#126dffbf,transparent_78%)] motion-safe:before:animate-[vice-siren_700ms_ease-in-out_infinite_alternate] motion-safe:after:animate-[vice-siren_700ms_ease-in-out_-700ms_infinite_alternate]"
+      />
       <span
         className="[grid-area:1/1] animate-[vice-stars-out_350ms_ease-in_3s_forwards]"
         aria-hidden="true"
@@ -81,7 +85,7 @@ export function PixelHero({ content }: { content: PortfolioContent }) {
       className="hero [html[data-theme='vice']_&]:[background:radial-gradient(ellipse_at_75%_43%,#ab127455,transparent_55%),radial-gradient(ellipse_at_18%_68%,#007d8550,transparent_48%)] flex min-h-[calc(100svh-90px)] flex-col justify-center px-[5%] py-10 max-[761px]:min-h-[calc(100svh-140px)]"
       aria-labelledby="hero-name"
     >
-      <p className="eyebrow [html[data-theme='vice']_&]:text-accent text-center font-mono text-[12px] leading-[1.6] tracking-[1.2px] uppercase text-muted-foreground min-[2560px]:text-[14px]">
+      <p className="eyebrow [html[data-theme='vice']_&]:text-accent text-center font-mono text-[12px] vice:text-base leading-[1.6] tracking-[1.2px] uppercase text-muted-foreground min-[2560px]:text-[14px]">
         <Text>{content.role}</Text> <Text>at</Text> {content.company}
       </p>
       <h1 id="hero-name" className="sr-only">
@@ -113,7 +117,7 @@ export function PixelHero({ content }: { content: PortfolioContent }) {
           </Button>
         </div>
       </div>
-      <div className="hero-meta [html[data-theme='vice']_&]:border-t [html[data-theme='vice']_&]:[border-image:linear-gradient(90deg,var(--accent),#8343ad,var(--primary))_1] [html[data-theme='vice']_&]:pt-3 flex justify-between gap-4 flex-wrap mt-[26px] font-mono text-[12px] leading-[1.5] uppercase text-muted-foreground min-[2560px]:text-[14px]">
+      <div className="hero-meta [html[data-theme='vice']_&]:border-t [html[data-theme='vice']_&]:[border-image:linear-gradient(90deg,var(--accent),#8343ad,var(--primary))_1] [html[data-theme='vice']_&]:pt-3 flex justify-between gap-4 flex-wrap mt-[26px] font-mono text-[12px] vice:text-base leading-[1.5] uppercase text-muted-foreground min-[2560px]:text-[14px]">
         <span>
           <Text>
             {isReducedMotion ? 'Step through the simulation' : 'Move across the lettering'}

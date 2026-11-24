@@ -1,4 +1,5 @@
 import { sanityProject } from './src/config/sanityConfig';
+import { experiencePost } from './src/sanity/schemas/experiencePost';
 import { portfolioSite } from './src/sanity/schemas/portfolioSite';
 import { translation } from './src/sanity/schemas/translation';
 import { defineConfig } from 'sanity';
@@ -20,12 +21,13 @@ export default defineConfig({
               .listItem()
               .title('Portfolio')
               .child(builder.document().schemaType('portfolioSite').documentId('portfolio')),
+            builder.documentTypeListItem('experiencePost').title('Experience posts'),
             builder.documentTypeListItem('translation').title('Translations'),
           ]),
     }),
   ],
   schema: {
-    types: [portfolioSite, translation],
+    types: [portfolioSite, experiencePost, translation],
     templates: (templates) =>
       templates.filter((template) => template.schemaType !== 'portfolioSite'),
   },

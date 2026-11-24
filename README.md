@@ -69,15 +69,19 @@ Blogs support technical, travelling, and video-games categories. Supply a title,
 
 With no published posts, `/blogs` shows the empty state. Blog data is exported for local Fuse search, with no browser-side Sanity query.
 
-### Local MDX articles
+### Travelling and Video games
 
-Write blog posts locally in MDX. Registered articles feed the archive, search, category routes, metadata, and sitemap. Duplicate category/slug URLs fail the build. Edit Selected Work project cards in `src/data/portfolio/content.ts`. Sanity manages More Work (Additional projects in Studio) and the adjacent hobby photo gallery.
+Open **Experience posts** in Sanity Studio, create a post, and choose its category. Add a heading and a header image, optionally enter a subtitle, then insert photos or screenshots between paragraphs in the body. Images support alternative text and optional captions. Publish the document and rebuild and deploy the static site for changes to appear.
 
-1. Create `src/content/blog/myArticle/index.mdx`. Export a `post` object containing `title`, `slug`, `category`, `description` (up to 240 characters), `date` (an ISO timestamp with timezone), `tags`, and `isDraft`.
+### Technical articles
+
+Write technical posts locally in MDX using the `technical` category. Registered articles feed the archive, search, category routes, metadata, and sitemap. Duplicate category/slug URLs fail the build. Edit Selected Work project cards in `src/data/portfolio/content.ts`. Sanity manages More Work (Additional projects in Studio) and the adjacent hobby photo gallery.
+
+1. Create `src/content/blog/myArticle/index.mdx`. Export a `post` object containing `title`, `slug`, `category`, `description` (optional subtitle, up to 240 characters), `date` (optional while drafting, an ISO timestamp with timezone), `tags`, and `isDraft`.
 2. Add an entry to `src/data/blog/mdxRegistry.ts` with the relative `file` path and an explicit `load: () => import('@/content/blog/myArticle/index.mdx')`. Metadata stays in the MDX file. Use camelCase for source folder names and hyphenated slugs for public URLs.
 3. Import interactive components from `src/app/blogs/_components`. Add `'use client'` to components that need browser APIs or React state; the MDX article itself remains a Server Component. Shared Markdown element mappings belong in `src/mdx-components.tsx`.
-4. Keep images beside the article and import them explicitly for use with `next/image`, providing alternative text. Static export currently uses unoptimized images. An optional `cover` metadata object accepts an absolute image `url`, `alt`, and optional `lqip`.
-5. Set `isDraft: false`, commit, rebuild, and deploy. Only non-draft articles with a publication date at or before build time appear. Scheduled articles need a rebuild when due. Search text and reading time come from Markdown prose, excluding code blocks and JavaScript expressions.
+4. Keep images beside the article and import them explicitly for use with `next/image`, providing alternative text. Static export currently uses unoptimized images. The required `cover` object takes a site-relative path or absolute HTTP(S) URL in `url`, plus `alt`. Optional fields include `caption` and `lqip`.
+5. Run `yarn blog:publish myArticle/index.mdx` to turn off draft and stamp a missing publication date, then commit, rebuild, and deploy. In Studio, new posts start as drafts and turning Draft off fills an empty publication date. In local development, MDX posts with `isDraft: true` and published Sanity posts with the Draft toggle enabled appear regardless of publication date. Production excludes these posts. Posts with the flag off or omitted appear once their publication date arrives. Scheduled articles need a rebuild when due. Search text and reading time come from Markdown prose, excluding code blocks and JavaScript expressions.
 
 
 Local MDX is trusted repository code and can execute imports at build time. MDX prose is displayed in its original language. UI labels and the existing language notice remain available.

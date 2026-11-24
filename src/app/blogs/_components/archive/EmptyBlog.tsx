@@ -50,7 +50,7 @@ export function EmptyBlog({
         <ConditionalRenderer shouldRender={!isSearching}>
           <Button asChild>
             <Link href="/#projects">
-              <Text>Explore projects ↗</Text>
+              <Text>Explore projects</Text>
             </Link>
           </Button>
         </ConditionalRenderer>

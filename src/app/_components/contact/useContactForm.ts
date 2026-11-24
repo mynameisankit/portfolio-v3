@@ -5,10 +5,17 @@ import { sendContactMessage } from './sendMessage.utils';
 const FEEDBACK_TIMEOUT_MS = 2400;
 const TOO_MANY_REQUESTS_STATUS = 429;
 
+export enum ContactFormStatus {
+  Idle = 'idle',
+  Sending = 'sending',
+  Success = 'success',
+  Error = 'error',
+}
+
 export function useContactForm() {
   const pending = useRef(false);
   const resetTimer = useRef<number | undefined>(undefined);
-  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [status, setStatus] = useState<ContactFormStatus>(ContactFormStatus.Idle);
   const [feedback, setFeedback] = useState('');
 
   useEffect(
@@ -29,7 +36,7 @@ export function useContactForm() {
     const message = String(values.get('message') ?? '').trim();
     const email = String(values.get('email') ?? '').trim();
     if (!name || !message) {
-      setStatus('error');
+      setStatus(ContactFormStatus.Error);
       setFeedback('Please enter your name and message.');
       form
         .querySelector<HTMLInputElement | HTMLTextAreaElement>(
@@ -40,19 +47,19 @@ export function useContactForm() {
       return;
     }
     pending.current = true;
-    setStatus('sending');
+    setStatus(ContactFormStatus.Sending);
     setFeedback('Sending your message…');
     try {
       await sendContactMessage({ name, message, email });
-      setStatus('success');
+      setStatus(ContactFormStatus.Success);
       setFeedback('Message sent. Thanks for getting in touch!');
       form.reset();
       resetTimer.current = window.setTimeout(() => {
-        setStatus('idle');
+        setStatus(ContactFormStatus.Idle);
         setFeedback('');
       }, FEEDBACK_TIMEOUT_MS);
     } catch (error: unknown) {
-      setStatus('error');
+      setStatus(ContactFormStatus.Error);
       const isRateLimited =
         typeof error === 'object' &&
         error !== null &&

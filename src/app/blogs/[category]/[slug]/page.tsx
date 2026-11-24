@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { BlogArticle } from '@/app/blogs/_components/article/BlogArticle';
 import { MdxArticleBody } from '@/app/blogs/_components/article/MdxArticleBody';
+import { StoryArticleBody } from '@/app/blogs/_components/article/StoryArticleBody';
 import { categories } from '@/data/blog/model';
 import { getPosts } from '@/data/blog/repository';
 import { getOpenGraphImages } from './metadataHelpers.utils';
@@ -55,7 +56,11 @@ export default async function ArticlePage({
 
   return (
     <BlogArticle post={post}>
-      <MdxArticleBody post={post} />
+      {post.category === 'technical' ? (
+        <MdxArticleBody post={post} />
+      ) : (
+        <StoryArticleBody post={post} />
+      )}
     </BlogArticle>
   );
 }
