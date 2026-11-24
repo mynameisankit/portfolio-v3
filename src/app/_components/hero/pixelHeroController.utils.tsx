@@ -5,7 +5,7 @@ export type HeroStatus = {
   isRunning: boolean;
   generation: number;
   isReducedMotion: boolean;
-  showWantedLevel: boolean;
+  shouldShowWantedLevel: boolean;
 };
 
 export function connectPixelHero(
@@ -29,11 +29,11 @@ export function connectPixelHero(
     const pointer = view.snapshot.isRunning || motion.matches ? null : view.pointer;
     renderer.draw(view.snapshot.cells, pointer);
   };
-  let eligibleForWantedLevel: boolean | null = null;
+  const wantedLevel = { isEligible: null as boolean | null };
   const publish = (snapshot: LifeSnapshot) => {
     draw();
     onStatus({
-      showWantedLevel: eligibleForWantedLevel === true && snapshot.generation >= 10,
+      shouldShowWantedLevel: wantedLevel.isEligible === true && snapshot.generation >= 10,
       isRunning: snapshot.isRunning,
       generation: snapshot.generation,
       isReducedMotion: motion.matches,
@@ -49,13 +49,15 @@ export function connectPixelHero(
   });
   const theme = new MutationObserver((changes) => {
     if (
-      eligibleForWantedLevel &&
+      wantedLevel.isEligible &&
       (document.documentElement.dataset.theme !== 'vice' ||
         changes.some((change) => change.oldValue !== 'vice'))
     ) {
-      eligibleForWantedLevel = false;
+      wantedLevel.isEligible = false;
     }
-    if (view.snapshot) publish(view.snapshot);
+    if (view.snapshot) {
+      publish(view.snapshot);
+    }
   });
   const move = (event: PointerEvent) => {
     const bounds = canvas.getBoundingClientRect();
@@ -89,7 +91,7 @@ export function connectPixelHero(
 
   return {
     run: () => {
-      eligibleForWantedLevel ??= document.documentElement.dataset.theme === 'vice';
+      wantedLevel.isEligible ??= document.documentElement.dataset.theme === 'vice';
       if (motion.matches) {
         return player.step();
       }
@@ -97,7 +99,7 @@ export function connectPixelHero(
       return player.toggle();
     },
     reset: () => {
-      eligibleForWantedLevel = null;
+      wantedLevel.isEligible = null;
       view.pointer = null;
       player.reset();
     },

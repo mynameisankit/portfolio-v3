@@ -83,114 +83,12 @@
   --hero-grid: #843b8e;
 }
 
-[data-theme='vice'] .hero {
-  background:
-    radial-gradient(ellipse at 75% 43%, #ab127455, transparent 55%),
-    radial-gradient(ellipse at 18% 68%, #007d8550, transparent 48%);
-}
-
-[data-theme='vice'] .hero .eyebrow {
-  color: var(--accent);
-}
-
-[data-theme='vice'] .pixel-canvas {
-  filter: drop-shadow(0 0 4px #ff32a673) drop-shadow(0 0 16px #ac34ff55);
-}
-
-[data-theme='vice'] .hero-meta {
-  border-top: 1px solid transparent;
-  border-image: linear-gradient(90deg, var(--accent), #8343ad, var(--primary)) 1;
-  padding-top: 0.75rem;
-}
-
-.vice-wanted {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  display: grid;
-  place-items: center;
-  isolation: isolate;
-  pointer-events: none;
-  backdrop-filter: blur(3px);
-  background: rgb(8 5 20 / 12%);
-  color: #ffe08a;
-  font-size: clamp(2rem, 9vw, 5rem);
-  line-height: 1.4;
-  text-shadow: 0 0 0.16em #ff9b49, 0 2px 6px #120b20;
-}
-
-.vice-stars,
-.vice-wasted {
-  grid-area: 1 / 1;
-}
-
-.vice-stars {
-  animation: vice-stars-out 350ms ease-in 3s forwards;
-}
-
-.vice-wasted {
-  align-self: stretch;
-  justify-self: stretch;
-  position: relative;
-  background: radial-gradient(ellipse at 38% 8%, #dc819138, transparent 56%),
-    linear-gradient(155deg, #ac073d65, #81012770 50%, #36041982);
-  opacity: 0;
-  animation: vice-wasted-in 450ms ease-out 3s forwards;
-}
-
-.vice-wasted-title {
-  position: absolute;
-  left: 15.7%;
-  top: 51%;
-  width: 43.6%;
-  height: auto;
-  color: #fbf8fa;
-}
-
-@media (orientation: portrait) {
-  .vice-wasted-title {
-    left: 8%;
-    width: 76%;
-  }
-}
-
-.vice-wanted {
-  animation: vice-stars-out 600ms ease-in-out 4.4s forwards;
-}
-
 @keyframes vice-stars-out {
   to { opacity: 0; }
 }
 
 @keyframes vice-wasted-in {
   to { opacity: 1; }
-}
-
-.vice-wanted::before,
-.vice-wanted::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-}
-
-.vice-wanted::before {
-  background: radial-gradient(ellipse at left center, #ff204cab, transparent 78%);
-}
-
-.vice-wanted::after {
-  background: radial-gradient(ellipse at right center, #126dffbf, transparent 78%);
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .vice-wanted::before,
-  .vice-wanted::after {
-    animation: vice-siren 700ms ease-in-out infinite alternate, vice-lights-off 400ms ease-out 3s forwards;
-  }
-
-  .vice-wanted::after {
-    animation-delay: -700ms, 3s;
-  }
 }
 
 @keyframes vice-lights-off {

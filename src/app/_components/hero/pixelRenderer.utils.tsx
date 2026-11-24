@@ -42,13 +42,13 @@ export function createPixelRenderer(canvas: HTMLCanvasElement, context: CanvasRe
       const pixel = styles.getPropertyValue('--pixel').trim() || '#c5afff';
       const grid = styles.getPropertyValue('--hero-grid').trim() || '#30273d';
       const endColor = styles.getPropertyValue('--pixel-end').trim();
-      let ink: string | CanvasGradient = pixel;
-      if (endColor) {
-        const gradient = context.createLinearGradient(width * 0.15, 0, width * 0.85, 0);
+      const startX = width * 0.15;
+      const endX = width * 0.85;
+      const gradient = endColor ? context.createLinearGradient(startX, 0, endX, 0) : null;
+      if (gradient) {
         gradient.addColorStop(0, pixel);
         gradient.addColorStop(0.5, '#d58aff');
         gradient.addColorStop(1, endColor);
-        ink = gradient;
       }
       cells.forEach((cell, index) => {
         const column = index % heroColumns;
@@ -63,7 +63,7 @@ export function createPixelRenderer(canvas: HTMLCanvasElement, context: CanvasRe
           return;
         }
         const position = displace(point, pointer, size);
-        context.fillStyle = ink;
+        context.fillStyle = gradient ?? pixel;
         context.fillRect(position.x, position.y, Math.max(1, size * 0.8), Math.max(1, size * 0.8));
       });
     },

@@ -4,26 +4,42 @@ import { createPortal } from 'react-dom';
 import { Text } from '@/app/_components/localization/Text';
 import { useTheme } from '@/app/_components/theme/useTheme';
 import { Button } from '@/app/_components/ui/Button';
+import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { usePixelHero } from './usePixelHero';
 
 function WantedLevel() {
-  const [visible, setVisible] = useState(true);
+  const [isVisible, setVisible] = useState(true);
 
   useEffect(() => {
     const timer = window.setTimeout(() => setVisible(false), 5000);
+
     return () => window.clearTimeout(timer);
   }, []);
 
-  if (!visible) return null;
+  if (!isVisible) {
+    return null;
+  }
 
   return createPortal(
-    <div className="vice-wanted" role="status">
-      <span className="vice-stars" aria-hidden="true">
+    <div
+      className="fixed inset-0 z-100 grid place-items-center isolate pointer-events-none backdrop-blur-[3px] bg-[rgb(8_5_20/12%)] text-[#ffe08a] text-[clamp(2rem,9vw,5rem)] leading-[1.4] [text-shadow:0_0_0.16em_#ff9b49,0_2px_6px_#120b20] animate-[vice-stars-out_600ms_ease-in-out_4.4s_forwards] before:absolute before:inset-0 before:-z-1 before:bg-[radial-gradient(ellipse_at_left_center,#ff204cab,transparent_78%)] after:absolute after:inset-0 after:-z-1 after:bg-[radial-gradient(ellipse_at_right_center,#126dffbf,transparent_78%)] motion-safe:before:animate-[vice-siren_700ms_ease-in-out_infinite_alternate,vice-lights-off_400ms_ease-out_3s_forwards] motion-safe:after:animate-[vice-siren_700ms_ease-in-out_-700ms_infinite_alternate,vice-lights-off_400ms_ease-out_3s_forwards]"
+      role="status"
+    >
+      <span
+        className="[grid-area:1/1] animate-[vice-stars-out_350ms_ease-in_3s_forwards]"
+        aria-hidden="true"
+      >
         {'\u2605'.repeat(6)}
       </span>
-      <div className="vice-wasted" aria-hidden="true">
-        <svg viewBox="0 0 670 158" className="vice-wasted-title">
+      <div
+        className="relative [grid-area:1/1] place-self-stretch opacity-0 [background:radial-gradient(ellipse_at_38%_8%,#dc819138,transparent_56%),linear-gradient(155deg,#ac073d65,#81012770_50%,#36041982)] animate-[vice-wasted-in_450ms_ease-out_3s_forwards]"
+        aria-hidden="true"
+      >
+        <svg
+          viewBox="0 0 670 158"
+          className="absolute left-[15.7%] top-[51%] w-[43.6%] h-auto text-[#fbf8fa] portrait:left-[8%] portrait:w-[76%]"
+        >
           <title>wasted</title>
           <g
             fill="currentColor"
@@ -51,17 +67,17 @@ function WantedLevel() {
 }
 
 export function PixelHero({ content }: { content: PortfolioContent }) {
-  const { canvasRef, isRunning, isReducedMotion, generation, showWantedLevel, run, reset } =
+  const { canvasRef, isRunning, isReducedMotion, generation, shouldShowWantedLevel, run, reset } =
     usePixelHero();
   const { theme } = useTheme();
   const runLabel = isRunning ? 'Pause' : 'Run';
 
   return (
     <section
-      className="hero flex min-h-[calc(100svh-90px)] flex-col justify-center px-[5%] py-10 max-[761px]:min-h-[calc(100svh-140px)]"
+      className="hero [html[data-theme='vice']_&]:[background:radial-gradient(ellipse_at_75%_43%,#ab127455,transparent_55%),radial-gradient(ellipse_at_18%_68%,#007d8550,transparent_48%)] flex min-h-[calc(100svh-90px)] flex-col justify-center px-[5%] py-10 max-[761px]:min-h-[calc(100svh-140px)]"
       aria-labelledby="hero-name"
     >
-      <p className="eyebrow text-center font-mono text-[12px] leading-[1.6] tracking-[1.2px] uppercase text-muted-foreground min-[2560px]:text-[14px]">
+      <p className="eyebrow [html[data-theme='vice']_&]:text-accent text-center font-mono text-[12px] leading-[1.6] tracking-[1.2px] uppercase text-muted-foreground min-[2560px]:text-[14px]">
         <Text>{content.role}</Text> <Text>at</Text> {content.company}
       </p>
       <h1 id="hero-name" className="sr-only">
@@ -69,7 +85,7 @@ export function PixelHero({ content }: { content: PortfolioContent }) {
       </h1>
       <canvas
         ref={canvasRef}
-        className="pixel-canvas block w-[90%] lg:w-[129.6%] lg:max-w-none self-center aspect-[2.8] [touch-action:pan-y] my-5 mx-0 max-[651px]:aspect-[1.7]"
+        className="pixel-canvas [html[data-theme='vice']_&]:[filter:drop-shadow(0_0_4px_#ff32a673)_drop-shadow(0_0_16px_#ac34ff55)] block w-[90%] lg:w-[129.6%] lg:max-w-none self-center aspect-[2.8] [touch-action:pan-y] my-5 mx-0 max-[651px]:aspect-[1.7]"
         role="img"
         aria-label={`${content.name} in pixel lettering`}
       >
@@ -93,13 +109,15 @@ export function PixelHero({ content }: { content: PortfolioContent }) {
           </Button>
         </div>
       </div>
-      <div className="hero-meta flex justify-between gap-4 flex-wrap mt-[26px] font-mono text-[12px] leading-[1.5] uppercase text-muted-foreground min-[2560px]:text-[14px]">
+      <div className="hero-meta [html[data-theme='vice']_&]:border-t [html[data-theme='vice']_&]:[border-image:linear-gradient(90deg,var(--accent),#8343ad,var(--primary))_1] [html[data-theme='vice']_&]:pt-3 flex justify-between gap-4 flex-wrap mt-[26px] font-mono text-[12px] leading-[1.5] uppercase text-muted-foreground min-[2560px]:text-[14px]">
         <span>
           <Text>
             {isReducedMotion ? 'Step through the simulation' : 'Move across the lettering'}
           </Text>
         </span>
-        {theme === 'vice' && showWantedLevel && <WantedLevel />}
+        <ConditionalRenderer shouldRender={theme === 'vice' && shouldShowWantedLevel}>
+          <WantedLevel />
+        </ConditionalRenderer>
         <output aria-live="off">
           <Text>{generation ? 'Life' : 'Name'}</Text>
           {' / '}

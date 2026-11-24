@@ -10,7 +10,7 @@ import {
 import { useTheme } from './useTheme';
 import { Moon, Sun, TreePalm } from 'lucide-react';
 
-const options = {
+const THEME_OPTIONS = {
   dark: { label: 'Switch to light theme', Icon: Sun },
   light: { label: 'Switch to GTA VI theme', Icon: TreePalm },
   vice: { label: 'Switch to dark theme', Icon: Moon },
@@ -19,7 +19,7 @@ const options = {
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
   const copy = useCopy();
-  const { label: action, Icon } = options[theme];
+  const { label: action, Icon } = THEME_OPTIONS[theme];
   const label = copy(action);
 
   return (
