@@ -13,13 +13,26 @@ export function SiteHeader({ content }: { content: PortfolioContent }) {
   return (
     <>
       <header className="site-header flex flex-wrap items-center justify-between gap-x-6 vice:gap-x-2 gap-y-3 border-b border-border px-[5%] py-5 max-[761px]:gap-3">
-        <Link
-          href="/"
-          className="wordmark inline-flex [&_.brand-symbol]:size-9 [&_.brand-name]:text-[20px] min-[2560px]:[&_.brand-symbol]:size-10 min-[2560px]:[&_.brand-name]:text-[23px]"
-          aria-label="ankitkumar.fyi home"
-        >
-          <Brand />
-        </Link>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <Link
+            href="/"
+            className="wordmark inline-flex [&_.brand-symbol]:size-9 [&_.brand-name]:text-[20px] min-[2560px]:[&_.brand-symbol]:size-10 min-[2560px]:[&_.brand-name]:text-[23px]"
+            aria-label="ankitkumar.fyi home"
+          >
+            <Brand />
+          </Link>
+          <ConditionalRenderer shouldRender={!!content.resumeUrl}>
+            <Link
+              href={content.resumeUrl}
+              target="_blank"
+              rel="noreferrer"
+              hasExternalIcon
+              className="inline-flex items-center gap-1.5 rounded-md border border-border px-3 py-1.5 text-base font-medium text-primary hover:bg-button-hover"
+            >
+              <Text>Résumé</Text>
+            </Link>
+          </ConditionalRenderer>
+        </div>
         <nav
           className="flex flex-wrap items-center gap-1.5 text-[15px] vice:text-lg vice:gap-1 vice:[&>a]:px-1.5 min-[2560px]:text-[17px] [&>a]:rounded-xl [&>a]:px-2 [&>a]:py-2 [&>a]:transition-colors [&>a:hover]:bg-button-hover [&>a:hover]:text-primary [&>a]:motion-reduce:transition-none max-[761px]:hidden"
           aria-label="Main navigation"
