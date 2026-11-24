@@ -6,11 +6,11 @@ import { skillIcons } from './skillIcons';
 import { ArrowUpRight } from 'lucide-react';
 
 export function SkillLink({ skill }: { skill: Skill }) {
-  const Icon =
-    brands[skill.icon as keyof typeof brands] ?? skillIcons[skill.icon] ?? skillIcons.code;
+  const iconName = skill.icon ?? '';
+  const Icon = brands[iconName as keyof typeof brands] ?? skillIcons[iconName];
   const label = (
     <>
-      <Icon aria-hidden="true" className="size-4 shrink-0 text-primary" />
+      {Icon ? <Icon aria-hidden="true" className="size-4 shrink-0 text-primary" /> : null}
       <Text>{skill.name}</Text>
     </>
   );

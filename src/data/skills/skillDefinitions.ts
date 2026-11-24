@@ -53,5 +53,5 @@ export const skillDefinitions: Skill[] = [
 ];
 
 export function resolveSkill(name: string): Skill {
-  return skillDefinitions.find((skill) => skill.name === name) ?? { name, icon: 'code' };
+  return skillDefinitions.find((skill) => skill.name === name) ?? { name };
 }
