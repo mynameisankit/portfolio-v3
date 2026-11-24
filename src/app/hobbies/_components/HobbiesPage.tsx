@@ -2,7 +2,7 @@ import Link from '@/app/_components/localization/Link';
 import { Text } from '@/app/_components/localization/Text';
 import { GamingLibrary } from '@/app/hobbies/_components/gaming/GamingLibrary';
 import type { GameLibrary } from '@/data/gaming/model';
-import { HobbyPlaceholder } from './HobbyPlaceholder';
+import { HobbySection } from './HobbySection';
 
 export function HobbiesPage({ library }: { library: GameLibrary }) {
   return (
@@ -29,17 +29,9 @@ export function HobbiesPage({ library }: { library: GameLibrary }) {
           </Link>
         </nav>
       </header>
-      <HobbyPlaceholder
-        id="travelling"
-        title="Travelling"
-        description="Places, photos and notes from the road."
-      />
+      <HobbySection id="travelling" title="Travelling" />
       <GamingLibrary library={library} />
-      <HobbyPlaceholder
-        id="running-hiking"
-        title="Running & Hiking"
-        description="Routes, trails and time outdoors."
-      />
+      <HobbySection id="running-hiking" title="Running & Hiking" />
     </main>
   );
 }

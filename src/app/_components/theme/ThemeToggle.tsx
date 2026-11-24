@@ -10,6 +10,8 @@ import {
 import { useTheme } from './useTheme';
 import { Moon, Sun, TreePalm } from 'lucide-react';
 
+const ICON_SIZE = 18;
+
 const THEME_OPTIONS = {
   dark: { label: 'Switch to light theme', Icon: Sun },
   light: { label: 'Switch to GTA VI theme', Icon: TreePalm },
@@ -33,7 +35,7 @@ export function ThemeToggle() {
             aria-label={label}
             onClick={toggleTheme}
           >
-            <Icon size={18} />
+            <Icon size={ICON_SIZE} />
           </Button>
         </TooltipTrigger>
         <TooltipContent>{label}</TooltipContent>

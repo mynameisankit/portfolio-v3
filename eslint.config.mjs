@@ -49,6 +49,16 @@ export default defineConfig([
       'no-restricted-syntax': [
         'error',
         {
+          selector:
+            ":matches(FunctionDeclaration[id.name=/^(?:[A-Z]|use[A-Z])/], FunctionExpression[id.name=/^(?:[A-Z]|use[A-Z])/], VariableDeclarator[id.name=/^(?:[A-Z]|use[A-Z])/] > :matches(ArrowFunctionExpression, FunctionExpression)) Literal[value!=0][value!=1][value=type(number)]:not(TSLiteralType > Literal)",
+          message: 'Extract numeric settings into named module-level constants.',
+        },
+        {
+          selector:
+            ":matches(CallExpression[callee.name='useState'], CallExpression[callee.property.name='useState']) > Literal[value=0], :matches(CallExpression[callee.name='useState'], CallExpression[callee.property.name='useState']) > Literal[value=1]",
+          message: 'Give numeric initial state a named module-level constant.',
+        },
+        {
           selector: "VariableDeclaration[kind='let']",
           message: 'Use const bindings. Model evolving state explicitly or derive a new value.',
         },

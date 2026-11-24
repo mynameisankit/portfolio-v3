@@ -2,6 +2,8 @@
 import { useEffect, useRef } from 'react';
 import type Masonry from 'masonry-layout';
 
+const COLUMN_GAP = 22;
+
 export function useMasonry(key: string, isEnabled: boolean) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -23,7 +25,7 @@ export function useMasonry(key: string, isEnabled: boolean) {
         state.instance = new MasonryLayout(container, {
           itemSelector: '.blog-tile',
           columnWidth: '.blog-sizer',
-          gutter: 22,
+          gutter: COLUMN_GAP,
           horizontalOrder: true,
           percentPosition: true,
           transitionDuration: 0,

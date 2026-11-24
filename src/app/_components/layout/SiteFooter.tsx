@@ -7,8 +7,14 @@ import { Text } from '@/app/_components/localization/Text';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { ExternalLink } from 'lucide-react';
 
+const INITIAL_PROGRESS = 0;
+const SOCIAL_ICON_SIZE = 20;
+const EXTERNAL_LINK_ICON_SIZE = 12;
+const PROGRESS_RING_RADIUS = 15;
+const PROGRESS_RING_CIRCUMFERENCE = 2 * Math.PI * PROGRESS_RING_RADIUS;
+
 export function SiteFooter({ content }: { content: PortfolioContent }) {
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(INITIAL_PROGRESS);
 
   useEffect(() => {
     const updateProgress = () => {
@@ -26,8 +32,6 @@ export function SiteFooter({ content }: { content: PortfolioContent }) {
     };
   }, []);
 
-  const circumference = 2 * Math.PI * 15;
-
   return (
     <footer className="site-footer flex flex-col items-center gap-4 pt-[22px] px-[5%] pb-28 [border-top:1px_solid_var(--border)] font-mono text-[14px] text-muted-foreground uppercase">
       <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
@@ -38,9 +42,13 @@ export function SiteFooter({ content }: { content: PortfolioContent }) {
           title="LinkedIn"
           className="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-xl px-2 transition-colors hover:bg-button-hover hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none"
         >
-          <FaLinkedinIn size={20} aria-hidden="true" />
+          <FaLinkedinIn size={SOCIAL_ICON_SIZE} aria-hidden="true" />
           <span>LinkedIn</span>
-          <ExternalLink size={12} aria-hidden="true" className="text-muted-foreground" />
+          <ExternalLink
+            size={EXTERNAL_LINK_ICON_SIZE}
+            aria-hidden="true"
+            className="text-muted-foreground"
+          />
           <span className="sr-only">
             <Text>(opens in a new tab)</Text>
           </span>
@@ -52,9 +60,13 @@ export function SiteFooter({ content }: { content: PortfolioContent }) {
           title="Instagram"
           className="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-xl px-2 transition-colors hover:bg-button-hover hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none"
         >
-          <FaInstagram size={20} aria-hidden="true" />
+          <FaInstagram size={SOCIAL_ICON_SIZE} aria-hidden="true" />
           <span>Instagram</span>
-          <ExternalLink size={12} aria-hidden="true" className="text-muted-foreground" />
+          <ExternalLink
+            size={EXTERNAL_LINK_ICON_SIZE}
+            aria-hidden="true"
+            className="text-muted-foreground"
+          />
           <span className="sr-only">
             <Text>(opens in a new tab)</Text>
           </span>
@@ -65,9 +77,13 @@ export function SiteFooter({ content }: { content: PortfolioContent }) {
           rel="noopener noreferrer"
           className="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-xl px-2 transition-colors hover:bg-button-hover hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none"
         >
-          <FaGithub size={20} aria-hidden="true" />
+          <FaGithub size={SOCIAL_ICON_SIZE} aria-hidden="true" />
           <span>GitHub</span>
-          <ExternalLink size={12} aria-hidden="true" className="text-muted-foreground" />
+          <ExternalLink
+            size={EXTERNAL_LINK_ICON_SIZE}
+            aria-hidden="true"
+            className="text-muted-foreground"
+          />
           <span className="sr-only">
             <Text>(opens in a new tab)</Text>
           </span>
@@ -83,7 +99,7 @@ export function SiteFooter({ content }: { content: PortfolioContent }) {
                 cx="18"
                 cy="18"
                 fill="none"
-                r="15"
+                r={PROGRESS_RING_RADIUS}
                 stroke="currentColor"
                 strokeWidth="1.5"
               />
@@ -92,10 +108,10 @@ export function SiteFooter({ content }: { content: PortfolioContent }) {
                 cx="18"
                 cy="18"
                 fill="none"
-                r="15"
+                r={PROGRESS_RING_RADIUS}
                 stroke="currentColor"
-                strokeDasharray={circumference}
-                strokeDashoffset={circumference * (1 - progress)}
+                strokeDasharray={PROGRESS_RING_CIRCUMFERENCE}
+                strokeDashoffset={PROGRESS_RING_CIRCUMFERENCE * (1 - progress)}
                 strokeWidth="1.5"
               />
             </svg>

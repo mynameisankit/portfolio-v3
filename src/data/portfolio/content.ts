@@ -30,11 +30,14 @@ export const portfolio = {
   career,
   contributions,
   skills,
-  hobbies: [
-    { name: 'Hiking', image: '', lqip: '', caption: 'Photo placeholder' },
-    { name: 'Motorcycling', image: '', lqip: '', caption: 'Photo placeholder' },
-    { name: 'Running', image: '', lqip: '', caption: 'Photo placeholder' },
-    { name: 'Video games', image: '', lqip: '', caption: 'Photo placeholder' },
-  ].map((hobby) => ({ ...hobby, location: '', takenOn: '', story: '' })),
+  hobbies: [] as {
+    name: string;
+    image: string;
+    lqip: string;
+    caption: string;
+    location: string;
+    takenOn: string;
+    story: string;
+  }[],
 };
 export type PortfolioContent = typeof portfolio;

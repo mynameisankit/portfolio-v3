@@ -2,6 +2,7 @@ import { useCopy } from '@/app/_components/localization/useCopy';
 import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import { type Category, getCategory, type Post } from '@/data/blog/model';
 import { cn } from '@/lib/className.utils';
+import { POSTS_PER_PAGE } from './archiveNavigation.utils';
 import { EmptyBlog } from './EmptyBlog';
 import { PostCard } from './PostCard';
 import { useMasonry } from './useMasonry';
@@ -23,7 +24,7 @@ export function ArchiveResults({
 }) {
   const copy = useCopy();
   const categoryLabel = getCategory(selected ?? '')?.label;
-  const resultRange = `${(page - 1) * 9 + 1}–${Math.min(page * 9, results.length)} ${copy('of')} ${results.length}`;
+  const resultRange = `${(page - 1) * POSTS_PER_PAGE + 1}–${Math.min(page * POSTS_PER_PAGE, results.length)} ${copy('of')} ${results.length}`;
   const masonry = useMasonry(`${selected}:${page}:${query}`, !query.trim());
 
   return (

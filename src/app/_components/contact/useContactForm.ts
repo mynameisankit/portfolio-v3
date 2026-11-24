@@ -2,6 +2,9 @@
 import { type FormEvent, useEffect, useRef, useState } from 'react';
 import { sendContactMessage } from './sendMessage.utils';
 
+const FEEDBACK_TIMEOUT_MS = 2400;
+const TOO_MANY_REQUESTS_STATUS = 429;
+
 export function useContactForm() {
   const pending = useRef(false);
   const resetTimer = useRef<number | undefined>(undefined);
@@ -47,11 +50,14 @@ export function useContactForm() {
       resetTimer.current = window.setTimeout(() => {
         setStatus('idle');
         setFeedback('');
-      }, 2400);
+      }, FEEDBACK_TIMEOUT_MS);
     } catch (error: unknown) {
       setStatus('error');
       const isRateLimited =
-        typeof error === 'object' && error !== null && 'status' in error && error.status === 429;
+        typeof error === 'object' &&
+        error !== null &&
+        'status' in error &&
+        error.status === TOO_MANY_REQUESTS_STATUS;
       setFeedback(
         isRateLimited
           ? 'Please wait 30 seconds before sending another message.'

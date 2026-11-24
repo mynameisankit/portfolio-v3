@@ -13,3 +13,5 @@ export function getArchivePage(value: number, pages: number) {
 
   return Math.min(pages, Math.max(1, Math.floor(value)));
 }
+
+export const POSTS_PER_PAGE = 9;

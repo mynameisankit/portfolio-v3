@@ -13,6 +13,8 @@ import { useMobileNavigation } from './useMobileNavigation';
 import { Menu, X } from 'lucide-react';
 import { Dialog } from 'radix-ui';
 
+const MENU_ICON_SIZE = 22;
+
 export function MobileNavigation({ hasSkills }: { hasSkills: boolean }) {
   const copy = useCopy();
   const activeItem = useActiveNavigation();
@@ -29,7 +31,7 @@ export function MobileNavigation({ hasSkills }: { hasSkills: boolean }) {
             className="size-11 rounded-xl"
             aria-label={copy('Open navigation menu')}
           >
-            <Menu size={22} aria-hidden="true" />
+            <Menu size={MENU_ICON_SIZE} aria-hidden="true" />
           </Button>
         </Dialog.Trigger>
         <Dialog.Portal>
@@ -46,7 +48,7 @@ export function MobileNavigation({ hasSkills }: { hasSkills: boolean }) {
                   className="size-11 shrink-0 rounded-xl"
                   aria-label={copy('Close navigation menu')}
                 >
-                  <X size={22} aria-hidden="true" />
+                  <X size={MENU_ICON_SIZE} aria-hidden="true" />
                 </Button>
               </Dialog.Close>
             </div>

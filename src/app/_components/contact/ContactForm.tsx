@@ -4,6 +4,11 @@ import { useCopy } from '@/app/_components/localization/useCopy';
 import { Button } from '@/app/_components/ui/Button';
 import { useContactForm } from './useContactForm';
 
+const MAX_NAME_LENGTH = 100;
+const MAX_EMAIL_LENGTH = 254;
+const MAX_MESSAGE_LENGTH = 5000;
+const MESSAGE_ROWS = 5;
+
 export function ContactForm() {
   const { submit, status, feedback } = useContactForm();
   const copy = useCopy();
@@ -25,7 +30,7 @@ export function ContactForm() {
           name="name"
           autoComplete="name"
           required
-          maxLength={100}
+          maxLength={MAX_NAME_LENGTH}
           disabled={status === 'sending'}
         />
         <label className="text-[14px] mt-3" htmlFor="contact-email">
@@ -37,7 +42,7 @@ export function ContactForm() {
           name="email"
           type="email"
           autoComplete="email"
-          maxLength={254}
+          maxLength={MAX_EMAIL_LENGTH}
           disabled={status === 'sending'}
         />
         <label className="text-[14px] mt-3" htmlFor="contact-message">
@@ -48,8 +53,8 @@ export function ContactForm() {
           id="contact-message"
           name="message"
           required
-          maxLength={5000}
-          rows={5}
+          maxLength={MAX_MESSAGE_LENGTH}
+          rows={MESSAGE_ROWS}
           disabled={status === 'sending'}
         />
       </div>

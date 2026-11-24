@@ -8,11 +8,15 @@ import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { usePixelHero } from './usePixelHero';
 
+const OVERLAY_DURATION_MS = 5000;
+const WANTED_STARS = 6;
+const GENERATION_DIGITS = 3;
+
 function WantedLevel() {
   const [isVisible, setVisible] = useState(true);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setVisible(false), 5000);
+    const timer = window.setTimeout(() => setVisible(false), OVERLAY_DURATION_MS);
 
     return () => window.clearTimeout(timer);
   }, []);
@@ -30,7 +34,7 @@ function WantedLevel() {
         className="[grid-area:1/1] animate-[vice-stars-out_350ms_ease-in_3s_forwards]"
         aria-hidden="true"
       >
-        {'\u2605'.repeat(6)}
+        {'\u2605'.repeat(WANTED_STARS)}
       </span>
       <div
         className="relative [grid-area:1/1] place-self-stretch opacity-0 [background:radial-gradient(ellipse_at_38%_8%,#dc819138,transparent_56%),linear-gradient(155deg,#ac073d65,#81012770_50%,#36041982)] animate-[vice-wasted-in_450ms_ease-out_3s_forwards]"
@@ -121,7 +125,7 @@ export function PixelHero({ content }: { content: PortfolioContent }) {
         <output aria-live="off">
           <Text>{generation ? 'Life' : 'Name'}</Text>
           {' / '}
-          <Text>Generation</Text> {String(generation).padStart(3, '0')}
+          <Text>Generation</Text> {String(generation).padStart(GENERATION_DIGITS, '0')}
         </output>
       </div>
     </section>

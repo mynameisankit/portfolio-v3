@@ -5,6 +5,8 @@ import { Text } from '@/app/_components/localization/Text';
 import type { CareerEntry } from '@/data/experience/model';
 import { cn } from '@/lib/className.utils';
 
+const VISIBILITY_THRESHOLD = 0.25;
+
 export function JourneyStop({
   entry,
   shouldShowHighlights = false,
@@ -23,7 +25,7 @@ export function JourneyStop({
 
     const observer = new IntersectionObserver(
       ([observerEntry]) => setIsVisible(observerEntry.isIntersecting),
-      { threshold: 0.25 },
+      { threshold: VISIBILITY_THRESHOLD },
     );
     observer.observe(stop);
 

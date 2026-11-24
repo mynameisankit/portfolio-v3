@@ -2,6 +2,8 @@ import { Text } from '@/app/_components/localization/Text';
 import type { Contribution } from '@/data/contributions/schema';
 import { CircleDot, ExternalLink, GitPullRequest } from 'lucide-react';
 
+const ICON_SIZE = 14;
+
 export function ContributionCard({ entry }: { entry: Contribution }) {
   const Icon = entry.kind === 'pullRequest' ? GitPullRequest : CircleDot;
   const kindLabel = entry.kind === 'pullRequest' ? 'Pull request' : 'Issue report';
@@ -16,7 +18,7 @@ export function ContributionCard({ entry }: { entry: Contribution }) {
       >
         <div className="flex flex-wrap items-center justify-between gap-3 text-xs">
           <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1.5 text-primary">
-            <Icon size={14} aria-hidden="true" />
+            <Icon size={ICON_SIZE} aria-hidden="true" />
             <Text>{kindLabel}</Text>
           </span>
           <span className="font-mono text-muted-foreground">#{entry.number}</span>
@@ -32,7 +34,7 @@ export function ContributionCard({ entry }: { entry: Contribution }) {
         </p>
         <span className="mt-auto inline-flex items-center gap-1.5 text-sm text-primary">
           <Text>View on GitHub</Text>
-          <ExternalLink size={14} aria-hidden="true" />
+          <ExternalLink size={ICON_SIZE} aria-hidden="true" />
           <span className="sr-only">
             <Text>(opens in a new tab)</Text>
           </span>

@@ -10,6 +10,10 @@ import { LifeDemo } from './gameOfLife/LifeDemo';
 import { JsonRendererDemo } from './jsonRenderer/JsonRendererDemo';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 
+const BACK_ICON_SIZE = 15;
+const LINK_ICON_SIZE = 16;
+const PROJECT_ICON_SIZE = 17;
+
 type ProjectCardProps = {
   project: PortfolioContent['projects'][number];
   index: number;
@@ -54,14 +58,14 @@ export function ProjectCard({ project, index, isExpanded, isHidden, onToggle }: 
         >
           {isExpanded && (
             <>
-              <ArrowLeft size={15} />
+              <ArrowLeft size={BACK_ICON_SIZE} />
               <Text>Back to canvas</Text>
             </>
           )}
           {!isExpanded && (
             <>
               <Text>Open</Text>
-              <ArrowUpRight size={16} />
+              <ArrowUpRight size={LINK_ICON_SIZE} />
             </>
           )}
         </Button>
@@ -104,7 +108,7 @@ export function ProjectCard({ project, index, isExpanded, isHidden, onToggle }: 
             rel="noreferrer"
           >
             <Text>Read the source</Text>
-            <ArrowUpRight size={17} />
+            <ArrowUpRight size={PROJECT_ICON_SIZE} />
           </Link>
         </ConditionalRenderer>
         {project.id === 'json' && (

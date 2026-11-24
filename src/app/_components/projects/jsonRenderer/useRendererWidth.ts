@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 
+const INITIAL_WIDTH = 0;
+
 export function useRendererWidth() {
   const ref = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(INITIAL_WIDTH);
   useEffect(() => {
     const container = ref.current;
     if (!container) {

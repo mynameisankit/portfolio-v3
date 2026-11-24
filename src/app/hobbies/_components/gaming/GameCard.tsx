@@ -6,9 +6,13 @@ import { Text } from '@/app/_components/localization/Text';
 import type { SteamGame } from '@/data/gaming/model';
 import { GameArtwork } from './GameArtwork';
 
+const MINUTES_PER_HOUR = 60;
+
 export function GameCard({ game, rank }: { game: SteamGame; rank?: number }) {
   const format = useFormatter();
-  const hours = format.number(game.playtime_forever / 60, { maximumFractionDigits: 1 });
+  const hours = format.number(game.playtime_forever / MINUTES_PER_HOUR, {
+    maximumFractionDigits: 1,
+  });
 
   return (
     <li className="game-card min-w-0 rounded-[10px] border border-border bg-card p-6">
@@ -25,7 +29,7 @@ export function GameCard({ game, rank }: { game: SteamGame; rank?: number }) {
             target="_blank"
             rel="noreferrer"
           >
-            {game.name} ↗
+            {game.name}
           </Link>
         </SteamGamePreview>
       </h3>

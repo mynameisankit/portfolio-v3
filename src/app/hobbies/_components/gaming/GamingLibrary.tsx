@@ -3,6 +3,8 @@ import type { GameLibrary } from '@/data/gaming/model';
 import { GameCard } from './GameCard';
 import { SteamProfileLink } from './SteamProfileLink';
 
+const ISO_DATE_LENGTH = 10;
+
 export function GamingLibrary({ library }: { library: GameLibrary }) {
   const isRanked = library.mode === 'most-played';
 
@@ -32,7 +34,7 @@ export function GamingLibrary({ library }: { library: GameLibrary }) {
               </Text>
             </span>
             <span>
-              <Text>Updated</Text> {library.updatedAt?.slice(0, 10)}
+              <Text>Updated</Text> {library.updatedAt?.slice(0, ISO_DATE_LENGTH)}
             </span>
           </div>
           <ul className="gaming-grid list-none p-0 grid grid-cols-3 gap-4 max-[851px]:grid-cols-2 max-[521px]:grid-cols-1">

@@ -10,7 +10,7 @@ export function SteamProfileLink() {
       target="_blank"
       rel="noreferrer"
     >
-      <Text>My Steam profile ↗</Text>
+      <Text>My Steam profile</Text>
     </Link>
   );
 }

@@ -1,3 +1,4 @@
+import * as brands from 'react-icons/si';
 import Link from '@/app/_components/localization/Link';
 import { Text } from '@/app/_components/localization/Text';
 import type { Skill } from '@/data/skills/model';
@@ -5,7 +6,8 @@ import { skillIcons } from './skillIcons';
 import { ArrowUpRight } from 'lucide-react';
 
 export function SkillLink({ skill }: { skill: Skill }) {
-  const Icon = skillIcons[skill.icon] ?? skillIcons.code;
+  const Icon =
+    brands[skill.icon as keyof typeof brands] ?? skillIcons[skill.icon] ?? skillIcons.code;
   const label = (
     <>
       <Icon aria-hidden="true" className="size-4 shrink-0 text-primary" />

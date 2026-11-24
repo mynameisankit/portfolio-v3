@@ -7,6 +7,9 @@ import { rendererData, rendererTheme } from './rendererConfig';
 import { useRendererWidth } from './useRendererWidth';
 import JSONRenderer from '@mynameisankit/react-json-renderer';
 
+const VIEW_HEIGHT = 270;
+const ROW_HEIGHT = 27;
+
 export function JsonRendererDemo() {
   const { ref, width } = useRendererWidth();
   const [shouldShowLineNumbers, setShouldShowLineNumbers] = useState(false);
@@ -44,8 +47,8 @@ export function JsonRendererDemo() {
           <JSONRenderer
             json={rendererData}
             width={width}
-            height={270}
-            rowHeight={27}
+            height={VIEW_HEIGHT}
+            rowHeight={ROW_HEIGHT}
             shouldShowLineNumber={shouldShowLineNumbers}
             shouldRemoveQuotesFromKeys={!shouldQuoteKeys}
             theme={rendererTheme}

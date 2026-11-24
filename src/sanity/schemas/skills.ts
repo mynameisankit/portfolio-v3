@@ -1,3 +1,4 @@
+import { SkillIconInput } from '../../app/manage/_components/SkillIconInput';
 import { defineArrayMember, defineField } from 'sanity';
 
 export const skillsField = defineField({
@@ -35,26 +36,7 @@ export const skillsField = defineField({
                 defineField({
                   name: 'icon',
                   type: 'string',
-                  initialValue: 'code',
-                  options: {
-                    list: [
-                      'terminal',
-                      'hammer',
-                      'zap',
-                      'atom',
-                      'fileCode',
-                      'braces',
-                      'code',
-                      'palette',
-                      'network',
-                      'workflow',
-                      'blocks',
-                      'layers',
-                      'packageCheck',
-                      'sparkles',
-                      'gitBranch',
-                    ],
-                  },
+                  components: { input: SkillIconInput },
                 }),
               ],
               preview: { select: { title: 'name', subtitle: 'url' } },

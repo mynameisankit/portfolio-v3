@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { type Category, getCategory, type Post } from '@/data/blog/model';
 import { createPostSearch } from '@/data/blog/search.utils';
+import { POSTS_PER_PAGE } from './archiveNavigation.utils';
 import { getArchivePage, withSearchParams } from './archiveNavigation.utils';
 
 export function useBlogArchive(posts: Post[], category?: Category) {
@@ -26,10 +27,10 @@ export function useBlogArchive(posts: Post[], category?: Category) {
 
     return scope;
   }, [query, scope, search]);
-  const pages = Math.max(1, Math.ceil(results.length / 9));
+  const pages = Math.max(1, Math.ceil(results.length / POSTS_PER_PAGE));
   const requestedPage = Number(params.get('page') ?? 1);
   const page = getArchivePage(requestedPage, pages);
-  const visible = results.slice((page - 1) * 9, page * 9);
+  const visible = results.slice((page - 1) * POSTS_PER_PAGE, page * POSTS_PER_PAGE);
   function updateSearch(value: string) {
     const next = new URLSearchParams(params);
     if (value) {

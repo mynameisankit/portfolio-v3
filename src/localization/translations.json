@@ -1,4 +1,11 @@
 [
+  {
+    "en": "Photos and stories coming soon.",
+    "nl": "Foto’s en verhalen volgen binnenkort.",
+    "de": "Fotos und Geschichten folgen bald.",
+    "sv": "Foton och berättelser kommer snart.",
+    "ja": "写真やエピソードを近日公開。"
+  },
   { "en": "Open navigation menu", "nl": "Navigatiemenu openen", "de": "Navigationsmenü öffnen", "sv": "Öppna navigeringsmenyn", "ja": "ナビゲーションメニューを開く" },
   { "en": "Close navigation menu", "nl": "Navigatiemenu sluiten", "de": "Navigationsmenü schließen", "sv": "Stäng navigeringsmenyn", "ja": "ナビゲーションメニューを閉じる" },
   { "en": "Navigation", "nl": "Navigatie", "de": "Navigation", "sv": "Navigering", "ja": "ナビゲーション" },
@@ -725,20 +732,6 @@
     "ja": "少数のルールで動くセル・オートマトンです。これはプレビューで、独立したプロジェクトとして作り直す予定です。"
   },
   {
-    "en": "Your photo here",
-    "nl": "Jouw foto hier",
-    "de": "Dein Foto hier",
-    "sv": "Din bild här",
-    "ja": "写真をここに表示"
-  },
-  {
-    "en": "Photo placeholder",
-    "nl": "Tijdelijke foto",
-    "de": "Foto-Platzhalter",
-    "sv": "Bildplatshållare",
-    "ja": "写真のプレースホルダー"
-  },
-  {
     "en": "Next photo →",
     "nl": "Volgende foto →",
     "de": "Nächstes Foto →",
@@ -872,11 +865,11 @@
     "ja": "公開Steamプロフィールから、最近プレイしたゲームを紹介します。"
   },
   {
-    "en": "My Steam profile ↗",
-    "nl": "Mijn Steam-profiel ↗",
-    "de": "Mein Steam-Profil ↗",
-    "sv": "Min Steam-profil ↗",
-    "ja": "Steamプロフィール ↗"
+    "en": "My Steam profile",
+    "nl": "Mijn Steam-profiel",
+    "de": "Mein Steam-Profil",
+    "sv": "Min Steam-profil",
+    "ja": "Steamプロフィール"
   },
   {
     "en": "Recent activity · Profile order",
@@ -1346,27 +1339,6 @@
     "de": "Reisen, Gaming, Laufen und Wandern.",
     "sv": "Resor, spel, löpning och vandring.",
     "ja": "旅行、ゲーム、ランニング、ハイキング。"
-  },
-  {
-    "en": "Places, photos and notes from the road.",
-    "nl": "Plekken, foto’s en aantekeningen van onderweg.",
-    "de": "Orte, Fotos und Notizen von unterwegs.",
-    "sv": "Platser, foton och anteckningar från resor.",
-    "ja": "旅先の場所、写真、記録。"
-  },
-  {
-    "en": "Routes, trails and time outdoors.",
-    "nl": "Routes, wandelpaden en tijd buiten.",
-    "de": "Strecken, Wanderwege und Zeit im Freien.",
-    "sv": "Rutter, leder och tid utomhus.",
-    "ja": "コース、登山道、アウトドアの時間。"
-  },
-  {
-    "en": "Photos and stories coming soon.",
-    "nl": "Foto’s en verhalen volgen binnenkort.",
-    "de": "Fotos und Geschichten folgen bald.",
-    "sv": "Foton och berättelser kommer snart.",
-    "ja": "写真やエピソードを近日公開。"
   },
   {
     "en": "My most-played Steam games, ranked by total playtime.",

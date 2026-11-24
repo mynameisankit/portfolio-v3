@@ -6,7 +6,10 @@ import { Text } from '@/app/_components/localization/Text';
 import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { cn } from '@/lib/className.utils';
-import { ImageIcon } from 'lucide-react';
+
+const INITIAL_PHOTO_INDEX = 0;
+const PERCENT_SCALE = 100;
+const COUNTER_DIGITS = 2;
 
 export function HobbyPhoto({
   hobbies,
@@ -15,12 +18,11 @@ export function HobbyPhoto({
   hobbies: PortfolioContent['hobbies'];
   isHidden: boolean;
 }) {
-  const photos = hobbies.filter((item) => !!item.image);
-  const items = photos.length ? photos : hobbies;
-  const [photoIndex, setPhotoIndex] = useState(0);
+  const items = hobbies.filter((item) => !!item.image);
+  const [photoIndex, setPhotoIndex] = useState(INITIAL_PHOTO_INDEX);
   const selectedIndex = photoIndex % items.length;
   const selected = items[selectedIndex];
-  const progress = `${((selectedIndex + 1) / items.length) * 100}%`;
+  const progress = `${((selectedIndex + 1) / items.length) * PERCENT_SCALE}%`;
   if (!selected) {
     return null;
   }
@@ -43,24 +45,16 @@ export function HobbyPhoto({
               index === selectedIndex ? 'opacity-100' : 'opacity-0',
             )}
           >
-            <ConditionalRenderer shouldRender={!!item.image}>
-              <Image
-                className="h-full w-full object-contain"
-                src={item.image || ''}
-                alt={item.caption || item.name}
-                fill
-                loading="lazy"
-                placeholder={item.lqip ? 'blur' : 'empty'}
-                blurDataURL={item.lqip || undefined}
-                sizes="(max-width: 721px) 86vw, 480px"
-              />
-            </ConditionalRenderer>
-            {!item.image && (
-              <span className="h-full border border-dashed border-border text-muted-foreground flex flex-col gap-3 items-center justify-center font-mono text-xs uppercase tracking-wider">
-                <ImageIcon size={26} />
-                <Text>Your photo here</Text>
-              </span>
-            )}
+            <Image
+              className="h-full w-full object-contain"
+              src={item.image}
+              alt={item.caption || item.name}
+              fill
+              loading="lazy"
+              placeholder={item.lqip ? 'blur' : 'empty'}
+              blurDataURL={item.lqip || undefined}
+              sizes="(max-width: 721px) 86vw, 480px"
+            />
           </span>
         ))}
       </span>
@@ -89,7 +83,8 @@ export function HobbyPhoto({
         aria-live="polite"
       >
         <span>
-          {String(selectedIndex + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}
+          {String(selectedIndex + 1).padStart(COUNTER_DIGITS, '0')} /{' '}
+          {String(items.length).padStart(COUNTER_DIGITS, '0')}
         </span>
         {items.length > 1 && (
           <span>

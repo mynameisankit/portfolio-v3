@@ -6,6 +6,11 @@ import { ConditionalRenderer } from '@/app/_components/ui/ConditionalRenderer';
 import { getCategory, type Post, postPath } from '@/data/blog/model';
 import { cn } from '@/lib/className.utils';
 
+const COVER_WIDTH = 900;
+const COVER_HEIGHT = 600;
+const CARD_PATTERN_LENGTH = 4;
+const TALL_CARD_POSITION = 3;
+
 export function PostCard({
   post,
   index,
@@ -36,8 +41,8 @@ export function PostCard({
             className={cn('blog-cover h-auto w-full', isList && 'hidden')}
             src={post.cover?.url ?? ''}
             alt={post.cover?.alt ?? ''}
-            width={900}
-            height={600}
+            width={COVER_WIDTH}
+            height={COVER_HEIGHT}
             loading="lazy"
             placeholder={post.cover?.lqip ? 'blur' : 'empty'}
             blurDataURL={post.cover?.lqip ?? undefined}
@@ -47,7 +52,7 @@ export function PostCard({
           className={cn(
             'blog-card-content flex flex-col gap-3',
             isList ? 'py-[22px]' : 'p-5',
-            !isList && index % 4 === 3 && 'py-[30px]',
+            !isList && index % CARD_PATTERN_LENGTH === TALL_CARD_POSITION && 'py-[30px]',
           )}
         >
           <p className="eyebrow font-mono text-[12px] leading-[1.6] tracking-[1.2px] uppercase text-muted-foreground">
@@ -56,7 +61,7 @@ export function PostCard({
           <h2
             className={cn(
               'font-normal tracking-[-0.4px] group-hover/post:text-primary',
-              !isList && index % 4 === 3
+              !isList && index % CARD_PATTERN_LENGTH === TALL_CARD_POSITION
                 ? 'text-[27px] leading-[1.3]'
                 : 'text-[22px] leading-[1.35]',
             )}

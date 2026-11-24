@@ -6,6 +6,10 @@ import { useCopy } from './useCopy';
 import { Check, ChevronDown } from 'lucide-react';
 import { Select } from 'radix-ui';
 
+const ICON_SIZE = 16;
+const MENU_OFFSET = 8;
+const COLLISION_PADDING = 12;
+
 export function LanguageSelector() {
   const locale = useLocale();
   const copy = useCopy();
@@ -26,7 +30,7 @@ export function LanguageSelector() {
         <Select.Value />
         <Select.Icon asChild>
           <ChevronDown
-            size={16}
+            size={ICON_SIZE}
             aria-hidden="true"
             className="shrink-0 text-muted-foreground transition-transform group-data-[state=open]:rotate-180 motion-reduce:transition-none"
           />
@@ -36,8 +40,8 @@ export function LanguageSelector() {
         <Select.Content
           position="popper"
           align="end"
-          sideOffset={8}
-          collisionPadding={12}
+          sideOffset={MENU_OFFSET}
+          collisionPadding={COLLISION_PADDING}
           className="z-[80] max-h-[var(--radix-select-content-available-height)] min-w-[max(10rem,var(--radix-select-trigger-width))] overflow-hidden rounded-xl border border-border bg-card text-card-foreground shadow-xl data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 motion-reduce:animate-none"
         >
           <Select.Viewport className="p-1.5">
@@ -50,7 +54,7 @@ export function LanguageSelector() {
               >
                 <Select.ItemText>{languageNames[language]}</Select.ItemText>
                 <Select.ItemIndicator className="absolute right-3 inline-flex items-center">
-                  <Check size={16} aria-hidden="true" />
+                  <Check size={ICON_SIZE} aria-hidden="true" />
                 </Select.ItemIndicator>
               </Select.Item>
             ))}

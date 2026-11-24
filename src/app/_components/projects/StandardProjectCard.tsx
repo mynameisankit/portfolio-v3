@@ -4,6 +4,8 @@ import { Text } from '@/app/_components/localization/Text';
 import type { PortfolioContent } from '@/data/portfolio/content';
 import { ArrowUpRight } from 'lucide-react';
 
+const PROJECT_ICON_SIZE = 17;
+
 export function StandardProjectCard({
   project,
 }: {
@@ -35,7 +37,7 @@ export function StandardProjectCard({
           rel="noreferrer"
         >
           <Text>Read the source</Text>
-          <ArrowUpRight size={17} />
+          <ArrowUpRight size={PROJECT_ICON_SIZE} />
         </Link>
       </div>
     </article>

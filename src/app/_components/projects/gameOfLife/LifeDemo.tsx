@@ -7,9 +7,15 @@ import { nextGeneration } from '@/lib/life/life.utils';
 import { gliderSeed } from '@/lib/life/lifePatterns.utils';
 import { RotateCcw } from 'lucide-react';
 
+const INITIAL_GENERATION = 0;
+const GRID_COLUMNS = 16;
+const GRID_ROWS = 8;
+const RESET_ICON_SIZE = 14;
+const GENERATION_DIGITS = 3;
+
 export function LifeDemo() {
   const [cells, setCells] = useState<Uint8Array>(() => gliderSeed());
-  const [generation, setGeneration] = useState(0);
+  const [generation, setGeneration] = useState(INITIAL_GENERATION);
 
   return (
     <>
@@ -39,7 +45,7 @@ export function LifeDemo() {
           variant="simulation"
           size="simulation"
           onClick={() => {
-            setCells(nextGeneration(cells, 16, 8));
+            setCells(nextGeneration(cells, GRID_COLUMNS, GRID_ROWS));
             setGeneration(generation + 1);
           }}
         >
@@ -51,18 +57,18 @@ export function LifeDemo() {
           size="simulation"
           onClick={() => {
             setCells(gliderSeed());
-            setGeneration(0);
+            setGeneration(INITIAL_GENERATION);
           }}
           aria-label="Reset Game of Life"
         >
-          <RotateCcw size={14} />
+          <RotateCcw size={RESET_ICON_SIZE} />
           <span>
             <Text>Reset</Text>
           </span>
         </Button>
         <output className="ml-auto font-mono text-[12px] uppercase" aria-live="polite">
           <Text>Gen</Text>
-          {String(generation).padStart(3, '0')}
+          {String(generation).padStart(GENERATION_DIGITS, '0')}
         </output>
       </div>
     </>
