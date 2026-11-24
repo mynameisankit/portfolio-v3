@@ -21,12 +21,13 @@ export function Contact({ content }: { content: PortfolioContent }) {
           <Text>Have a role, a project, or something to discuss? Send me a message.</Text>
         </p>
         <Link
-          className="text-[15px] [border-bottom:1px_solid_var(--primary)] pb-[5px]"
+          className="inline-flex items-center gap-2 text-[15px] [border-bottom:1px_solid_var(--primary)] pb-[5px]"
           href={content.github}
+          hasExternalIcon
           target="_blank"
           rel="noreferrer"
         >
-          <Text>Find me on GitHub ↗</Text>
+          <Text>Find me on GitHub</Text>
         </Link>
       </div>
       <ContactForm />

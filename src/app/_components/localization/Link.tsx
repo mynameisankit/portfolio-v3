@@ -2,10 +2,16 @@
 import type { ComponentProps } from 'react';
 import NextLink from 'next/link';
 import { useLocale } from 'next-intl';
+import { ExternalLinkIndicator } from '@/app/_components/ui/ExternalLinkIndicator';
 
-type LinkProps = ComponentProps<typeof NextLink>;
+type LinkProps = ComponentProps<typeof NextLink> & { hasExternalIcon?: boolean };
 
-export default function LocalizedLink({ href, ...props }: LinkProps) {
+export default function LocalizedLink({
+  href,
+  children,
+  hasExternalIcon = false,
+  ...props
+}: LinkProps) {
   const locale = useLocale();
   const isLocalized =
     typeof href === 'string' && href.startsWith('/') && !href.startsWith('//') && locale !== 'en';
@@ -16,5 +22,10 @@ export default function LocalizedLink({ href, ...props }: LinkProps) {
   const localizedPath = `${url.pathname}${url.search}${url.hash}`;
   const destination = isLocalized ? localizedPath : href;
 
-  return <NextLink href={destination} {...props} />;
+  return (
+    <NextLink href={destination} {...props}>
+      {children}
+      {hasExternalIcon ? <ExternalLinkIndicator /> : null}
+    </NextLink>
+  );
 }

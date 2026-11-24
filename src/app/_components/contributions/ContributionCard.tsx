@@ -1,6 +1,7 @@
 import { Text } from '@/app/_components/localization/Text';
+import { ExternalLinkIndicator } from '@/app/_components/ui/ExternalLinkIndicator';
 import type { Contribution } from '@/data/contributions/schema';
-import { CircleDot, ExternalLink, GitPullRequest } from 'lucide-react';
+import { CircleDot, GitPullRequest } from 'lucide-react';
 
 const ICON_SIZE = 14;
 
@@ -34,7 +35,7 @@ export function ContributionCard({ entry }: { entry: Contribution }) {
         </p>
         <span className="mt-auto inline-flex items-center gap-1.5 text-sm text-primary">
           <Text>View on GitHub</Text>
-          <ExternalLink size={ICON_SIZE} aria-hidden="true" />
+          <ExternalLinkIndicator />
           <span className="sr-only">
             <Text>(opens in a new tab)</Text>
           </span>

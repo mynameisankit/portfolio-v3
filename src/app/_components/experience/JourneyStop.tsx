@@ -90,13 +90,13 @@ export function JourneyStop({ entry }: { entry: CareerEntry }) {
                 +
               </span>
             </summary>
-            <ul className="space-y-3 pl-[17px] mt-[18px] text-muted-foreground text-[14px] leading-[1.75] min-[2560px]:text-[15px]">
+            <ol className="list-decimal space-y-3 pl-[17px] mt-[18px] text-muted-foreground text-[14px] leading-[1.75] min-[2560px]:text-[15px]">
               {entry.highlights.map((highlight) => (
                 <li key={highlight}>
                   <Text>{highlight}</Text>
                 </li>
               ))}
-            </ul>
+            </ol>
           </details>
         )}
       </article>

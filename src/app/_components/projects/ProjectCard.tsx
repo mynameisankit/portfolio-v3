@@ -12,7 +12,6 @@ import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 
 const BACK_ICON_SIZE = 15;
 const LINK_ICON_SIZE = 16;
-const PROJECT_ICON_SIZE = 17;
 
 type ProjectCardProps = {
   project: PortfolioContent['projects'][number];
@@ -104,11 +103,11 @@ export function ProjectCard({ project, index, isExpanded, isHidden, onToggle }: 
           <Link
             className="text-link inline-flex items-center gap-[10px] [border-bottom:1px_solid_currentColor] pb-[3px] mt-[6px] text-[15px]"
             href={project.source || ''}
+            hasExternalIcon
             target="_blank"
             rel="noreferrer"
           >
             <Text>Read the source</Text>
-            <ArrowUpRight size={PROJECT_ICON_SIZE} />
           </Link>
         </ConditionalRenderer>
         {project.id === 'json' && (

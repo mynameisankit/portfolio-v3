@@ -25,7 +25,9 @@ export function GameCard({ game, rank }: { game: SteamGame; rank?: number }) {
       <h3 className="text-[20px] leading-[1.4] my-[22px] mx-0 [overflow-wrap:anywhere]">
         <SteamGamePreview appId={game.appid} title={game.name}>
           <Link
+            className="inline-flex items-baseline gap-1.5"
             href={`https://store.steampowered.com/app/${game.appid}/`}
+            hasExternalIcon
             target="_blank"
             rel="noreferrer"
           >

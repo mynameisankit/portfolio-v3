@@ -28,8 +28,8 @@ export default function ManagePage() {
         Edit your portfolio, career journey, and blog posts. Sign in with your Sanity account to
         continue.
       </p>
-      <Button asChild size="lg">
-        <Link href={studioUrl}>Open editor ↗</Link>
+      <Button asChild hasExternalIcon={studioUrl.startsWith('http')} size="lg">
+        <Link href={studioUrl}>Open editor</Link>
       </Button>
       <section
         className="[border-top:1px_solid_var(--border)] mt-12 pt-6"

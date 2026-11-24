@@ -5,11 +5,9 @@ import { FaGithub, FaInstagram, FaLinkedinIn } from 'react-icons/fa6';
 import Link from '@/app/_components/localization/Link';
 import { Text } from '@/app/_components/localization/Text';
 import type { PortfolioContent } from '@/data/portfolio/content';
-import { ExternalLink } from 'lucide-react';
 
 const INITIAL_PROGRESS = 0;
 const SOCIAL_ICON_SIZE = 20;
-const EXTERNAL_LINK_ICON_SIZE = 12;
 const PROGRESS_RING_RADIUS = 15;
 const PROGRESS_RING_CIRCUMFERENCE = 2 * Math.PI * PROGRESS_RING_RADIUS;
 
@@ -37,6 +35,7 @@ export function SiteFooter({ content }: { content: PortfolioContent }) {
       <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
         <Link
           href="https://www.linkedin.com/in/mynameisankit/"
+          hasExternalIcon
           target="_blank"
           rel="noopener noreferrer"
           title="LinkedIn"
@@ -44,17 +43,13 @@ export function SiteFooter({ content }: { content: PortfolioContent }) {
         >
           <FaLinkedinIn size={SOCIAL_ICON_SIZE} aria-hidden="true" />
           <span>LinkedIn</span>
-          <ExternalLink
-            size={EXTERNAL_LINK_ICON_SIZE}
-            aria-hidden="true"
-            className="text-muted-foreground"
-          />
           <span className="sr-only">
             <Text>(opens in a new tab)</Text>
           </span>
         </Link>
         <Link
           href="https://www.instagram.com/bizzare.kumar/"
+          hasExternalIcon
           target="_blank"
           rel="noopener noreferrer"
           title="Instagram"
@@ -62,28 +57,19 @@ export function SiteFooter({ content }: { content: PortfolioContent }) {
         >
           <FaInstagram size={SOCIAL_ICON_SIZE} aria-hidden="true" />
           <span>Instagram</span>
-          <ExternalLink
-            size={EXTERNAL_LINK_ICON_SIZE}
-            aria-hidden="true"
-            className="text-muted-foreground"
-          />
           <span className="sr-only">
             <Text>(opens in a new tab)</Text>
           </span>
         </Link>
         <Link
           href={content.github}
+          hasExternalIcon
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex min-h-11 min-w-11 items-center justify-center gap-1.5 rounded-xl px-2 transition-colors hover:bg-button-hover hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary motion-reduce:transition-none"
         >
           <FaGithub size={SOCIAL_ICON_SIZE} aria-hidden="true" />
           <span>GitHub</span>
-          <ExternalLink
-            size={EXTERNAL_LINK_ICON_SIZE}
-            aria-hidden="true"
-            className="text-muted-foreground"
-          />
           <span className="sr-only">
             <Text>(opens in a new tab)</Text>
           </span>

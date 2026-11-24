@@ -2,9 +2,6 @@ import Image from 'next/image';
 import Link from '@/app/_components/localization/Link';
 import { Text } from '@/app/_components/localization/Text';
 import type { PortfolioContent } from '@/data/portfolio/content';
-import { ArrowUpRight } from 'lucide-react';
-
-const PROJECT_ICON_SIZE = 17;
 
 export function StandardProjectCard({
   project,
@@ -33,11 +30,11 @@ export function StandardProjectCard({
         <Link
           className="mt-5 inline-flex items-center gap-2 border-b border-current pb-1 text-[15px] text-primary"
           href={project.source}
+          hasExternalIcon
           target="_blank"
           rel="noreferrer"
         >
           <Text>Read the source</Text>
-          <ArrowUpRight size={PROJECT_ICON_SIZE} />
         </Link>
       </div>
     </article>

@@ -3,7 +3,6 @@ import Link from '@/app/_components/localization/Link';
 import { Text } from '@/app/_components/localization/Text';
 import type { Skill } from '@/data/skills/model';
 import { skillIcons } from './skillIcons';
-import { ArrowUpRight } from 'lucide-react';
 
 export function SkillLink({ skill }: { skill: Skill }) {
   const iconName = skill.icon ?? '';
@@ -23,6 +22,7 @@ export function SkillLink({ skill }: { skill: Skill }) {
   return (
     <Link
       href={skill.url}
+      hasExternalIcon
       target="_blank"
       rel="noopener noreferrer"
       className={`${
@@ -30,7 +30,6 @@ export function SkillLink({ skill }: { skill: Skill }) {
       } transition-colors hover:border-primary hover:bg-secondary focus-visible:border-primary motion-reduce:transition-none`}
     >
       {label}
-      <ArrowUpRight aria-hidden="true" className="size-3 shrink-0 text-muted-foreground" />
     </Link>
   );
 }
