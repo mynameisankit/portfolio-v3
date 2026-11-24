@@ -32,7 +32,7 @@ export function ArchiveCategories({
               aria-current={isCurrentCategory ? 'page' : undefined}
             >
               <Text>{item.label}</Text>
-              <span className="font-mono text-[11px]">
+              <span className="font-mono text-[11px] vice:text-[1em] vice:leading-[inherit] vice:tabular-nums">
                 {posts.filter((post) => !item.slug || post.category === item.slug).length}
               </span>
             </Link>

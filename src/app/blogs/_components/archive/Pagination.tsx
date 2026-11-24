@@ -25,6 +25,7 @@ export function BlogPagination({
       {Array.from({ length: pages }, (_, index) => (
         <Button
           key={index}
+          className="vice:min-w-9 vice:px-2 vice:tabular-nums"
           variant={page === index + 1 ? 'default' : 'outline'}
           aria-label={`Page ${index + 1}`}
           aria-current={page === index + 1 ? 'page' : undefined}
